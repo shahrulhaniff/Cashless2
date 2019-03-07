@@ -21,7 +21,8 @@ export class CrudPage {
    public pageTitle              : string;
    public recordID               : any      = null;
    //private baseURI               : string  = "https://raxsoft.000webhostapp.com/cashless2/"
-   private baseURI               : string  = "http://localhost/cashless2/";
+   //private baseURI               : string  = "http://localhost/cashless2/";
+   private baseURI               : string  = "http://192.168.43.194/cashless2/";
 
 
 

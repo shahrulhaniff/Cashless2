@@ -12,7 +12,8 @@ export class RegisterPage {
   createSuccess = false;
   public form     : FormGroup;
   
-  private baseURI : string  = "http://localhost/cashless2/";
+  //private baseURI : string  = "http://localhost/cashless2/";
+  private baseURI : string  = "http://192.168.43.194/cashless2/";
   //private baseURI : string  = "https://raxsoft.000webhostapp.com/cashless2/";
 
   constructor(  public navCtrl    : NavController, 

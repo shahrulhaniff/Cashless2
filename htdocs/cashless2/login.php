@@ -14,10 +14,10 @@
    // Attempt to query database table and retrieve data
    try {
 	    $auth ='Denied'; 
-		$stmt = $pdo->query('SELECT usr, pwd FROM user_account');
+		$stmt = $pdo->query('SELECT ic_pengguna, pwd FROM akaun_pengguna');
         while($data = $stmt->fetch(PDO::FETCH_ASSOC)){
 			
-			$usrdb = $data['usr'];
+			$usrdb = $data['ic_pengguna'];
 			$pwddb = $data['pwd'];
 			
 			//classical way, now we got to change to while loop

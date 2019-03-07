@@ -34,7 +34,8 @@ export class DisplayPage {
      this.storage.get('user').then((user) => { 
      //-------------------------------------------------- 
      //let    url : any = 'https://raxsoft.000webhostapp.com/cashless2/retrieve.php?id='+user;
-     let    url : any = 'http://localhost/cashless2/retrieve.php?id='+user;
+     //let    url : any = 'http://localhost/cashless2/retrieve.php?id='+user;
+     let    url : any = 'http://192.168.43.194/cashless2/retrieve.php?id='+user;
      //, json 	: any		= { "usr" : user};
             
      this.http.get(url).subscribe((data : any) =>
