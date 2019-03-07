@@ -16,10 +16,9 @@ export class LoginPage {
   public items    : Array<any> = [];
   public fetch    : any; // fetch one data value only from php server unlike items
   public form     : FormGroup;
-  //private baseURI : string  = "http://192.168.0.112/alist/"; 
-  //private baseURI : string  = "http://localhost/slogin/";
-  //private baseURI : string  = "https://myraxsoft.com/alist/";
-  private baseURI : string  = "https://fifwayintern.000webhostapp.com/alist/";
+  //private baseURI : string  = "http://192.168.0.112/cashless2/"; 
+  private baseURI : string  = "http://localhost/cashless2/";
+  //private baseURI : string  = "https://raxsoft.000webhostapp.com/cashless2/";
   loading: Loading;
   registerCredentials = { username: '', password: '' };
   createSuccess = false;

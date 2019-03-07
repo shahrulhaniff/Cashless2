@@ -12,9 +12,8 @@ export class RegisterPage {
   createSuccess = false;
   public form     : FormGroup;
   
-  //private baseURI : string  = "http://192.168.0.112/alist/";
-  //private baseURI : string  = "https://myraxsoft.com/alist/";
-  private baseURI : string  = "https://fifwayintern.000webhostapp.com/alist/";
+  private baseURI : string  = "http://localhost/cashless2/";
+  //private baseURI : string  = "https://raxsoft.000webhostapp.com/cashless2/";
 
   constructor(  public navCtrl    : NavController, 
                 public navParams  : NavParams, 
@@ -64,7 +63,7 @@ export class RegisterPage {
         this.showPopup("Success", "Account created.");
       },
       error => {
-        this.showPopup("Fail bosku error", error);
+        this.showPopup("Account Register Fail", error);
       });
    }
 

@@ -12,12 +12,15 @@ import 'rxjs/add/operator/map';
 export class DisplayPage {
 
   //Used to store returned PHP data
-  public items : Array<any> = [];
+  public items : Array<any> = [];  
+  public category;
 
   constructor(public navCtrl  : NavController, 
               public navParams: NavParams,
               public http     : HttpClient,
               public storage  : Storage ) {
+
+               this.category = "all";
   }
   
 
@@ -30,9 +33,8 @@ export class DisplayPage {
   {
      this.storage.get('user').then((user) => { 
      //-------------------------------------------------- 
-     //let    url : any = 'https://myraxsoft.com/alist/retrieve.php?id='+user;
-     let    url : any = 'https://fifwayintern.000webhostapp.com/alist/retrieve.php?id='+user;
-     //let    url : any = 'http://192.168.0.112/alist/retrieve.php?id='+user;
+     //let    url : any = 'https://raxsoft.000webhostapp.com/cashless2/retrieve.php?id='+user;
+     let    url : any = 'http://localhost/cashless2/retrieve.php?id='+user;
      //, json 	: any		= { "usr" : user};
             
      this.http.get(url).subscribe((data : any) =>

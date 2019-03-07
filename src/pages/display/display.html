@@ -3,51 +3,64 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My Watched List</ion-title>
+    <ion-title>My Account</ion-title>
   </ion-navbar>
 </ion-header>
 
-<!-- <ion-content>
-  <ion-item>
-    <button
-       class="add"
-       ion-button
-       item-right
-       icon-right
-       margin-bottom
-       color="primary"
-       (click)="addEntry()">
-          Add List
-          <ion-icon name="add"></ion-icon>
-    </button>
- </ion-item>
-
-
- <ion-item *ngFor="let item of items">
-    <button class="small">{{item.mysort}}</button>
-    <h2>{{ item.title }} </h2>
-    
-    <button ion-button color="primary" item-right 
-    (click)="viewEntry({ record: item })">View</button>
-
- </ion-item>
-</ion-content> -->
-
-
 <ion-content>
-  <ion-list *ngFor="let item of items">
-    <!-- <ion-list *ngFor="let item of items | search : terms | sort: {property: column, order: order}"> -->
-    <ion-card class="card" (click)="viewEntry({ record: item })">
-        <ion-item text-wrap>
-            <text-avatar item-start [text]="item.title" [color]="item.color" item-left></text-avatar>
-            <h2><b>{{item.title}}</b></h2>
-            {{item.genre}}
-            <br>
-            {{item.mysort}}
-                •
-            
-            <ion-icon item-end name="arrow-round-forward" style="zoom:1.0; color: rgb(66, 21, 46)"></ion-icon>
-          </ion-item>
-    </ion-card>
-    </ion-list>
+  <ion-card>
+    <img src="assets/imgs/scan.png" style="height: 30vh; width: 100vw;" />
+  </ion-card>
+
+<ion-card>
+  <ion-toolbar>
+      <ion-segment [(ngModel)]="category" color="theme">
+      <ion-segment-button value="all">
+      All
+      </ion-segment-button>
+      <ion-segment-button value="in">
+      Money In
+      </ion-segment-button>
+      <ion-segment-button value="out">
+      Money Out
+      </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+
+
+    <div [ngSwitch]="category">
+        <div *ngSwitchCase="'all'" ng-selected="selected">
+          <ion-list *ngFor="let item of items">
+            <!-- <ion-list *ngFor="let item of items | search : terms | sort: {property: column, order: order}"> -->
+            <ion-card class="card2" (click)="viewEntry({ record: item })">
+              
+                <ion-item text-wrap>
+                    <ion-row>
+                        <ion-col>
+                    <text-avatar item-start [text]="item.daripada" [color]="item.color" item-left></text-avatar>
+                  </ion-col>
+                  <ion-col>
+                    <ion-icon name="arrow-round-forward" style="zoom:1.0; color: rgb(66, 21, 46)"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <text-avatar [text]="item.kepada" [color]="item.color" item-left></text-avatar>
+                </ion-col>
+                <ion-col>
+                    <h2><b>{{(item.jumlah)?.toFixed(2)}}</b></h2>
+                    {{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}
+                    <br>
+                    {{item.daripada}}
+                    •
+                    {{item.kepada}}
+                    
+                  </ion-col>
+                </ion-row>
+                  </ion-item>
+            </ion-card>
+            </ion-list>
+          </div>
+        <div *ngSwitchCase="'in'" ng-selected="selected">Money In php select query in progress</div>
+        <div *ngSwitchCase="'out'" ng-selected="selected">Money Out php select query in progress</div>
+    </div>
+</ion-card>
 </ion-content>
