@@ -58,5 +58,9 @@ export class DisplayPage {
   {
      this.navCtrl.push('CrudPage');
   }
+  scanToPay() : void
+  {
+     this.navCtrl.push('ScanPage');
+  }
 
 }

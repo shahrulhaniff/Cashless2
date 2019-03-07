@@ -12,6 +12,8 @@ import { StartPage } from '../pages/start/start';
 import { DisplayPage } from '../pages/display/display';
 import { LoginPage } from '../pages/login/login';
 import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Toast } from '@ionic-native/toast';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner,
+    Toast
   ]
 })
 export class AppModule {}

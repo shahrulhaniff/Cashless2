@@ -10,6 +10,7 @@
 <ion-content>
   <ion-card>
     <img src="assets/imgs/scan.png" style="height: 30vh; width: 100vw;" />
+    <button ion-button class="scan-button" (click)="scanToPay()">Scan to Pay</button>
   </ion-card>
 
 <ion-card>
@@ -35,24 +36,25 @@
             <ion-card class="card2" (click)="viewEntry({ record: item })">
               
                 <ion-item text-wrap>
+                  <ion-row>
+                    <ion-col>{{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}</ion-col>
+                    <ion-col text-right>
+                      <button class="small"> RM {{(item.jumlah)?.toFixed(2)}}</button>
+                  </ion-col>
+                </ion-row>
                     <ion-row>
-                        <ion-col>
+                  <ion-col col-2>
                     <text-avatar item-start [text]="item.daripada" [color]="item.color" item-left></text-avatar>
                   </ion-col>
-                  <ion-col>
+                  <ion-col col-1>
                     <ion-icon name="arrow-round-forward" style="zoom:1.0; color: rgb(66, 21, 46)"></ion-icon>
                   </ion-col>
-                  <ion-col>
+                  <ion-col col-2>
                     <text-avatar [text]="item.kepada" [color]="item.color" item-left></text-avatar>
                 </ion-col>
-                <ion-col>
-                    <h2><b>{{(item.jumlah)?.toFixed(2)}}</b></h2>
-                    {{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}
-                    <br>
-                    {{item.daripada}}
-                    •
-                    {{item.kepada}}
-                    
+                <ion-col col-6>
+                    Transfered to {{item.kepada}}
+                   
                   </ion-col>
                 </ion-row>
                   </ion-item>
