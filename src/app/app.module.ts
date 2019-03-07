@@ -12,7 +12,9 @@ import { StartPage } from '../pages/start/start';
 import { DisplayPage } from '../pages/display/display';
 import { LoginPage } from '../pages/login/login';
 import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+//import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { Toast } from '@ionic-native/toast/ngx';
 
 @NgModule({
@@ -29,7 +31,8 @@ import { Toast } from '@ionic-native/toast/ngx';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
