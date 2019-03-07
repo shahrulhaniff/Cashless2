@@ -12,8 +12,8 @@ import { StartPage } from '../pages/start/start';
 import { DisplayPage } from '../pages/display/display';
 import { LoginPage } from '../pages/login/login';
 import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { Toast } from '@ionic-native/toast';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Toast } from '@ionic-native/toast/ngx';
 
 @NgModule({
   declarations: [
