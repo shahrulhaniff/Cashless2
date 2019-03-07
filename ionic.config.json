@@ -1,6 +1,7 @@
 {
-  "name": "Cashless",
-  "integrations": {},
-  "type": "ionic-angular",
-  "id": "f3553cc9"
+  "name": "mywalist",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }

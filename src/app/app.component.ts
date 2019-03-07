@@ -2,9 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { StartPage } from '../pages/start/start';
+import { DisplayPage } from '../pages/display/display';
+import { Storage } from '@ionic/storage';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,17 +15,31 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any ;
+  private user: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen,
+              private storage: Storage) {
     this.initializeApp();
+
+    //One time Login Purposes
+    this.storage.get('user').then((user) => {
+      this.user = user; console.log("data kat dalam app.co-->"+this.user); 
+      if(this.user==null) { this.rootPage =LoginPage;}
+      else {this.rootPage=DisplayPage; };
+      });
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Start', component: StartPage },
+      //{ title: 'List', component: ListPage }, dah guna untuk logout
+      { title: 'Display', component: DisplayPage },
+      { title: 'Logout', component: ListPage }
     ];
 
   }
@@ -41,4 +58,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
 }
