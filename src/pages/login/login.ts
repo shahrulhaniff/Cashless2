@@ -5,6 +5,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { DisplayPage } from '../display/display';
 import { GlobalProvider } from "../../providers/global/global";
+import { ModalController } from 'ionic-angular';
+import { ModalPage } from '../modal/modal';
 
 @IonicPage()
 @Component({
@@ -29,7 +31,8 @@ export class LoginPage {
               private alertCtrl : AlertController,
               public fb         : FormBuilder,
               private loadingCtrl: LoadingController,
-              public storage : Storage
+              public storage : Storage,
+              private modal: ModalController
               ) {
     /* Buat validation */
     this.form = fb.group({
@@ -37,6 +40,12 @@ export class LoginPage {
       "password"    : ["", Validators.required]
    });
   }
+
+  /* komen dulu dan cancel penggunaannya untuk future use
+  openModal() {
+    const myModal = this.modal.create('ModalPage');
+    myModal.present();
+  } */
 
   public usrdb : Array<any> = [];
   public pwddb : Array<any> = [];
@@ -47,27 +56,13 @@ export class LoginPage {
 
    public login() : void {
 
-    //this.usrdb = this.items.map(items => items.usr);// userID ni drp database
-    //this.pwddb = this.items.map(items => items.pwd);
 
       let usr     : string    = this.form.controls["username"].value,
           pwd     : string    = this.form.controls["password"].value;
           
     console.log('usr-->', usr , 'pwd-->', pwd);
 
-    this.showLoading() //tutup dulu 
-    /*
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
-        this.nav.setRoot('HomePage');
-      } else {
-        //this.showError("Access Denied");
-        this.nav.setRoot('HomePage');
-      }
-    },
-      error => {
-        this.showError(error);
-      }); */
+    this.showLoading();
       let headers 	: any	= new HttpHeaders({ 'Content-Type': 'application/json' }),
           options 	: any	= { "usr" : usr, "pwd" : pwd },
           url       : any = this.baseURI + "login.php";
@@ -92,7 +87,15 @@ export class LoginPage {
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
 
 
-        } else if (record=='Denied'){
+        }
+        else if (record=='Granted2'){ 
+          /*this.openModal();*/
+          this.storage.set('test', this.usrid); 
+          console.log("nak masuk dekat test "+this.usrid);
+          this.navCtrl.setRoot(ModalPage); 
+        }
+        
+        else if (record=='Denied'){
           this.showError("Access Denied");
           this.navCtrl.setRoot(LoginPage);
         }

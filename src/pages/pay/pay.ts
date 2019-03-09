@@ -15,7 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PayPage {
 
+  id_kodtransaksi : string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.id_kodtransaksi = navParams.get('data'); 
   }
 
   ionViewDidLoad() {

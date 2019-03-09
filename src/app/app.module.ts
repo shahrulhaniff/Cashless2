@@ -20,6 +20,8 @@ import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
 import { GlobalProvider } from '../providers/global/global';
 import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
+import { ModalPage } from '../pages/modal/modal';
+import { PayPage } from '../pages/pay/pay';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { SortPipe } from '../pipes/sort/sort';
     TextAvatarDirective,
     KodtransaksiPage,
     SearchPipe,
-    SortPipe
+    SortPipe,
+    ModalPage,
+    PayPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,9 @@ import { SortPipe } from '../pipes/sort/sort';
     StartPage,
     DisplayPage,
     LoginPage,
-    KodtransaksiPage
+    KodtransaksiPage,
+    ModalPage,
+    PayPage
   ],
   providers: [
     StatusBar,
