@@ -4,6 +4,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { DisplayPage } from '../display/display';
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -16,14 +17,13 @@ export class LoginPage {
   public items    : Array<any> = [];
   public fetch    : any; // fetch one data value only from php server unlike items
   public form     : FormGroup;
-  //private baseURI : string  = "http://192.168.43.194/cashless2/"; 
-  private baseURI : string  = "http://localhost/cashless2/";
-  //private baseURI : string  = "https://raxsoft.000webhostapp.com/cashless2/";
+  private baseURI : string  = this.global.mysite; //ok dah tukar, satu tempat je tukar lepasni
   loading: Loading;
   registerCredentials = { username: '', password: '' };
   createSuccess = false;
 
-  constructor(public navCtrl: NavController, 
+  constructor(public global: GlobalProvider,
+              public navCtrl: NavController, 
               public navParams: NavParams, 
               public http       : HttpClient,
               private alertCtrl : AlertController,

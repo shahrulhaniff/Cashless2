@@ -16,6 +16,11 @@ import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { Toast } from '@ionic-native/toast/ngx';
+import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
+import { GlobalProvider } from '../providers/global/global';
+import { SearchPipe } from '../pipes/search/search';
+import { SortPipe } from '../pipes/sort/sort';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +30,10 @@ import { Toast } from '@ionic-native/toast/ngx';
     StartPage,
     DisplayPage,
     LoginPage,
-    TextAvatarDirective
+    TextAvatarDirective,
+    KodtransaksiPage,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -41,14 +49,16 @@ import { Toast } from '@ionic-native/toast/ngx';
     ListPage,
     StartPage,
     DisplayPage,
-    LoginPage
+    LoginPage,
+    KodtransaksiPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    Toast
+    Toast,
+    GlobalProvider
   ]
 })
 export class AppModule {}

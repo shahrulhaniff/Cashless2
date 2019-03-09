@@ -2,12 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { StartPage } from '../pages/start/start';
 import { DisplayPage } from '../pages/display/display';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../pages/login/login';
+import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,18 +30,43 @@ export class MyApp {
       this.user = user; console.log("data kat dalam app.co-->"+this.user); 
       if(this.user==null) { this.rootPage =LoginPage;}
       else {this.rootPage=DisplayPage; };
-      });
+     /*
+      if(user=='941013115436') {
+        // used for an example of ngFor and navigation
+        this.pages = [
+          //{ title: 'Home', component: HomePage },
+          //{ title: 'Start', component: StartPage },
+          //{ title: 'List', component: ListPage }, dah guna untuk logout
+          { title: 'Display 5436', component: DisplayPage },
+          { title: 'Log Sebut Harga', component: ListPage },
+          { title: 'Logout', component: ListPage }
+        ];
+             }
+             else if(user=='941013115435') {
+        // used for an example of ngFor and navigation
+        this.pages = [
+          //{ title: 'Home', component: HomePage },
+          //{ title: 'Start', component: StartPage },
+          //{ title: 'List', component: ListPage }, dah guna untuk logout
+          { title: 'Display 5435', component: DisplayPage },
+          { title: 'Logout', component: ListPage }
+        ];
+             } */
+    
+    });//close storage
 
+
+    //kalau jadi menu authorize based on user diatas sila komen/buang kod this.pages dibawah ini.
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Start', component: StartPage },
-      //{ title: 'List', component: ListPage }, dah guna untuk logout
-      { title: 'Display', component: DisplayPage },
+      //{ title: 'Home', component: HomePage },
+      //{ title: 'Start', component: StartPage },
+      //{ title: 'List', component: ListPage }, //dah guna untuk logout
+      { title: 'Utama', component: DisplayPage },
+      { title: 'Log Sebut Harga', component: KodtransaksiPage },
       { title: 'Logout', component: ListPage }
     ];
-
-  }
+}
 
   initializeApp() {
     this.platform.ready().then(() => {

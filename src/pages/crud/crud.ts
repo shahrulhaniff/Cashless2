@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
-
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -20,15 +20,14 @@ export class CrudPage {
    public hideForm               : boolean = false;
    public pageTitle              : string;
    public recordID               : any      = null;
-   //private baseURI               : string  = "https://raxsoft.000webhostapp.com/cashless2/"
-   private baseURI               : string  = "http://localhost/cashless2/";
-   //private baseURI               : string  = "http://192.168.43.194/cashless2/";
+   private baseURI : string  = this.global.mysite;
 
 
 
 
    // Initialise module classes
    constructor(public navCtrl    : NavController,
+               public global     : GlobalProvider,
                public http       : HttpClient,
                public NP         : NavParams,
                public fb         : FormBuilder,

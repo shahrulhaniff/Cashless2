@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="theme">
-    <ion-title text-center>Sign In {{showuser}}</ion-title>
+    <ion-title text-center>Log Masuk {{showuser}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -22,11 +22,11 @@
           <ion-list inset>
             
             <ion-item>
-              <ion-input type="text" placeholder="Email" formControlName="username" required></ion-input>
+              <ion-input type="text" placeholder="Id Pengguna" formControlName="username" required></ion-input>
             </ion-item>
             
             <ion-item>
-              <ion-input type="password" placeholder="Password" formControlName="password" required></ion-input>
+              <ion-input type="password" placeholder="Kata Laluan" formControlName="password" required></ion-input>
             </ion-item>
             
           </ion-list>
@@ -35,8 +35,8 @@
       
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Login</button>
-          <button ion-button class="register-btn" block clear (click)="createAccount()" type="button">Create New Account</button>
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Log Masuk</button><br>
+          <button ion-button class="register-btn" block clear (click)="createAccount()" type="button">Daftar Baru</button>
         </ion-col>
       </ion-row>
       

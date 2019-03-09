@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -14,8 +15,12 @@ export class DisplayPage {
   //Used to store returned PHP data
   public items : Array<any> = [];  
   public category;
+  private baseURI : string  = this.global.mysite; 
 
-  constructor(public navCtrl  : NavController, 
+  //public mysite : string  = LoginPage.();
+
+  constructor(public global: GlobalProvider,
+              public navCtrl  : NavController, 
               public navParams: NavParams,
               public http     : HttpClient,
               public storage  : Storage ) {
@@ -32,11 +37,8 @@ export class DisplayPage {
   load() : void
   {
      this.storage.get('user').then((user) => { 
-     //-------------------------------------------------- 
-     //let    url : any = 'https://raxsoft.000webhostapp.com/cashless2/retrieve.php?id='+user;
-     let    url : any = 'http://localhost/cashless2/retrieve.php?id='+user;
-     //let    url : any = 'http://192.168.43.194/cashless2/retrieve.php?id='+user;
-     //, json 	: any		= { "usr" : user};
+
+     let    url : any = this.baseURI+'retrieve.php?id='+user;
             
      this.http.get(url).subscribe((data : any) =>
      {

@@ -3,27 +3,27 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My Account</ion-title>
+    <ion-title>Akaun</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
     <img src="assets/imgs/scan.png" style="height: 30vh; width: 100vw;" />
-    <button ion-button class="scan-button" (click)="scanToPay()">Scan to Pay</button>
+    <button ion-button class="scan-button" (click)="scanToPay()">Imbas QR Pembayaran</button>
   </ion-card>
 
 <ion-card>
   <ion-toolbar>
       <ion-segment [(ngModel)]="category" color="theme">
       <ion-segment-button value="all">
-      All
+      Transaksi
       </ion-segment-button>
       <ion-segment-button value="in">
-      Money In
+      Masuk
       </ion-segment-button>
       <ion-segment-button value="out">
-      Money Out
+      Keluar
       </ion-segment-button>
       </ion-segment>
     </ion-toolbar>

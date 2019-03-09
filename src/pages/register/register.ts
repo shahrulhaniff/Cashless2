@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -12,12 +13,11 @@ export class RegisterPage {
   createSuccess = false;
   public form     : FormGroup;
   
-  private baseURI : string  = "http://localhost/cashless2/";
-  //private baseURI : string  = "http://192.168.43.194/cashless2/";
-  //private baseURI : string  = "https://raxsoft.000webhostapp.com/cashless2/";
+  private baseURI : string  = this.global.mysite;
 
   constructor(  public navCtrl    : NavController, 
                 public navParams  : NavParams, 
+                public global     : GlobalProvider,
                 public http       : HttpClient,
                 private alertCtrl : AlertController,
                 public fb         : FormBuilder) {
