@@ -1,16 +1,16 @@
 ionic cordova plugin rm cordova-plugin-console
 (1) ionic cordova build --release android
 
-keytool -genkey -v -keystore mywalist-release-key.keystore -alias releaseNewKey -keyalg RSA -keysize 2048 -validity 10000
-pass : 040471
+keytool -genkey -v -keystore cashless-release-key.keystore -alias releaseNewKey -keyalg RSA -keysize 2048 -validity 10000
+pass : cashless123
 
 //dia tukar android-release-unsigned.apkke app-release-unsigned.apk ... update kot
 (2) //pastikan copy android-release-unsigned.apk kat luar kalau tak dia tak jumpa jar
-(3)jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore mywalist-release-key.keystore app-release-unsigned.apk releaseNewKey
+(3)jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore cashless-release-key.keystore app-release-unsigned.apk releaseNewKey
 
 zipalign -v 4 app-release-unsigned.apk jetto.apk --> kena copy path ( c/.../zipalign -v 4 .... )
 contoh full :
-(4) ( C:/Users/shahrul/AppData/Local/Android/sdk/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk mywalist.apk )
+(4) ( C:/Users/shahrul/AppData/Local/Android/sdk/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk cashless.apk )
 
 
 __________________________________________________________________________________________________________________________________________
