@@ -20,10 +20,10 @@
                   <h2>Pilih Kod Pengguna</h2>
                   (Bagi pengguna yang mempunyai bahagian pengurusan)
                 </ion-item>
-                <ion-col col-12  *ngFor="let tran of trans">
+                <ion-col col-12  *ngFor="let val of items">
                   <ion-item no-lines>
-                    <ion-label> {{tran.jenis_pengguna}}</ion-label>
-                    <ion-radio value="{{tran.kod_pengguna}}"></ion-radio>
+                    <ion-label> {{val.jenis_pengguna}}</ion-label>
+                    <ion-radio value="{{val.kod_pengguna}}"></ion-radio>
                   </ion-item>
                 </ion-col>
               </ion-row>

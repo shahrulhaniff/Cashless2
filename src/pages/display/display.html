@@ -33,7 +33,8 @@
         <div *ngSwitchCase="'all'" ng-selected="selected">
           <ion-list *ngFor="let item of items">
             <!-- <ion-list *ngFor="let item of items | search : terms | sort: {property: column, order: order}"> -->
-            <ion-card class="card2" (click)="viewEntry({ record: item })">
+            <ion-card class="card2">
+              <!--<ion-card class="card2" (click)="viewEntry({ record: item })">-->
               
                 <ion-item text-wrap>
                   <ion-row>

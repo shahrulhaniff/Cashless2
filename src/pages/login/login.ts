@@ -5,7 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { DisplayPage } from '../display/display';
 import { GlobalProvider } from "../../providers/global/global";
-import { ModalController } from 'ionic-angular';
+//import { ModalController } from 'ionic-angular';
 import { ModalPage } from '../modal/modal';
 
 @IonicPage()
@@ -31,8 +31,8 @@ export class LoginPage {
               private alertCtrl : AlertController,
               public fb         : FormBuilder,
               private loadingCtrl: LoadingController,
-              public storage : Storage,
-              private modal: ModalController
+              public storage : Storage
+              /*private modal: ModalController */
               ) {
     /* Buat validation */
     this.form = fb.group({
@@ -81,7 +81,7 @@ export class LoginPage {
           
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
-          this.showPopup("Success", record);
+          this.showPopup("Diterima", record);
           this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
 
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
@@ -105,6 +105,7 @@ export class LoginPage {
         //this.showError(error);
         console.log("Oooops!");
         console.log(error);
+        this.loading.dismiss();
         //this.navCtrl.push(LoginPage); kene buuat setroot
       });
       
@@ -114,7 +115,7 @@ export class LoginPage {
   //showloading
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Sila tunggu...',
       dismissOnPageChange: true
     });
     this.loading.present();

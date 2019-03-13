@@ -86,5 +86,4 @@ export class RegisterPage {
     });
     alert.present();
   }
-
 }

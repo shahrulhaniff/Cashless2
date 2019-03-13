@@ -22,6 +22,8 @@ import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
 import { ModalPage } from '../pages/modal/modal';
 import { PayPage } from '../pages/pay/pay';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { MigsPage } from '../pages/migs/migs';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { PayPage } from '../pages/pay/pay';
     SearchPipe,
     SortPipe,
     ModalPage,
-    PayPage
+    PayPage,
+    MigsPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { PayPage } from '../pages/pay/pay';
     LoginPage,
     KodtransaksiPage,
     ModalPage,
-    PayPage
+    PayPage,
+    MigsPage
   ],
   providers: [
     StatusBar,
@@ -64,7 +68,8 @@ import { PayPage } from '../pages/pay/pay';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
     Toast,
-    GlobalProvider
+    GlobalProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

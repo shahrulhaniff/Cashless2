@@ -1,4 +1,7 @@
 ionic cordova plugin rm cordova-plugin-console
+
+
+UPDATE VERSION DAH????
 (1) ionic cordova build --release android
 
 keytool -genkey -v -keystore cashless-release-key.keystore -alias releaseNewKey -keyalg RSA -keysize 2048 -validity 10000

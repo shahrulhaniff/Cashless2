@@ -1,18 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Component, transition } from '@angular/core';
+import { IonicPage, NavController, NavParams, ViewController,LoadingController,Loading, AlertController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { DisplayPage } from '../display/display';
-
-/**
- * Generated class for the ModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,19 +14,24 @@ import { DisplayPage } from '../display/display';
 })
 export class ModalPage {
 
+  createSuccess = false;
+
   private baseURI : string  = this.global.mysite;
-  public trans : Array<any> = [];
+  public items : Array<any> = [];
   public test : string;
   public form : FormGroup;
+  public jen : Array<any> = [];
+  public kodp : Array<any> = [];
+  public showkp : string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
     private storage: Storage,
     public global   : GlobalProvider,
     public http     : HttpClient,
+    private alertCtrl : AlertController,
     public fb       : FormBuilder) {
 
-      
-
+      //Declare formfontrol name
       this.form = fb.group({
         "masuk" : ["", Validators.required]
      });
@@ -42,7 +40,26 @@ export class ModalPage {
 
   closeModal(){
     //this.view.dismiss();
+    this.showPopup("Batal", "Sesi masuk dihapuskan");
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            if (this.createSuccess) {
+              this.navCtrl.popToRoot();
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   ionViewDidLoad() {
@@ -54,7 +71,7 @@ export class ModalPage {
    this.http.get(url).subscribe((data : any) =>
    {
       console.dir(data);
-      this.trans = data;
+      this.items = data;
    },
    (error : any) =>
    {
@@ -67,7 +84,7 @@ export class ModalPage {
   
   saveEntry() : void
   {
-     let kod_pengguna   : string = this.form.controls["masuk"].value;
+    let kod_pengguna   : string = this.form.controls["masuk"].value;
      this.storage.set('kod_pengguna', kod_pengguna);
 
           this.storage.get('test').then((test) => { 
@@ -75,7 +92,16 @@ export class ModalPage {
            });
 
            
-          //this.showPopup("Success", record);
+          this.kodp = this.items.map(go => go.kod_pengguna);
+          this.jen = this.items.map(go => go.jenis_pengguna);
+
+          for (let i = 0; i <= this.items.length; i++) {
+          if (kod_pengguna == this.kodp[i]) {
+            this.showkp = this.jen[i];
+          }
+        }
+           
+          this.showPopup("Diterima", this.showkp);
           this.navCtrl.setRoot(DisplayPage, { data: kod_pengguna });
   }
 
