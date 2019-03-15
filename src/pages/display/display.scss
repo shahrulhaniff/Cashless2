@@ -1,6 +1,6 @@
 page-display {
     .card2 {
-        border-radius: 25px;
+        border-radius: 5px;
         overflow: hidden;
       }
 
@@ -19,6 +19,10 @@ page-display {
   }
   .small{
       color: forestgreen;
+      border-radius: 2px;
+  }
+  .small2{
+      color: #6f00ff;
       border-radius: 2px;
   }
 }

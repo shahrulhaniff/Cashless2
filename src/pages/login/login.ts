@@ -83,7 +83,6 @@ export class LoginPage {
           this.storage.set('user', this.usrid);
           this.showPopup("Diterima", record);
           this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
-
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
 
 

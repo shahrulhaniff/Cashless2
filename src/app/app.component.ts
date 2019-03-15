@@ -7,6 +7,7 @@ import { DisplayPage } from '../pages/display/display';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../pages/login/login';
 import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
+import { ProfilePage } from '../pages/profile/profile';
 
 @Component({
   templateUrl: 'app.html'
@@ -63,6 +64,7 @@ export class MyApp {
       //{ title: 'Start', component: StartPage },
       //{ title: 'List', component: ListPage }, //dah guna untuk logout
       { title: 'Utama', component: DisplayPage },
+      { title: 'Profil', component: ProfilePage },
       { title: 'Log Sebut Harga', component: KodtransaksiPage },
       { title: 'Logout', component: ListPage }
     ];

@@ -12,9 +12,10 @@
     <img src="assets/imgs/scan.png" style="height: 30vh; width: 100vw;" />
     <button ion-button class="scan-button" (click)="scanToPay()">Imbas QR Pembayaran</button>
   </ion-card>
+ 
+<!--<ion-card>
 
-<ion-card>
-  <ion-toolbar>
+ <ion-toolbar>
       <ion-segment [(ngModel)]="category" color="theme">
       <ion-segment-button value="all">
       Transaksi
@@ -26,13 +27,14 @@
       Keluar
       </ion-segment-button>
       </ion-segment>
-    </ion-toolbar>
+    </ion-toolbar> -->
 
 
-    <div [ngSwitch]="category">
+    <!--<div [ngSwitch]="category">
         <div *ngSwitchCase="'all'" ng-selected="selected">
-          <ion-list *ngFor="let item of items">
+         
             <!-- <ion-list *ngFor="let item of items | search : terms | sort: {property: column, order: order}"> -->
+                <ion-list *ngFor="let item of items">
             <ion-card class="card2">
               <!--<ion-card class="card2" (click)="viewEntry({ record: item })">-->
               
@@ -40,10 +42,11 @@
                   <ion-row>
                     <ion-col>{{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}</ion-col>
                     <ion-col text-right>
-                      <button class="small"> RM {{(item.jumlah)?.toFixed(2)}}</button>
+                        <button class="small"> RM {{(item.jumlah)?.toFixed(2)}}</button><br>
+                        Status Dokumen:<button class="small2">{{item.status_dokumen}}</button>
                   </ion-col>
                 </ion-row>
-                    <ion-row>
+                   <!-- <ion-row>
                   <ion-col col-2>
                     <text-avatar item-start [text]="item.daripada" [color]="item.color" item-left></text-avatar>
                   </ion-col>
@@ -57,13 +60,13 @@
                     Transfered to {{item.kepada}}
                    
                   </ion-col>
-                </ion-row>
+                </ion-row> -->
                   </ion-item>
             </ion-card>
             </ion-list>
-          </div>
+         <!-- </div>
         <div *ngSwitchCase="'in'" ng-selected="selected">Money In php select query in progress</div>
         <div *ngSwitchCase="'out'" ng-selected="selected">Money Out php select query in progress</div>
     </div>
-</ion-card>
+</ion-card>-->
 </ion-content>

@@ -1,12 +1,39 @@
+<html>
+<head>
+<style>
+body {
+  background-color: lightgreen;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+</style>
+</head><body> <h1>
 <?php
-
-   // Retrieve the posted data
-   $json    =  file_get_contents('php://input');
-   $obj     =  json_decode($json);
-   
-         // Sanitise URL supplied values
-         $url_go 		  		= filter_var($obj->url_go, FILTER_SANITIZE_STRING, FILTER_FLAG_ENCODE_LOW);
-		 
-		
-
+include "server.php";
+ 
+  $cn = $_GET['cn'];
+  $ced = $_GET['ced'];
+  $csc = $_GET['csc'];
+  $pa = $_GET['pa'];
+  
+  echo "Card number :",$cn , "<br>Card exp date :",$ced , "<br>Card Security Code :",$csc , "<br>Payment Amount :",$pa;
+  
 ?>
+<br>
+<a href="done.php">Done</a>
+
+
+<button onclick="closeWin()">close</button>
+</h1>
+<script>
+
+function closeWin() {
+  browser.close();
+}
+</script>
+</body>
+</html>
