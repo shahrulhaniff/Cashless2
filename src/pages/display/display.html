@@ -10,9 +10,17 @@
 <ion-content>
   <ion-card>
     <img src="assets/imgs/scan.png" style="height: 30vh; width: 100vw;" />
-    <button ion-button class="scan-button" (click)="scanToPay()">Imbas QR Pembayaran</button>
   </ion-card>
- 
+  <ion-card>
+      <button ion-button full class="btnrd" (click)="scanToPay()" color="theme">Imbas QR Pembayaran</button>
+      <!-- ===================== SENARAI SH MENGIKUT ID JABATAN SUB-ADMIN ============================ -->
+    <div *ngFor="let type of types">
+      <br>
+      <button ion-button full class="btnrd" (click)="gotoSenarai2(type.id_jenistransaksi)" color="buttoncolor">{{type.jenistransaksi}}</button> <!--id_jenistransaksi-->
+    </div>
+      
+
+  </ion-card>
 <!--<ion-card>
 
  <ion-toolbar>

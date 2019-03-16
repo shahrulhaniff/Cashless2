@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar color="theme">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Keterangan Transaksi</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-list *ngFor="let item of items">
+        <ion-card class="card2">
+        
+          <ion-item text-wrap>
+            Tarikh : {{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}
+            <br>
+            Harga : <button class="small"> RM {{(item.jumlah)?.toFixed(2)}}</button>
+            <br>
+            Status Dokumen:<button class="small2">{{item.status_dokumen}}</button>
+            <br>
+            ID transaksi : <button class="small2">{{item.id_transaksi}}</button>
+            <br>
+            Jenis Transaksi : <button class="small2">{{item.id_jenistransaksi}}</button>
+            <br>
+            Status transaksi : <button class="small2">{{item.statustransaction}}</button>
+            <br>
+            Penerima Dokumen : <button class="small2">{{item.doc_acceptby}}</button>
+            <br>
+            Pegawai yang memberi dokumen : <button class="small2">{{item.doc_giveby}}</button>
+
+          
+          
+            </ion-item>
+      </ion-card>
+      </ion-list>
+</ion-content>

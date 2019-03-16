@@ -24,6 +24,9 @@ export class RegisterPage {
                   /* Buat validation */
                   this.form = fb.group({
                     "username"    : ["", Validators.required],
+                    "nama"        : ["", Validators.required],
+                    "email"       : ["", Validators.required],
+                    "phone"       : ["", Validators.required],
                     "password"    : ["", Validators.required],
                     "password2"   : ["", Validators.required]
                  });
@@ -42,29 +45,32 @@ export class RegisterPage {
    {
       console.log('Masuk fungsi register'); 
       let usr     : string    = this.form.controls["username"].value,
+          nama    : string    = this.form.controls["nama"].value,
+          email   : string    = this.form.controls["email"].value,
+          phone   : string    = this.form.controls["phone"].value,
           pwd     : string    = this.form.controls["password"].value,
           pwd2    : string    = this.form.controls["password2"].value;
-      if (pwd!=pwd2) { this.showPopup("Nope", "Check your password."); }
-      else { this.createUser(usr, pwd);  } 
+      if (pwd!=pwd2) { this.showPopup("Perhatian", "Sila sahkan kata laluan anda."); }
+      else { this.createUser(usr,nama,email,phone, pwd);  } 
       
     console.log('usr-->', usr , 'pwd-->', pwd); //undefine bosku
    }
 
-   createUser(usr : string, pwd : string) : void
+   createUser(usr : string, nama : string, email : string, phone : string, pwd : string) : void
    {
       let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any		= { "key" : "create", "usr" : usr, "pwd" : pwd },
-          url       : any   = this.baseURI + "createEntry2.php";
+          options 	: any		= {"usr" : usr, "nama" : nama, "email" : email, "phone" : phone, "pwd" : pwd },
+          url       : any   = this.baseURI + "createUser.php";
 
       this.http.post(url, JSON.stringify(options), headers)
       .subscribe((record : any) =>
       {
          // If the request was successful notify the user
         this.createSuccess = true;
-        this.showPopup("Success", "Account created.");
+        this.showPopup("Tahniah", "Akaun telah didaftar.");
       },
       error => {
-        this.showPopup("Account Register Fail", error);
+        this.showPopup("Pendaftaran Gagal", "Akaun telah wujud, sila hubungi admin");
       });
    }
 
