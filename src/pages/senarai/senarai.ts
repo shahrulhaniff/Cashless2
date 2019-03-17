@@ -44,11 +44,12 @@ export class SenaraiPage {
 
   ionViewDidLoad() {
     this.load_table(this.navParams.get("data"));
-    console.log('ionViewDidLoad SenaraiPage'+this.navParams.get("data"));
+    console.log('ionViewDidLoad SenaraiPage',this.navParams.get("data"));
 
     if (this.navParams.get("record")) {
       this.load_table(this.navParams.get("record"));
-      console.log('Data dari navparam min: ', this.navParams.get("record"));
+      console.log('Data dari navparam min: ' + this.navParams.get("record"));
+      console.log('Data dari navparam min: ' , this.navParams.get("record"));
     }
   }
 

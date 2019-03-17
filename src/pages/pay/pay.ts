@@ -5,6 +5,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { GlobalProvider } from "../../providers/global/global";
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { MigsPage } from '../migs/migs';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -25,7 +26,8 @@ export class PayPage {
               public global   : GlobalProvider,
               public http       : HttpClient,
               private alertCtrl : AlertController,
-              private inAppBrowser : InAppBrowser) {
+              private inAppBrowser : InAppBrowser,
+              public storage  : Storage ) {
     this.id_kodtransaksi = navParams.get('data');
 
     this.form = fb.group({
@@ -52,7 +54,7 @@ export class PayPage {
           ced: string    = this.form.controls["cn"].value,
           csc: string    = this.form.controls["cn"].value,
           pa : string    = this.form.controls["cn"].value;
-      this.pay_process(cn,ced,csc,pa);
+      this.pay_process(cn,ced,csc,pa, this.id_kodtransaksi);
    }
    /*pay_process(cn : string,ced : string,csc : string,pa : string) : void
    {
@@ -74,12 +76,13 @@ export class PayPage {
         this.showPopup("Error happen", error);
       });
    } */
-   pay_process(cn : string,ced : string,csc : string,pa : string) : void
+   pay_process(cn : string,ced : string,csc : string,pa : string,idk : string) : void
    {
+    this.storage.get('user').then((user) => {//
      //let fcn  = cn,fced = ced,fcsc = csc,fpa  = pa;
-     let uri = this.baseURI+'go_url_migs.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa;
+     let uri = this.baseURI+'go_url_migs.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa+'&idk='+idk+'&user='+user;
      this.openWebpage(uri);
-
+    }); //close storage
    }
 
    //Untuk Popup
@@ -103,7 +106,7 @@ export class PayPage {
 
 
   openWebpage(url:string){
-
+    
     const options: InAppBrowserOptions = {
       zoom: 'no'
     }
@@ -118,5 +121,6 @@ export class PayPage {
           }, 1000);  
     }
     this.navCtrl.setRoot(MigsPage);
+  
   }
 }

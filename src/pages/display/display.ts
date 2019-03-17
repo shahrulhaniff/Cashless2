@@ -29,7 +29,7 @@ export class DisplayPage {
   }
   
 
-  ionViewWillEnter() : void {
+  ionViewWillEnter() : void { 
    this.load(); 
    this.loadjenisbayar();
     console.log('ionViewWillEnter DisplayPage');
