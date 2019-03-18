@@ -94,6 +94,7 @@ export class ModalPage {
            
           this.kodp = this.items.map(go => go.kod_pengguna);
           this.jen = this.items.map(go => go.jenis_pengguna);
+          console.log('uuuuuuuuuuuu: ',  this.items.map(go => go.kod_pengguna));
 
           for (let i = 0; i <= this.items.length; i++) {
           if (kod_pengguna == this.kodp[i]) {
