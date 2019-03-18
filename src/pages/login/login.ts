@@ -84,7 +84,7 @@ export class LoginPage {
           this.showPopup("Diterima", record);
           this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
-
+          window.localStorage.setItem('load', '0');
 
         }
         else if (record=='Granted2'){ 
@@ -92,6 +92,7 @@ export class LoginPage {
           this.storage.set('test', this.usrid); 
           console.log("nak masuk dekat test "+this.usrid);
           this.navCtrl.setRoot(ModalPage); 
+          window.localStorage.setItem('load', '0');
         }
         
         else if (record=='Denied'){

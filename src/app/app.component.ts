@@ -31,7 +31,7 @@ export class MyApp {
       this.user = user; console.log("data kat dalam app.co-->"+this.user); 
       if(this.user==null) { this.rootPage =LoginPage;}
       else {this.rootPage=DisplayPage; };
-     /*
+     
       if(user=='941013115436') {
         // used for an example of ngFor and navigation
         this.pages = [
@@ -52,14 +52,14 @@ export class MyApp {
           { title: 'Display 5435', component: DisplayPage },
           { title: 'Logout', component: ListPage }
         ];
-             } */
+             }
     
     });//close storage
 
 
     //kalau jadi menu authorize based on user diatas sila komen/buang kod this.pages dibawah ini.
     // used for an example of ngFor and navigation
-    this.pages = [
+    /*this.pages = [
       //{ title: 'Home', component: HomePage },
       //{ title: 'Start', component: StartPage },
       //{ title: 'List', component: ListPage }, //dah guna untuk logout
@@ -67,7 +67,7 @@ export class MyApp {
       { title: 'Profil', component: ProfilePage },
       { title: 'Log Sebut Harga', component: KodtransaksiPage },
       { title: 'Logout', component: ListPage }
-    ];
+    ];*/
 }
 
   initializeApp() {

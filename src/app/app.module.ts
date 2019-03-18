@@ -25,6 +25,7 @@ import { PayPage } from '../pages/pay/pay';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { MigsPage } from '../pages/migs/migs';
 import { ProfilePage } from '../pages/profile/profile';
+import { MainmenuPage } from '../pages/mainmenu/mainmenu';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ProfilePage } from '../pages/profile/profile';
     ModalPage,
     PayPage,
     MigsPage,
-    ProfilePage  
+    ProfilePage,
+    MainmenuPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { ProfilePage } from '../pages/profile/profile';
     ModalPage,
     PayPage,
     MigsPage,
-    ProfilePage
+    ProfilePage,
+    MainmenuPage
   ],
   providers: [
     StatusBar,

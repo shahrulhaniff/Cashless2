@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
@@ -23,13 +23,18 @@ export class DisplayPage {
               public navCtrl  : NavController, 
               public navParams: NavParams,
               public http     : HttpClient,
-              public storage  : Storage ) {
+              public storage  : Storage, public appCtrl: App ) {
 
                this.category = "all";
   }
   
 
   ionViewWillEnter() : void {
+   if(window.localStorage.getItem('load') == '0'){
+   this.appCtrl.getRootNav().setRoot(DisplayPage);
+   window.location.reload();
+   window.localStorage.setItem('load', '1');
+   }
     this.load(); 
     console.log('ionViewWillEnter DisplayPage');
   }
