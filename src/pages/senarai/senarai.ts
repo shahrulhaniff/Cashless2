@@ -52,7 +52,6 @@ export class SenaraiPage {
       console.log('Data dari navparam min: ' , this.navParams.get("record"));
     }
   }
-
   
   sort(){
     this.descending = !this.descending;
