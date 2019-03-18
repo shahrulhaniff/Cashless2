@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { GlobalProvider } from "../../providers/global/global";
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { MigsPage } from '../migs/migs';
@@ -20,6 +20,14 @@ export class PayPage {
   private baseURI : string  = this.global.mysite;
   url : string;
 
+  //ni simpan semua dulu
+  public list : Array<any> = [];
+  //ni utk pilih satu
+  public harga : Array<any> = [];
+  public idk : Array<any> = [];
+  //dan guna utk show
+  public showharga:string;
+
   constructor(public navCtrl  : NavController, 
               public navParams: NavParams,
               public fb       : FormBuilder,
@@ -28,6 +36,7 @@ export class PayPage {
               private alertCtrl : AlertController,
               private inAppBrowser : InAppBrowser,
               public storage  : Storage ) {
+
     this.id_kodtransaksi = navParams.get('data');
 
     this.form = fb.group({
@@ -40,12 +49,25 @@ export class PayPage {
   }
 
   ionViewDidLoad() {
-  if (this.navParams.get("record")) {
-    //this.selectEntry(this.navParams.get("record"));
-    console.log('Data: ', this.navParams.get("record"));
-  }
+  this.loadAmount();
+  console.log('Data: ', this.navParams.get("data"));
+  //this.selectEntry(this.navParams.get("data"));
+  console.log('Harga showharga: ', this.showharga);
   }
 
+  /*selectEntry(mylist: any): void {
+    this.idk = this.list.map(go => go.id_kodtransaksi);
+    this.harga = this.list.map(go => go.harga); console.log('uuuuu: ', this.list.map(go => go.harga));
+
+    //for (let i = 0; i <= this.list.length; i++) {
+      //if (mylist.idk == this.id_kodtransaksi) {
+        console.log('mylist dot idk: ', this.id_kodtransaksi);
+        this.showharga = this.harga[0];
+        console.log('Harga showharga2: ', this.showharga);
+        //break;
+      //}
+    //}
+  } */
 
   goto_url_migs() : void
    {
@@ -106,21 +128,28 @@ export class PayPage {
 
 
   openWebpage(url:string){
-    
-    const options: InAppBrowserOptions = {
-      zoom: 'no'
-    }
-
+    const options: InAppBrowserOptions = {zoom: 'no'}
     const browser = this.inAppBrowser.create(url, '_self', options);
-    //browser.close();
-
-    if(url == "http://localhost/cashless2/app/done.php")
-    {
-          setTimeout(function () {
-            browser.close();
-          }, 1000);  
-    }
+    //browser.close(); TAK JADI NI TRY BUAT KALAU JUMPA URL_DONE & SET MASA TIMEOUT PUN TAJADI
+    if(url == "http://localhost/cashless2/app/done.php"){setTimeout(function () {browser.close();}, 1000);}
     this.navCtrl.setRoot(MigsPage);
+  }
   
+  loadAmount() : void
+  {
+     let    url : any = this.baseURI+'retrieve_harga.php?id='+this.id_kodtransaksi;
+     this.http.get(url).subscribe((data : any) =>
+     {
+        console.dir(data);
+        this.list = data;
+        this.harga = this.list.map(go => go.harga);
+        console.log('vvv: ', this.list.map(go => go.harga));
+        console.log('www: ', this.harga);
+        this.showharga = this.harga[0];
+     },
+     (error : any) =>
+     {
+        console.dir(error);
+     });
   }
 }
