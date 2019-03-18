@@ -25,12 +25,10 @@ import { PayPage } from '../pages/pay/pay';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { MigsPage } from '../pages/migs/migs';
 import { ProfilePage } from '../pages/profile/profile';
-<<<<<<< HEAD
 import { MainmenuPage } from '../pages/mainmenu/mainmenu';
-=======
 import { HistoryPage } from '../pages/history/history';
 import { SenaraiPage } from '../pages/senarai/senarai';
->>>>>>> a3add50b9e29c293ff346910e9a22911174d0289
+import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
 
 
 @NgModule({
@@ -43,18 +41,16 @@ import { SenaraiPage } from '../pages/senarai/senarai';
     LoginPage,
     TextAvatarDirective,
     KodtransaksiPage,
+    Kodtransaksi2Page,
     SearchPipe,
     SortPipe,
     ModalPage,
     PayPage,
     MigsPage,
     ProfilePage,
-<<<<<<< HEAD
-    MainmenuPage
-=======
+    MainmenuPage,
     HistoryPage,
     SenaraiPage
->>>>>>> a3add50b9e29c293ff346910e9a22911174d0289
   ],
   imports: [
     BrowserModule,
@@ -72,16 +68,14 @@ import { SenaraiPage } from '../pages/senarai/senarai';
     DisplayPage,
     LoginPage,
     KodtransaksiPage,
+    Kodtransaksi2Page,
     ModalPage,
     PayPage,
     MigsPage,
     ProfilePage,
-<<<<<<< HEAD
-    MainmenuPage
-=======
     HistoryPage,
-    SenaraiPage
->>>>>>> a3add50b9e29c293ff346910e9a22911174d0289
+    SenaraiPage,
+    MainmenuPage
   ],
   providers: [
     StatusBar,

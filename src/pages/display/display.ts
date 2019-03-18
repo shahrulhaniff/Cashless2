@@ -29,19 +29,14 @@ export class DisplayPage {
   }
   
 
-<<<<<<< HEAD
   ionViewWillEnter() : void {
    if(window.localStorage.getItem('load') == '0'){
    this.appCtrl.getRootNav().setRoot(DisplayPage);
    window.location.reload();
    window.localStorage.setItem('load', '1');
    }
-    this.load(); 
-=======
-  ionViewWillEnter() : void { 
-   this.load(); 
-   this.loadjenisbayar();
->>>>>>> a3add50b9e29c293ff346910e9a22911174d0289
+    //this.load();
+    this.loadjenisbayar();
     console.log('ionViewWillEnter DisplayPage');
   }
 
