@@ -29,6 +29,8 @@ import { MainmenuPage } from '../pages/mainmenu/mainmenu';
 import { HistoryPage } from '../pages/history/history';
 import { SenaraiPage } from '../pages/senarai/senarai';
 import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
+import { ChangepassPage } from '../pages/changepass/changepass';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
     ProfilePage,
     MainmenuPage,
     HistoryPage,
-    SenaraiPage
+    SenaraiPage,
+    EditprofilePage,
+    ChangepassPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,9 @@ import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
     ProfilePage,
     HistoryPage,
     SenaraiPage,
-    MainmenuPage
+    MainmenuPage,
+    EditprofilePage,
+    ChangepassPage
   ],
   providers: [
     StatusBar,

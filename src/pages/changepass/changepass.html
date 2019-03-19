@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar color="theme">
+      <ion-title>Tukar Kata Laluan</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>{{cpass}}
+    <div>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>
+          <p>Kata Laluan Terkini</p>
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="currentpass" name="currentpass"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label>
+          <p>Kata Laluan Baru</p>
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="newpass" name="newpass"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-label>
+            <p>Pengesahan Kata Laluan</p>
+          </ion-label>
+          <ion-input type="password" [(ngModel)]="ppass" name="ppass"></ion-input>
+        </ion-item>
+    </ion-list>
+    
+    <button ion-button (click)="submit()" full>Tukar</button>
+  </div>
+  </ion-content>
+  

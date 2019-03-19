@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { GlobalProvider } from "../../providers/global/global";
+import { Md5 } from 'ts-md5';
 
 @IonicPage()
 @Component({
@@ -59,7 +60,7 @@ export class RegisterPage {
    createUser(usr : string, nama : string, email : string, phone : string, pwd : string) : void
    {
       let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any		= {"usr" : usr, "nama" : nama, "email" : email, "phone" : phone, "pwd" : pwd },
+          options 	: any		= {"usr" : usr, "nama" : nama, "email" : email, "phone" : phone, "pwd" : Md5.hashStr(pwd) },
           url       : any   = this.baseURI + "createUser.php";
 
       this.http.post(url, JSON.stringify(options), headers)

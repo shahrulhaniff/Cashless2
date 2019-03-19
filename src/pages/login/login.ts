@@ -7,6 +7,7 @@ import { DisplayPage } from '../display/display';
 import { GlobalProvider } from "../../providers/global/global";
 //import { ModalController } from 'ionic-angular';
 import { ModalPage } from '../modal/modal';
+import {Md5} from 'ts-md5/dist/md5';
 
 @IonicPage()
 @Component({
@@ -65,7 +66,7 @@ export class LoginPage {
 
     this.showLoading();
       let headers 	: any	= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any	= { "usr" : usr, "pwd" : pwd },
+          options 	: any	= { "usr" : usr, "pwd" : Md5.hashStr(pwd) },
           url       : any = this.baseURI + "login.php";
 
       this.http.post(url, JSON.stringify(options), headers)
@@ -83,7 +84,7 @@ export class LoginPage {
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
           this.showPopup("Diterima", record);
-          this.storage.set('kod_pengguna', '2');
+          this.storage.set('kod_pengguna', '1');
           this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
           this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });

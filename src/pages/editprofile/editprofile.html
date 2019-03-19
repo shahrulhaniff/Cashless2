@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar color="theme">
+      <ion-title>Sunting Profil</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <div>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>
+          <p>Nama Penuh</p>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="name" name="name" value={{name}}></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-label>
+          <p>Email</p>
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="email" name="email" value={{email}}></ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-label>
+            <p>No. Telefon</p>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="telnum" name="telnum" value={{telnum}}></ion-input>
+        </ion-item>
+    </ion-list>
+    
+    <button ion-button (click)="submit()" full>Sunting</button>
+  </div>
+  </ion-content>
+  

@@ -10,11 +10,6 @@
 
 <ion-content padding>
   <div  *ngFor="let profile of profiles">
-  <div class="user-photo" padding-top>
-    <ion-avatar>
-      <img [src]="'/assets/imgs/nopic.png'">
-    </ion-avatar>
-  </div>
   <ion-list>
     <ion-item>
       <ion-icon name="person" slot="start"></ion-icon>
@@ -40,8 +35,7 @@
       </ion-item>
   </ion-list>
   
-  <button ion-button (click)="editGambar(ic_pengguna)" full color="theme">Tukar Gambar Profil</button>
-  <button ion-button (click)="editGambar(ic_pengguna)" full>Sunting</button>
-  <button ion-button (click)="editGambar(ic_pengguna)" full color="danger">Tukar Kata Laluan</button>
+  <button ion-button (click)="editProfile({ record: profile })" full>Sunting</button>
+  <button ion-button (click)="changePass({ record: profile })" full color="danger">Tukar Kata Laluan</button>
 </div>
 </ion-content>
