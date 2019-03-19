@@ -19,6 +19,11 @@ export class PayPage {
   public form     : FormGroup;
   private baseURI : string  = this.global.mysite;
   url : string;
+  public profiles : Array<any> = [];
+  public email : Array<any> = [];
+  public showemail:string;
+  public nama : Array<any> = [];
+  public shownama:string;
 
   //ni simpan semua dulu
   public list : Array<any> = [];
@@ -49,7 +54,7 @@ export class PayPage {
   }
 
   ionViewDidLoad() {
-  this.loadAmount();
+  this.loadAmount(); this.loadMaklumatUser();
   console.log('Data: ', this.navParams.get("data"));
   //this.selectEntry(this.navParams.get("data"));
   console.log('Harga showharga: ', this.showharga);
@@ -73,9 +78,9 @@ export class PayPage {
    {
       console.log('Masuk fungsi register'); 
       let cn : string    = this.form.controls["cn"].value,
-          ced: string    = this.form.controls["cn"].value,
-          csc: string    = this.form.controls["cn"].value,
-          pa : string    = this.form.controls["cn"].value;
+          ced: string    = this.form.controls["ced"].value,
+          csc: string    = this.form.controls["csc"].value,
+          pa : string    = this.form.controls["pa"].value;
       this.pay_process(cn,ced,csc,pa, this.id_kodtransaksi);
    }
    /*pay_process(cn : string,ced : string,csc : string,pa : string) : void
@@ -102,7 +107,8 @@ export class PayPage {
    {
     this.storage.get('user').then((user) => {//
      //let fcn  = cn,fced = ced,fcsc = csc,fpa  = pa;
-     let uri = this.baseURI+'go_url_migs.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa+'&idk='+idk+'&user='+user;
+     //let uri = this.baseURI+'go_url_migs.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa+'&idk='+idk+'&user='+user;
+     let uri = this.baseURI+'sample/sample.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa+'&idk='+idk+'&user='+user;
      this.openWebpage(uri);
     }); //close storage
    }
@@ -151,5 +157,30 @@ export class PayPage {
      {
         console.dir(error);
      });
+  }
+
+  
+  loadMaklumatUser() : void
+  {
+     
+    this.storage.get('user').then((user) => { 
+
+      let    url : any = this.baseURI+'retrieve_profile.php?id='+user;
+             
+      this.http.get(url).subscribe((data : any) =>
+      {
+         console.dir(data);
+         this.profiles = data;
+         this.email = this.profiles.map(go => go.email);
+         this.showemail = this.email[0];
+         this.nama = this.profiles.map(go => go.nama);
+         this.shownama = this.nama[0];
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+      //--------------------------------------------------
+    }); //close storage
   }
 }

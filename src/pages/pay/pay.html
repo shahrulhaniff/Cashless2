@@ -22,21 +22,21 @@ Note: Integration of migs after this step is in Development
   <ion-row>
     <ion-col>
         <ion-item>
-          <ion-input type="text" placeholder="Card Number" formControlName="cn" required></ion-input>
+          <ion-input type="text" placeholder="Nama" value="{{shownama}}" formControlName="cn" required></ion-input>
         </ion-item>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-input type="text" placeholder="Card Expiry Date (YYMM)" formControlName="ced" required></ion-input>
+        <ion-input type="text" placeholder="ID Rujukan" value="{{id_kodtransaksi}}" formControlName="ced" required></ion-input>
       </ion-item>
   </ion-col>
 </ion-row>
 <ion-row>
   <ion-col>
     <ion-item>
-      <ion-input type="text" placeholder="Card Security Code (CSC):" formControlName="csc" required></ion-input>
+      <ion-input type="text" value="{{showemail}}" placeholder="Emel:" formControlName="csc" required></ion-input>
     </ion-item>
 </ion-col>
 </ion-row>
@@ -50,7 +50,7 @@ Note: Integration of migs after this step is in Development
   <br><br>
   <ion-row>
     <ion-col class="signup-col">
-      <button ion-button class="submit-btn" full type="submit" [disabled]="!urlForm.form.valid">Pay</button>
+      <button ion-button class="submit-btn" full type="submit" [disabled]="!urlForm.form.valid">Sahkan Maklumat Pembayaran</button>
     </ion-col>
   </ion-row>
   

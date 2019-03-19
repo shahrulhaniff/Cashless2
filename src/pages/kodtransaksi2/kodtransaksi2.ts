@@ -9,7 +9,7 @@ import { PayPage } from '../pay/pay';
 @IonicPage()
 @Component({
   selector: 'page-kodtransaksi2',
-  templateUrl: 'kodtransaksi.html',
+  templateUrl: 'kodtransaksi2.html',
 })
 export class Kodtransaksi2Page {
   

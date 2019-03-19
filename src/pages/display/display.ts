@@ -30,11 +30,11 @@ export class DisplayPage {
   
 
   ionViewWillEnter() : void {
-   if(window.localStorage.getItem('load') == '0'){
+   /*if(window.localStorage.getItem('load') == '0'){
    this.appCtrl.getRootNav().setRoot(DisplayPage);
    window.location.reload();
    window.localStorage.setItem('load', '1');
-   }
+   } */
     //this.load();
     this.loadjenisbayar();
     console.log('ionViewWillEnter DisplayPage');

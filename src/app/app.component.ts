@@ -26,21 +26,23 @@ export class MyApp {
               public statusBar: StatusBar, 
               public splashScreen: SplashScreen,
               private storage: Storage) {
-    this.initializeApp();
+    //this.initializeApp();
 
     //One time Login Purposes
     this.storage.get('user').then((user) => {
       this.user = user; console.log("data kat dalam app.co-->"+this.user); 
       if(this.user==null) { this.rootPage =LoginPage;}
       else {this.rootPage=DisplayPage; };
-     
+     /*
       // TUKAR DARI IC GUNA SET ROLE kod_pengguna ++++++++++++++++++++++++++++++++ MUHAIMIN 1 +++++++++++++++++++++++++++++
       if(user=='941013115436') {
         // used for an example of ngFor and navigation
         this.pages = [
-          { title: 'Display', component: DisplayPage },
-          { title: 'Log Sebut Harga', component: ListPage },
-          { title: 'Logout', component: ListPage }
+          { title: 'Utama', component: DisplayPage },
+          { title: 'Profil', component: ProfilePage },
+          { title: 'Aktiviti Transaksi', component: HistoryPage },
+          { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+          { title: 'Log Keluar', component: ListPage }
         ];
              }
              else if(user=='941013115435') {
@@ -51,17 +53,17 @@ export class MyApp {
           { title: 'Aktiviti Transaksi', component: HistoryPage },
           { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
           { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, // +++++++++++++++ nanti bila dah tambah yang selain JPP guna menu ni MUHAIMIN 3 +++++++++++++++++
-          { title: 'Logout', component: ListPage }
+          { title: 'Log Keluar', component: ListPage }
         ];
              }
              //tambah satu lagi THIS.PAGES untuk sub-admin selain jpp ++++++++++++++++++++++++++++++ MUHAIMIN 2 +++++++++++++++
-    
+    */
     });//close storage
 
 
     //kalau jadi menu authorize based on user diatas sila komen/buang kod this.pages dibawah ini.
     // used for an example of ngFor and navigation
-    /*this.pages = [
+    this.pages = [
       //{ title: 'Home', component: HomePage },
       //{ title: 'Start', component: StartPage },
       //{ title: 'List', component: ListPage }, //dah guna untuk logout
@@ -69,8 +71,8 @@ export class MyApp {
       { title: 'Profil', component: ProfilePage },
       { title: 'Aktiviti Transaksi', component: HistoryPage },
       { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-      { title: 'Logout', component: ListPage }
-    ];*/
+      { title: 'Log Keluar', component: ListPage }
+    ];
 }
 
   initializeApp() {
