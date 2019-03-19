@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController,Loading, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,Loading, AlertController, Events } from 'ionic-angular';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Storage } from '@ionic/storage';
@@ -31,7 +31,8 @@ export class LoginPage {
               private alertCtrl : AlertController,
               public fb         : FormBuilder,
               private loadingCtrl: LoadingController,
-              public storage : Storage
+              public storage : Storage,
+              public events: Events
               /*private modal: ModalController */
               ) {
     /* Buat validation */
@@ -82,9 +83,10 @@ export class LoginPage {
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
           this.showPopup("Diterima", record);
+          this.storage.set('kod_pengguna', '2');
           this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
+          this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
-          window.localStorage.setItem('load', '0');
 
         }
         else if (record=='Granted2'){ 
@@ -92,7 +94,6 @@ export class LoginPage {
           this.storage.set('test', this.usrid); 
           console.log("nak masuk dekat test "+this.usrid);
           this.navCtrl.setRoot(ModalPage); 
-          window.localStorage.setItem('load', '0');
         }
         
         else if (record=='Denied'){

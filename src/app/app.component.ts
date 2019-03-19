@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListPage } from '../pages/list/list';
@@ -25,7 +25,8 @@ export class MyApp {
   constructor(public platform: Platform, 
               public statusBar: StatusBar, 
               public splashScreen: SplashScreen,
-              private storage: Storage) {
+              private storage: Storage,
+              public events: Events) {
     //this.initializeApp();
 
     //One time Login Purposes
@@ -33,6 +34,7 @@ export class MyApp {
       this.user = user; console.log("data kat dalam app.co-->"+this.user); 
       if(this.user==null) { this.rootPage =LoginPage;}
       else {this.rootPage=DisplayPage; };
+
      /*
       // TUKAR DARI IC GUNA SET ROLE kod_pengguna ++++++++++++++++++++++++++++++++ MUHAIMIN 1 +++++++++++++++++++++++++++++
       if(user=='941013115436') {
@@ -63,7 +65,7 @@ export class MyApp {
 
     //kalau jadi menu authorize based on user diatas sila komen/buang kod this.pages dibawah ini.
     // used for an example of ngFor and navigation
-    this.pages = [
+    /*this.pages = [
       //{ title: 'Home', component: HomePage },
       //{ title: 'Start', component: StartPage },
       //{ title: 'List', component: ListPage }, //dah guna untuk logout
@@ -72,7 +74,81 @@ export class MyApp {
       { title: 'Aktiviti Transaksi', component: HistoryPage },
       { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
       { title: 'Log Keluar', component: ListPage }
-    ];
+    ];*/
+
+
+    //Call side menu for USER
+    events.subscribe('user:1',()=>{
+      this.pages = [
+        { title: 'Utama', component: DisplayPage },
+        { title: 'Profil', component: ProfilePage },
+        { title: 'Aktiviti Transaksi', component: HistoryPage },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+        { title: 'Log Keluar', component: ListPage }
+      ];
+    });
+
+    //Call side menu for ADMIN
+    events.subscribe('user:2',()=>{
+      this.pages = [
+        { title: 'Utama', component: DisplayPage },
+        { title: 'Profil', component: ProfilePage },
+        { title: 'Aktiviti Transaksi', component: HistoryPage },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
+        { title: 'Log Keluar', component: ListPage }
+      ];
+    });
+
+    //Call side menu for SUB-ADMIN
+    events.subscribe('user:3',()=>{
+      this.pages = [
+        { title: 'Utama', component: DisplayPage },
+        { title: 'Profil', component: ProfilePage },
+        { title: 'Aktiviti Transaksi', component: HistoryPage },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
+        { title: 'Log Keluar', component: ListPage }
+      ];
+    });
+
+
+    this.storage.get('kod_pengguna').then((kod_pengguna) => { 
+      
+
+     // Side menu for User
+    if(kod_pengguna =='1') {
+      this.pages = [
+        { title: 'Utama', component: DisplayPage },
+        { title: 'Profil', component: ProfilePage },
+        { title: 'Aktiviti Transaksi', component: HistoryPage },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+        { title: 'Log Keluar', component: ListPage }
+      ];
+    }
+    // Side menu for Admin
+    else if(kod_pengguna =='2') {
+      this.pages = [
+        { title: 'Utama', component: DisplayPage },
+        { title: 'Profil', component: ProfilePage },
+        { title: 'Aktiviti Transaksi', component: HistoryPage },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
+        { title: 'Log Keluar', component: ListPage }
+      ];
+    }
+    // Side menu for Subadmin
+    else if(kod_pengguna =='3') {
+      this.pages = [
+        { title: 'Utama', component: DisplayPage },
+        { title: 'Profil', component: ProfilePage },
+        { title: 'Aktiviti Transaksi', component: HistoryPage },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
+        { title: 'Log Keluar', component: ListPage }
+      ];
+    }
+  });
 }
 
   initializeApp() {

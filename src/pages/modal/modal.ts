@@ -1,5 +1,5 @@
 import { Component, transition } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController,LoadingController,Loading, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController,LoadingController,Loading, AlertController, Events } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
@@ -29,7 +29,8 @@ export class ModalPage {
     public global   : GlobalProvider,
     public http     : HttpClient,
     private alertCtrl : AlertController,
-    public fb       : FormBuilder) {
+    public fb       : FormBuilder,
+    public events: Events) {
 
       //Declare formfontrol name
       this.form = fb.group({
@@ -104,6 +105,7 @@ export class ModalPage {
            
           this.showPopup("Diterima", this.showkp);
           this.navCtrl.setRoot(DisplayPage, { data: kod_pengguna });
+          this.events.publish('user:'+kod_pengguna); // user:1 = User, user:2 = admin, user:3 = subadmin
   }
 
 }
