@@ -18,7 +18,7 @@
   </ion-card>
 
     <ion-list *ngFor="let item of items">
-          <ion-card class="card2" (click)="viewEntry({ record: item })">
+          <ion-card class="card2" (click)="viewEntry({record : item})">
             <ion-item text-wrap>
               <ion-row>
                 <ion-col>{{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}</ion-col>

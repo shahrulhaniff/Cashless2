@@ -95,7 +95,7 @@ export class MyApp {
         { title: 'Profil', component: ProfilePage },
         { title: 'Aktiviti Transaksi', component: HistoryPage },
         { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page },
         { title: 'Log Keluar', component: ListPage }
       ];
     });

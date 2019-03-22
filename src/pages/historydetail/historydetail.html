@@ -3,13 +3,15 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Keterangan Transaksi</ion-title>
+      <ion-title>Keterangan Transaksi</ion-title> 
     </ion-navbar>
   </ion-header>
 
 
 <ion-content padding>
+  
     <ion-list *ngFor="let item of items">
+        
         <ion-card class="card2">
         
           <ion-item text-wrap>
@@ -30,8 +32,11 @@
             Pegawai yang memberi dokumen : <button class="small2">{{item.doc_giveby}}</button>
 
           
-          
+        
+
+          <!--{{idtr}} -->
             </ion-item>
       </ion-card>
+   
       </ion-list>
 </ion-content>

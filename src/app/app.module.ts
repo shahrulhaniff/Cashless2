@@ -31,6 +31,7 @@ import { SenaraiPage } from '../pages/senarai/senarai';
 import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
 import { EditprofilePage } from '../pages/editprofile/editprofile';
 import { ChangepassPage } from '../pages/changepass/changepass';
+import { HistorydetailPage } from '../pages/historydetail/historydetail';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ChangepassPage } from '../pages/changepass/changepass';
     HistoryPage,
     SenaraiPage,
     EditprofilePage,
-    ChangepassPage
+    ChangepassPage,
+    HistorydetailPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { ChangepassPage } from '../pages/changepass/changepass';
     SenaraiPage,
     MainmenuPage,
     EditprofilePage,
-    ChangepassPage
+    ChangepassPage,
+    HistorydetailPage
   ],
   providers: [
     StatusBar,
