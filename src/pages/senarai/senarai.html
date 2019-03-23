@@ -35,7 +35,9 @@
                     <br>
                     Tarikh tutup:{{(item.tarikhtutup)?.substring(8,10)}}/{{(item.tarikhtutup)?.substring(5,7)}}/{{(item.tarikhtutup)?.substring(0,4)}}
                     <br>Jam:{{(item.jam)}} <br>
-                    <button class="harga"> RM {{(item.harga)?.toFixed(2)}}</button>
+                    <button class="harga"> RM {{item.harga}}</button>
+                    <!--<button class="harga"> RM {{(item.harga)?.toFixed(2)}}</button>-->
+                    <!--<button class="harga"> RM {{(item.harga)| number : 2 }}</button>-->
                 <ion-icon item-end name="arrow-round-forward" style="zoom:1.0; color: rgb(66, 21, 46)"></ion-icon>
               </ion-item>
         </ion-card>
