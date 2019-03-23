@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class GlobalProvider {
 
   //public mysite : string  = "http://192.168.43.194/cashless2/app/"; 
-  public mysite : string  = "http://localhost/cashless2/app/";
+  public mysite : string  = "http://localhost/cashweb/app/";
   //public mysite : string  = "https://raxsoft.000webhostapp.com/cashless2/app/";
   //public mysite : string  = "https://myraxsoft.com/cashless2/app/";
 
