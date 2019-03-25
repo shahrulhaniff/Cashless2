@@ -1,42 +1,49 @@
-<ion-header>
-    <ion-navbar color="theme">
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Keterangan Transaksi</ion-title> 
+<ion-header no-border >
+    <ion-navbar transparent no-border>
     </ion-navbar>
   </ion-header>
 
-
-<ion-content padding>
-  
-    <ion-list *ngFor="let item of items">
-        
-        <ion-card class="card2">
-        
-          <ion-item text-wrap>
-            Tarikh : {{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}
-            <br>
-            Harga : <button class="small"> RM {{(item.jumlah)?.toFixed(2)}}</button>
-            <br>
-            Status Dokumen:<button class="small2">{{item.status_dokumen}}</button>
-            <br>
-            ID transaksi : <button class="small2">{{item.id_transaksi}}</button>
-            <br>
-            Jenis Transaksi : <button class="small2">{{item.id_jenistransaksi}}</button>
-            <br>
-            Status transaksi : <button class="small2">{{item.statustransaction}}</button>
-            <br>
-            Penerima Dokumen : <button class="small2">{{item.doc_acceptby}}</button>
-            <br>
-            Pegawai yang memberi dokumen : <button class="small2">{{item.doc_giveby}}</button>
-
-          
-        
-
-          <!--{{idtr}} -->
-            </ion-item>
+  <ion-content class="bg">
+      <div padding>
+        <ion-chip>
+          <ion-avatar item-start>
+            <ion-text-avatar>></ion-text-avatar>
+          </ion-avatar>
+          <ion-label style="font-weight: bold" class="color">
+            Keterangan Transaksi
+          </ion-label>
+        </ion-chip>
+      </div>
+      <div text-center>
+        <h1> RM {{(jmlh)?.toFixed(2)}}</h1>
+        <p>{{(trkh)?.substring(8,10)}}/{{(trkh)?.substring(5,7)}}/{{(trkh)?.substring(0,4)}}</p>
+        <ion-chip>
+          <ion-label style="font-weight: bold" color="primary">
+            Jenis Transaksi : {{idjnstrnsks}}
+          </ion-label>
+        </ion-chip>
+      </div>
+      <ion-card padding class="card4">
+        <ion-label>
+          <p color="primary">Status Dokumen</p>
+          <h2 style="font-weight: bold">{{sttsdoc}}</h2>
+        </ion-label>
+        <ion-label>
+          <p>Status Transaksi</p>
+          <h2 style="font-weight: bold">{{sttstrs}}</h2>
+        </ion-label>
+        <ion-label>
+          <p>ID Transaksi</p>
+          <h2 style="font-weight: bold">{{idtr}}</h2>
+        </ion-label>
+        <ion-label>
+          <p>Penerima Dokumen</p>
+          <h2 style="font-weight: bold">{{docaccept}}</h2>
+        </ion-label>
+        <ion-label>
+          <p>Pegawai Yang Memberi Dokumen</p>
+          <h2 style="font-weight: bold">{{docgive}}</h2>
+        </ion-label>
       </ion-card>
-   
-      </ion-list>
-</ion-content>
+    
+    </ion-content>

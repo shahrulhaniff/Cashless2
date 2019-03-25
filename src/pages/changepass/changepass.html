@@ -1,38 +1,49 @@
-<ion-header>
-    <ion-navbar color="theme">
-      <ion-title>Tukar Kata Laluan</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  
-  <ion-content padding>{{cpass}}
-    <div>
-    <ion-list>
-      <ion-item>
-        <ion-icon name="person" slot="start"></ion-icon>
-        <ion-label>
-          <p>Kata Laluan Terkini</p>
+<ion-header no-border >
+  <ion-navbar  transparent no-border>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+    <div padding>
+      <ion-chip>
+        <ion-avatar item-start>
+          <ion-text-avatar>></ion-text-avatar>
+        </ion-avatar>
+        <ion-label style="font-weight: bold" class="color">
+          Tukar Kata Laluan
         </ion-label>
-        <ion-input type="password" [(ngModel)]="currentpass" name="currentpass"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="mail" slot="start"></ion-icon>
-        <ion-label>
-          <p>Kata Laluan Baru</p>
-        </ion-label>
-        <ion-input type="password" [(ngModel)]="newpass" name="newpass"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-label>
-            <p>Pengesahan Kata Laluan</p>
-          </ion-label>
-          <ion-input type="password" [(ngModel)]="ppass" name="ppass"></ion-input>
+      </ion-chip>
+      </div>
+      <ion-card class="card3">
+      <div>
+        <ion-item color="primary">
+          Kata Laluan
         </ion-item>
-    </ion-list>
-    
-    <button ion-button (click)="submit()" full>Tukar</button>
-  </div>
-  </ion-content>
-  
+        <ion-item>
+          <ion-label floating>
+            <h4 color="primary">Kata Laluan Terkini:</h4>
+          </ion-label>
+          <ion-input required type="password" [(ngModel)]="currentpass" name="currentpass" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            <h4 color="primary">Kata Laluan Baru:</h4>
+          </ion-label>
+          <ion-input required type="password" [(ngModel)]="newpass" name="newpass" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            <h4 color="primary">Pengesahan Kata Laluan:</h4>
+          </ion-label>
+          <ion-input required type="password" [(ngModel)]="ppass" name="ppass" clearInput></ion-input>
+        </ion-item>
+        
+      
+      </div>
+    </ion-card>
+    <ion-footer>
+        <ion-toolbar >
+            <button ion-button block (click)="submit()">Tukar</button>
+        </ion-toolbar>
+      </ion-footer>
+</ion-content>

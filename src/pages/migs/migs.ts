@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { DisplayPage } from '../display/display';
 
 @IonicPage()
 @Component({
@@ -17,5 +18,7 @@ export class MigsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MigsPage');
   }
-
+  home(){
+    this.navCtrl.setRoot(DisplayPage);
+  }
 }

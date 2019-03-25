@@ -1,26 +1,57 @@
-<ion-header>
-  <ion-navbar color="theme">
+<ion-header no-border>
+  <ion-navbar transparent >
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" color="light"></ion-icon>
     </button>
-    <ion-title>Akaun</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <img src="assets/imgs/scan.png" style="height: 30vh; width: 100vw;" />
-  </ion-card>
-  <ion-card>
-      <button ion-button full class="btnrd" (click)="scanToPay()" color="theme">Imbas QR Pembayaran</button>
-      <!-- ===================== SENARAI SH MENGIKUT ID JABATAN SUB-ADMIN ============================ -->
-    <div *ngFor="let type of types">
-      <br>
-      <button ion-button full class="btnrd" (click)="gotoSenarai2(type.id_jenistransaksi)" color="buttoncolor">{{type.jenistransaksi}}</button> <!--id_jenistransaksi-->
-    </div>
-      
+<ion-content class="bg">
 
-  </ion-card>
+    <div padding>
+        <div>
+          <ion-slides>
+            <ion-slide>
+              <ion-card class="card2">
+                <div>
+                  <img src="assets/imgs/card.png" />
+                </div>
+              </ion-card>
+            </ion-slide>
+            <ion-slide>
+              <ion-card class="card2">
+                <img src="assets/imgs/card.png" />
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </div>
+    
+      </div>
+
+      <div padding>
+          <ion-chip>
+            <ion-avatar item-start>
+              <ion-text-avatar>></ion-text-avatar>
+            </ion-avatar>
+            <ion-label class="inlist">
+              Jenis Transaksi
+            </ion-label>
+          </ion-chip>
+
+
+  <ion-card class="card3" *ngFor="let type of types">
+
+      <ion-item color="white" (click)="gotoSenarai2(type.id_jenistransaksi)">
+        <ion-row>
+          <ion-col text-wrap col-3 class="inlist">{{type.jenistransaksi}}
+          </ion-col>
+          <ion-col col-5>
+            <p class="ita">ID Transaksi : {{type.id_jenistransaksi}}</p>
+            <p>Jabatan : {{type.jabatan}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-card>
 <!--<ion-card>
 
  <ion-toolbar>
@@ -77,4 +108,11 @@
         <div *ngSwitchCase="'out'" ng-selected="selected">Money Out php select query in progress</div>
     </div>
 </ion-card>-->
+</div>
+
+<ion-fab bottom right style="zoom:1.4;" (click)="scanToPay()">
+    <button ion-fab mini>
+      <ion-icon name="qr-scanner"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

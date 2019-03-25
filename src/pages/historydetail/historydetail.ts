@@ -13,7 +13,15 @@ export class HistorydetailPage {
 
   private baseURI: string = this.global.mysite;
   public items: Array<any> = [];
+
   private idtr: any;
+  private jmlh : any; 
+  private trkh : any;
+  private idjnstrnsks : any;
+  private sttstrs : any;
+  private sttsdoc : any;
+  private docaccept : any;
+  private docgive : any;
   
 
   constructor(public global: GlobalProvider,
@@ -39,6 +47,19 @@ export class HistorydetailPage {
 
   selectEntry(item: any): void {
     this.idtr = item.id_transaksi;
+    this.jmlh = item.jumlah;
+    this.trkh = item.tarikh;
+    this.idjnstrnsks = item.id_jenistransaksi;
+    this.sttstrs = item.statustransaction;
+    this.sttsdoc = item.status_dokumen;
+    this.docaccept = item.doc_acceptby;
+    this.docgive = item.doc_giveby;
+
+    console.log("huhuhu", this.sttstrs);
+
+
+
+
 
   }
 
@@ -47,6 +68,7 @@ export class HistorydetailPage {
     this.storage.get('user').then((user) => {
       //this.idtr = this.navParams.get("param");
       console.log("hahaha", this.idtr);
+      
       console.log("hahaha" + this.idtr);
       let url: any = this.baseURI + 'r_dhistory.php?id=' + user +"&idtr=" + this.idtr;
       this.http.get(url).subscribe((data: any) => {

@@ -1,41 +1,63 @@
-<ion-header>
-  <ion-navbar color="theme">
+<ion-header no-border>
+  <ion-navbar transparent no-border>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Profil Akaun</ion-title>
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-  <div  *ngFor="let profile of profiles">
-  <ion-list>
-    <ion-item>
-      <ion-icon name="person" slot="start"></ion-icon>
-      <ion-label>
-        <p>Nama Penuh</p>
-        <h2>{{profile.nama}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Email</p>
-        <h2>{{profile.email}}</h2>
-      </ion-label>
-    </ion-item>
-    
-    <ion-item>
-        <ion-icon name="mail" slot="start"></ion-icon>
-        <ion-label>
-          <p>No. Telefon</p>
-          <h2>{{profile.no_telefon}}</h2>
+<ion-content class="bg">
+    <div padding *ngFor="let profile of profiles">
+      <ion-chip>
+        <ion-avatar item-start>
+          <ion-text-avatar>></ion-text-avatar>
+        </ion-avatar>
+        <ion-label style="font-weight: bold" class="color">
+          Profil Akaun
         </ion-label>
-      </ion-item>
-  </ion-list>
+      </ion-chip>
+      <div>
+        <ion-row>
+          <ion-col col-4>
+            <ion-card class="card3">
+                <img src="assets/imgs/pp.png" />        
+            </ion-card>
   
-  <button ion-button (click)="editProfile({ record: profile })" full>Sunting</button>
-  <button ion-button (click)="changePass({ record: profile })" full color="danger">Tukar Kata Laluan</button>
-</div>
-</ion-content>
+          </ion-col>
+          <ion-col align-center padding>
+            <button ion-button (click)="editProfile({ record: profile })" full>Sunting</button>
+            <button ion-button (click)="changePass({ record: profile })" full color="danger" text-wrap>Tukar Kata
+              Laluan</button>
+  
+          </ion-col>
+  
+        </ion-row>
+        <ion-card class="card3" >
+          <ion-list>
+            <ion-item>
+              
+              <ion-label>
+                <p class="inlist">Nama Penuh</p>
+                <h2>{{profile.nama}}</h2>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              
+              <ion-label>
+                <p>Email</p>
+                <h2>{{profile.email}}</h2>
+              </ion-label>
+            </ion-item>
+  
+            <ion-item>
+             
+              <ion-label>
+                <p>No. Telefon</p>
+                <h2>{{profile.no_telefon}}</h2>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </div>
+    </div>
+  </ion-content>

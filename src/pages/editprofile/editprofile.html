@@ -1,38 +1,51 @@
-<ion-header>
-    <ion-navbar color="theme">
-      <ion-title>Sunting Profil</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  
-  <ion-content padding>
-    <div>
-    <ion-list>
-      <ion-item>
-        <ion-icon name="person" slot="start"></ion-icon>
-        <ion-label>
-          <p>Nama Penuh</p>
+<ion-header no-border >
+  <ion-navbar transparent no-border>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+    <div padding>
+      <ion-chip>
+        <ion-avatar item-start>
+          <ion-text-avatar>></ion-text-avatar>
+        </ion-avatar>
+        <ion-label style="font-weight: bold" class="color">
+          Sunting Profil
         </ion-label>
-        <ion-input type="text" [(ngModel)]="name" name="name" value={{name}}></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="mail" slot="start"></ion-icon>
-        <ion-label>
-          <p>Email</p>
-        </ion-label>
-        <ion-input type="text" [(ngModel)]="email" name="email" value={{email}}></ion-input>
-      </ion-item>
-      
-      <ion-item>
-          <ion-icon name="mail" slot="start"></ion-icon>
-          <ion-label>
-            <p>No. Telefon</p>
-          </ion-label>
-          <ion-input type="text" [(ngModel)]="telnum" name="telnum" value={{telnum}}></ion-input>
-        </ion-item>
-    </ion-list>
-    
-    <button ion-button (click)="submit()" full>Sunting</button>
-  </div>
-  </ion-content>
-  
+      </ion-chip>
+      </div>
+
+      <ion-card class="card3">
+          <div>
+            <ion-item color="primary">
+              Profil
+            </ion-item>
+            <ion-item>
+              <ion-label floating>
+                <h4 color="primary">Nama Penuh:</h4>
+              </ion-label>
+              <ion-input required type="text" [(ngModel)]="name" name="name" value={{name}} clearInput></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>
+                <h4 color="primary">Email:</h4>
+              </ion-label>
+              <ion-input required type="text" [(ngModel)]="email" name="email" value={{email}} clearInput></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>
+                <h4 color="primary">No Telefon:</h4>
+              </ion-label>
+              <ion-input required type="text" [(ngModel)]="telnum" name="telnum" value={{telnum}} clearInput></ion-input>
+            </ion-item>
+            
+          
+          </div>
+        </ion-card>
+        <ion-footer>
+            <ion-toolbar >
+                <button ion-button block (click)="submit()">Sunting</button>
+            </ion-toolbar>
+          </ion-footer>
+
+</ion-content>

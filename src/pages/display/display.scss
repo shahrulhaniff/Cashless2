@@ -1,32 +1,81 @@
 page-display {
-    .card2 {
-        border-radius: 5px;
-        overflow: hidden;
-      }
-
-      ion-grid {
-        height: 4em;
-      }
-      input {
-        font-size: 16px;
-    }
-
-    .scan-button {
-      width: 99%;
-      height: 8vh;
-      background-color: #6f00ff;
-      border-radius: 10px;
-  }
-  
-  .btnrd {
-    border-radius: 5px;
+    
 }
-  .small{
-      color: forestgreen;
-      border-radius: 2px;
+.bg{
+ 
+  background: url("../assets/imgs/Bg.png") no-repeat center center fixed;
+  background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.card2 {
+  border-radius: 7px;
+    margin-top: 60px;
+    width: 100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+   
+}
+
+.trans{
+  background-color: transparent;
+}
+
+.but{
+  box-shadow:none;
+}
+
+.pad{
+  background: transparent;
+  margin-left: 5px !important;
+}
+
+.color{
+  color: white;
+}
+
+.card3{
+  border-radius: 7px;
+  background-color: transparent;
+}
+
+.ita{
+  font-style: italic;
+}
+
+.inner{
+  widows: 2000px;
+  height: 100%px;
+  ion-card{
+    display : table-cell;
+    
   }
-  .small2{
-      color: #6f00ff;
-      border-radius: 2px;
-  }
+}
+
+.ion-scroll {
+  white-space: nowrap;
+  height: 150px;
+}
+
+.inlist{
+font-weight: bold;
+color:#2e3192;
+}
+
+.myCard{
+position:relative;
+border-radius: 7px;
+
+}
+
+.myOverlay{
+ width: auto;
+  height: 60px;
+  position: absolute;
+  z-index: 99;
+  bottom: 0px;
+  opacity: 0.5;
+  
+  color: #000000;
+
 }

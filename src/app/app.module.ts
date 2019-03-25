@@ -32,6 +32,7 @@ import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
 import { EditprofilePage } from '../pages/editprofile/editprofile';
 import { ChangepassPage } from '../pages/changepass/changepass';
 import { HistorydetailPage } from '../pages/historydetail/historydetail';
+import { IonTextAvatar } from 'ionic-text-avatar';
 
 
 @NgModule({
@@ -56,7 +57,10 @@ import { HistorydetailPage } from '../pages/historydetail/historydetail';
     SenaraiPage,
     EditprofilePage,
     ChangepassPage,
-    HistorydetailPage
+    HistorydetailPage,
+    IonTextAvatar
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -84,7 +88,8 @@ import { HistorydetailPage } from '../pages/historydetail/historydetail';
     MainmenuPage,
     EditprofilePage,
     ChangepassPage,
-    HistorydetailPage
+    HistorydetailPage,
+    
   ],
   providers: [
     StatusBar,

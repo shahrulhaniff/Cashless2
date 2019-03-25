@@ -1,13 +1,36 @@
-<ion-header>
-  <ion-navbar color="theme">
+<ion-header np-border>
+  <ion-navbar transparent>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon color="light" name="menu"></ion-icon>
     </button>
     <ion-title>Proses Pembayaran Selesai</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding text-wrap>
-Jika pembayaran selesai dan migs berjaya dijalankan. Ambil kod status daripada migs untuk ditunjukan kepada user pada page ini dan simpan pada page HistorydetailPage
+<ion-content class="bg">
+    <div padding>
+        <ion-chip>
+          <ion-avatar item-start>
+            <ion-text-avatar>></ion-text-avatar>
+          </ion-avatar>
+          <ion-label style="font-weight: bold" class="color">
+              Proses Pembayaran Selesai
+          </ion-label>
+        </ion-chip>
+
+        <ion-card class="card3" padding>
+    
+            <p class="ita">Jika pembayaran selesai dan migs berjaya dijalankan, ambil kod status daripada MIGS untuk ditunjukkan kepada User pada page ini dan simpan pada Page History Details.</p>
+        
+        </ion-card>
+
+
+        <ion-footer>
+            <ion-toolbar >
+                <button ion-button block (click)="home()">KEMBALI</button>
+            </ion-toolbar>
+          </ion-footer>
+
+        </div>
 </ion-content>
