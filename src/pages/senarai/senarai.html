@@ -37,11 +37,9 @@
         <ion-card class="card4" *ngFor="let item of items | search : terms | sort: {property: column, order: order}">
           <ion-item color="white">
             <ion-row>
-              <ion-col col-6 text-wrap>
+              <ion-col text-wrap text-justify>
                 <div class="inlist2">{{item.description}}</div>
                 <p class="ita">{{item.no_sb}}</p>
-              </ion-col>
-              <ion-col text-right>
                 <p>Jam :{{(item.jam)}}</p>
               </ion-col>
             </ion-row>
