@@ -24,8 +24,19 @@
 
 
   <ion-content class="bg">
+      <ion-refresher slot="fixed"  class="inv" 
+      (ionRefresh)="ionRefresh($event)" 
+      (ionPull)="ionPull($event)" 
+      (ionStart)="ionStart($event)">
+        <ion-refresher-content 
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
       <div padding>
-        <ion-chip>
+        <ion-chip color="theme">
           <ion-avatar item-start>
             <ion-text-avatar>></ion-text-avatar>
           </ion-avatar>
@@ -37,7 +48,7 @@
         <ion-card class="card4" *ngFor="let item of items | search : terms | sort: {property: column, order: order}">
           <ion-item color="white">
             <ion-row>
-              <ion-col text-wrap text-justify>
+              <ion-col text-wrap >
                 <div class="inlist2">{{item.description}}</div>
                 <p class="ita">{{item.no_sb}}</p>
                 <p>Jam :{{(item.jam)}}</p>

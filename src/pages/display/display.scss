@@ -1,5 +1,12 @@
 page-display {
+
+  .inv{
+    color: white;
     
+  }
+  .has-refresher>.scroll-content {
+    border-top: 0;
+}  
 }
 .bg{
  
@@ -59,7 +66,7 @@ page-display {
 
 .inlist{
 font-weight: bold;
-color:#2e3192;
+color:#ffff;
 }
 
 .myCard{
@@ -79,3 +86,8 @@ border-radius: 7px;
   color: #000000;
 
 }
+
+.bold{
+  font-weight: bold;
+  color:#ffff;
+  }

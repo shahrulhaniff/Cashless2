@@ -1,49 +1,55 @@
-<ion-header no-border >
-    <ion-navbar transparent no-border>
-    </ion-navbar>
-  </ion-header>
+<ion-header no-border>
+  <ion-navbar transparent no-border>
+  </ion-navbar>
+</ion-header>
 
-  <ion-content class="bg">
-      <div padding>
-        <ion-chip>
-          <ion-avatar item-start>
-            <ion-text-avatar>></ion-text-avatar>
-          </ion-avatar>
-          <ion-label style="font-weight: bold" class="color">
-            Keterangan Transaksi
-          </ion-label>
-        </ion-chip>
-      </div>
-      <div text-center>
-        <h1> RM {{(jmlh)}}</h1>
-        <p>{{(trkh)?.substring(8,10)}}/{{(trkh)?.substring(5,7)}}/{{(trkh)?.substring(0,4)}}</p>
-        <ion-chip>
-          <ion-label style="font-weight: bold" color="primary">
-            Jenis Transaksi : {{idjnstrnsks}}
-          </ion-label>
-        </ion-chip>
-      </div>
-      <ion-card padding class="card4">
-        <ion-label>
-          <p color="primary">Status Dokumen</p>
-          <h2 style="font-weight: bold">{{sttsdoc}}</h2>
-        </ion-label>
-        <ion-label>
-          <p>Status Transaksi</p>
-          <h2 style="font-weight: bold">{{sttstrs}}</h2>
-        </ion-label>
-        <ion-label>
-          <p>ID Transaksi</p>
-          <h2 style="font-weight: bold">{{idtr}}</h2>
-        </ion-label>
-        <ion-label>
-          <p>Penerima Dokumen</p>
-          <h2 style="font-weight: bold">{{docaccept}}</h2>
-        </ion-label>
-        <ion-label>
-          <p>Pegawai Yang Memberi Dokumen</p>
-          <h2 style="font-weight: bold">{{docgive}}</h2>
-        </ion-label>
-      </ion-card>
-    
-    </ion-content>
+<ion-content class="bg">
+  <ion-refresher slot="fixed" class="inv" (ionRefresh)="ionRefresh($event)" (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div padding>
+    <ion-chip color="theme">
+      <ion-avatar item-start>
+        <ion-text-avatar>></ion-text-avatar>
+      </ion-avatar>
+      <ion-label style="font-weight: bold" class="color">
+        Keterangan Transaksi
+      </ion-label>
+    </ion-chip>
+  </div>
+  <div text-center>
+    <h1> RM {{(jmlh)}}</h1>
+    <p>{{(trkh)?.substring(8,10)}}/{{(trkh)?.substring(5,7)}}/{{(trkh)?.substring(0,4)}}</p>
+    <ion-chip>
+      <ion-label style="font-weight: bold" color="primary">
+        Jenis Transaksi : {{idjnstrnsks}}
+      </ion-label>
+    </ion-chip>
+  </div>
+  <ion-card padding class="card4">
+    <ion-label>
+      <p color="primary">Status Dokumen</p>
+      <h2 style="font-weight: bold">{{sttsdoc}}</h2>
+    </ion-label>
+    <ion-label>
+      <p>Status Transaksi</p>
+      <h2 style="font-weight: bold">{{sttstrs}}</h2>
+    </ion-label>
+    <ion-label>
+      <p>ID Transaksi</p>
+      <h2 style="font-weight: bold">{{idtr}}</h2>
+    </ion-label>
+    <ion-label>
+      <p>Penerima Dokumen</p>
+      <h2 style="font-weight: bold">{{docaccept}}</h2>
+    </ion-label>
+    <ion-label>
+      <p>Pegawai Yang Memberi Dokumen</p>
+      <h2 style="font-weight: bold">{{docgive}}</h2>
+    </ion-label>
+  </ion-card>
+
+</ion-content>

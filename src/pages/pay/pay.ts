@@ -134,7 +134,7 @@ export class PayPage {
 
 
   openWebpage(url:string){
-    const options: InAppBrowserOptions = {zoom: 'no'}
+    const options: InAppBrowserOptions = {zoom: 'yes'}
     const browser = this.inAppBrowser.create(url, '_self', options);
     //browser.close(); TAK JADI NI TRY BUAT KALAU JUMPA URL_DONE & SET MASA TIMEOUT PUN TAJADI
     if(url == "http://localhost/cashless2/app/done.php"){setTimeout(function () {browser.close();}, 1000);}
