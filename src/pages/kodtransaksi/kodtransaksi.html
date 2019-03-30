@@ -22,8 +22,19 @@
 </ion-header>
 
 <ion-content class="bg">
+    <ion-refresher slot="fixed"  class="inv" 
+    (ionRefresh)="ionRefresh($event)" 
+    (ionPull)="ionPull($event)" 
+    (ionStart)="ionStart($event)">
+      <ion-refresher-content 
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
     <div padding  [hidden]="!add">
-        <ion-chip>
+        <ion-chip color="theme">
           <ion-avatar item-start>
             <ion-text-avatar>></ion-text-avatar>
           </ion-avatar>
@@ -53,7 +64,7 @@
             <ion-row>
               <ion-col>
                 <button ion-button outline>
-                    RM {{(item.harga)?.toFixed(2)}}
+                    RM {{(item.harga)}}
                 </button></ion-col>
               <ion-col text-right> <button ion-button icon-only (click)="pay(item.id_kodtransaksi)">
                   <ion-icon name="arrow-dropright-circle"></ion-icon>

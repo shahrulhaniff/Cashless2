@@ -31,6 +31,23 @@ export class HistoryPage {
     public http     : HttpClient,
     public storage  : Storage ) {
   }
+  ionRefresh(event) {
+    console.log('Pull Event Triggered!');
+    setTimeout(() => {
+       console.log('Async operation has ended');
+       this.ionViewDidLoad();
+       //complete()  signify that the refreshing has completed and to close the refresher
+       event.complete();
+    }, 2000);
+ }
+ ionPull(event) {
+    //Emitted while the user is pulling down the content and exposing the refresher.
+    console.log('ionPull Event Triggered!');
+ }
+ ionStart(event) {
+    //Emitted when the user begins to start pulling down.
+    console.log('ionStart Event Triggered!');
+ }
 
   ionViewDidLoad() {
     this.load();

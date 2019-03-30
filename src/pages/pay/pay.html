@@ -4,10 +4,10 @@
   </ion-header>
   
   
-  <ion-content class="bg">
+  <ion-content class="bg" >
    <form [formGroup]="form" (ngSubmit)="goto_url_migs()" #urlForm="ngForm">
-      <div padding>
-        <ion-chip>
+      <div padding ion-fixed style="height: 100%; width: 100%" >
+        <ion-chip  color="theme">
           <ion-avatar item-start>
             <ion-text-avatar>></ion-text-avatar>
           </ion-avatar>
@@ -52,7 +52,7 @@
         
         </ion-card>
     
-        <ion-chip>
+        <ion-chip color="theme">
           <ion-avatar item-start>
             <ion-text-avatar>i</ion-text-avatar>
           </ion-avatar>
@@ -71,7 +71,7 @@
     
       </div>
       
-    <ion-footer>
+    <ion-footer ion-fixed>
         <ion-toolbar >
             <button ion-button block  [disabled]="!urlForm.form.valid">Sahkan Maklumat Bayaran</button>
         </ion-toolbar>

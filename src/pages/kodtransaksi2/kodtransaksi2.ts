@@ -62,6 +62,24 @@ export class Kodtransaksi2Page {
      });
   }
 
+  ionRefresh(event) {
+   console.log('Pull Event Triggered!');
+   setTimeout(() => {
+      console.log('Async operation has ended');
+      this.ionViewWillEnter();
+      //complete()  signify that the refreshing has completed and to close the refresher
+      event.complete();
+   }, 2000);
+}
+ionPull(event) {
+   //Emitted while the user is pulling down the content and exposing the refresher.
+   console.log('ionPull Event Triggered!');
+}
+ionStart(event) {
+   //Emitted when the user begins to start pulling down.
+   console.log('ionStart Event Triggered!');
+}
+
   ionViewWillEnter() {
     this.load_table(); 
   }
