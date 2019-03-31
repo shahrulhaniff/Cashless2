@@ -32,14 +32,13 @@ export class ScanPage {
       this.scannedCode = barcodeData.text;
       if(this.scannedCode  != ""){
         //this.list.push({record: {id: barcodeData.text}});
-        this.list.push({record: {id: 'SB'}});
+        //this.list.push({record: {id: 'SB'}});
         //this.navCtrl.push(SenaraiPage, this.list[0]);
 
         this.navCtrl.push(SenaraiPage, {
           record: this.scannedCode
         });
-
-
+        
         this.list=[];
       }else{
       

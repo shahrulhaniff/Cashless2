@@ -45,7 +45,7 @@ export class SenaraiPage {
     console.log('Pull Event Triggered!');
     setTimeout(() => {
       console.log('Async operation has ended');
-      this.load_table(this.navParams.get("data"));
+      this.ionViewWillEnter();//load_table(this.navParams.get("data"));
       //complete()  signify that the refreshing has completed and to close the refresher
       event.complete();
     }, 2000);
@@ -60,14 +60,10 @@ export class SenaraiPage {
   }
 
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.load_table(this.navParams.get("data"));
-    console.log('ionViewDidLoad SenaraiPage', this.navParams.get("data"));
-
     if (this.navParams.get("record")) {
       this.load_table(this.navParams.get("record"));
-      console.log('Data dari navparam min: ' + this.navParams.get("record"));
-      console.log('Data dari navparam min: ', this.navParams.get("record"));
     }
   }
 
