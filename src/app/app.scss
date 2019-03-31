@@ -20,4 +20,8 @@
     background-repeat: no-repeat;
      background-size: cover;
   }
+
+  ion-header ion-icon.back-button-icon.icon {
+    color: map-get($colors, light);
+}
   
