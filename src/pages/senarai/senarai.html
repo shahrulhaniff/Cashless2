@@ -62,12 +62,15 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col>
+              <ion-col >
+                <div *ngIf="item.harga !== '0.00'">
                 <button ion-button outline>
                     RM {{(item.harga)}} <!--{{(item.harga)?.toFixed(2)}}-->
-                </button></ion-col>
-              <ion-col text-right> <button ion-button icon-only (click)="pay(item.id_kodtransaksi)">
-                  <ion-icon name="arrow-dropright-circle"></ion-icon>
+                </button>
+              </div>
+            </ion-col >
+              <ion-col col-3 text-wrap> <button ion-button  (click)="pay(item.id_kodtransaksi)">
+                   Bayar
                 </button>
               </ion-col>
             </ion-row>

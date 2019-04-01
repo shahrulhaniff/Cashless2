@@ -1,84 +1,99 @@
 <ion-header no-border>
-    <ion-navbar transparent no-border>
-    </ion-navbar>
-  </ion-header>
-  
-  
-  <ion-content class="bg" >
-   <form [formGroup]="form" (ngSubmit)="goto_url_migs()" #urlForm="ngForm">
-      <div padding ion-fixed style="height: 100%; width: 100%" >
-        <ion-chip  color="theme">
-          <ion-avatar item-start>
-            <ion-text-avatar>></ion-text-avatar>
-          </ion-avatar>
-          <ion-label style="font-weight: bold" class="color">
-            Pembayaran ID : {{id_kodtransaksi}}
-          </ion-label>
-        </ion-chip>
-    
-    
-        <ion-card class="card3">
-           
-          <div>
-            <ion-item color="primary">
-              Borang Bayaran
-            </ion-item>
-            <ion-item>
-              <ion-label floating>
-                <h4 color="primary">Nama:</h4>
-              </ion-label>
-              <ion-input type="text"  value="{{shownama}}" formControlName="cn" required clearInput></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label floating>
-                <h4 color="primary">ID:</h4>
-              </ion-label>
-              <ion-input type="text"  value="{{id_kodtransaksi}}" formControlName="ced" required clearInput></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label floating>
-                <h4 color="primary">Email:</h4>
-              </ion-label>
-              <ion-input type="text" value="{{showemail}}"  formControlName="csc" required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label floating>
-                <h4 color="primary">Nilai Bayaran:</h4>
-              </ion-label>
-              
-              <ion-input type="text" value="{{(showharga)}}" formControlName="pa" required clearInput disabled="true" ></ion-input>
-            
-            </ion-item>
-          
-          </div>
-        <div></div>
-        </ion-card>
-    
-        <ion-chip color="theme">
-          <ion-avatar item-start>
-            <ion-text-avatar>i</ion-text-avatar>
-          </ion-avatar>
-          <ion-label style="font-weight: bold" class="color">
-            Nota
-          </ion-label>
-        </ion-chip>
-        <ion-card class="card3" padding>
-        
-          <p class="ita">Intergrasi MIGS dalam peringkat beta.</p>
-        
+  <ion-navbar transparent no-border>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg">
+  <form [formGroup]="form" (ngSubmit)="goto_url_migs()" #urlForm="ngForm">
+    <div padding ion-fixed style="height: 100%; width: 100%">
+      <ion-chip color="theme">
+        <ion-avatar item-start>
+          <ion-text-avatar>></ion-text-avatar>
+        </ion-avatar>
+        <ion-label style="font-weight: bold" class="color">
+          Pembayaran ID : {{id_kodtransaksi}}
+        </ion-label>
+      </ion-chip>
+
+
+      <ion-card class="card3">
+
+        <div>
+          <ion-item color="primary">
+            Borang Bayaran
+          </ion-item>
+          <ion-item>
+            <ion-label floating>
+              <h4 color="primary">Nama:</h4>
+            </ion-label>
+            <ion-input type="text" value="{{shownama}}" formControlName="cn" required clearInput></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>
+              <h4 color="primary">ID:</h4>
+            </ion-label>
+            <ion-input type="text" value="{{id_kodtransaksi}}" formControlName="ced" required clearInput></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>
+              <h4 color="primary">Email:</h4>
+            </ion-label>
+            <ion-input type="text" value="{{showemail}}" formControlName="csc" required></ion-input>
+          </ion-item>
+        </div>
+       
       </ion-card>
-    
-    
-    
-    
+      <div *ngIf="showharga == '0.00'">
+        <ion-card class="card3">
+          <ion-item>
+            <ion-label floating>
+              <h4 color="primary">Nilai Bayaran:</h4>
+            </ion-label>
+            <ion-input type="text" value="{{(showharga)}}" formControlName="pa" required clearInput >
+            </ion-input>
+
+          </ion-item>
+        </ion-card>
       </div>
-      
+      <div *ngIf="showharga !== '0.00'">
+        <ion-card class="card3">
+          <ion-item>
+            <ion-label floating>
+              <h4 color="primary">Nilai Bayaran:</h4>
+            </ion-label>
+            <ion-input type="text" value="{{(showharga)}}" formControlName="pa" required clearInput disabled="true" >
+            </ion-input>
+
+          </ion-item>
+        </ion-card>
+      </div>
+
+
+      <ion-chip color="theme">
+        <ion-avatar item-start>
+          <ion-text-avatar>i</ion-text-avatar>
+        </ion-avatar>
+        <ion-label style="font-weight: bold" class="color">
+          Nota
+        </ion-label>
+      </ion-chip>
+      <ion-card class="card3" padding>
+
+        <p class="ita">Intergrasi MIGS dalam peringkat beta.</p>
+
+      </ion-card>
+
+
+
+
+    </div>
+
     <ion-footer ion-fixed>
-        <ion-toolbar >
-            <button ion-button block  [disabled]="!urlForm.form.valid">Sahkan Maklumat Bayaran</button>
-        </ion-toolbar>
-      </ion-footer>
-    
-    </form>
-    </ion-content>
-  
+      <ion-toolbar>
+        <button ion-button block [disabled]="!urlForm.form.valid">Sahkan Maklumat Bayaran</button>
+      </ion-toolbar>
+    </ion-footer>
+
+  </form>
+</ion-content>
