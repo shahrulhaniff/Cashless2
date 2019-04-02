@@ -35,8 +35,8 @@ import { HistorydetailPage } from '../pages/historydetail/historydetail';
 import { IonTextAvatar } from 'ionic-text-avatar';
 import { SlidePage } from '../pages/slide/slide';
 
-import { File } from '@ionic-native/file';
-import { FileOpener } from '@ionic-native/file-opener';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 
 
@@ -107,6 +107,8 @@ import { FileOpener } from '@ionic-native/file-opener';
     Toast,
     GlobalProvider,
     InAppBrowser,
+    File,
+    FileOpener
     
 
   ]

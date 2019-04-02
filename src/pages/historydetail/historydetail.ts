@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
+
+
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @IonicPage()
 @Component({
@@ -10,6 +17,8 @@ import { GlobalProvider } from "../../providers/global/global";
   templateUrl: 'historydetail.html',
 })
 export class HistorydetailPage {
+
+  pdfObj = null;
 
   private baseURI: string = this.global.mysite;
   public items: Array<any> = [];
@@ -28,7 +37,10 @@ export class HistorydetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public http: HttpClient,
-    public storage: Storage) {
+    public storage: Storage,
+    private plt: Platform,
+    private file: File, private fileOpener: FileOpener
+    ) {
   }
   ionRefresh(event) {
     console.log('Pull Event Triggered!');
@@ -97,4 +109,52 @@ export class HistorydetailPage {
       //--------------------------------------------------
     }); //close storage
   }
+
+  generate(){
+    var docDefinition = {
+      content: [
+        { text: 'Resit Pembayaran Cashless UniSZA', style: 'header' },
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          lignment: 'center'
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 15, 0, 0]
+        },
+        story: {
+          italic: true,
+          alignment: 'center',
+          width: '50%',
+        }
+      }
+    }
+
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+
+    this.downloadPdf();
+  }
+
+
+    downloadPdf(){
+     
+        if (this.plt.is('cordova')) {
+          this.pdfObj.getBuffer((buffer) => {
+            var blob = new Blob([buffer], { type: 'application/pdf' });
+    
+            // Save the PDF to the data Directory of our App
+            this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
+              // Open the PDf with the correct OS tools
+              this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+            })
+          });
+        } else {
+          // On a browser simply use download!
+          this.pdfObj.download();
+        }
+    }
 }
