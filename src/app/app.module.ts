@@ -35,6 +35,11 @@ import { HistorydetailPage } from '../pages/historydetail/historydetail';
 import { IonTextAvatar } from 'ionic-text-avatar';
 import { SlidePage } from '../pages/slide/slide';
 
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
+
+
+
 
 @NgModule({
   declarations: [
@@ -101,7 +106,9 @@ import { SlidePage } from '../pages/slide/slide';
     BarcodeScanner,
     Toast,
     GlobalProvider,
-    InAppBrowser
+    InAppBrowser,
+    
+
   ]
 })
 export class AppModule {}
