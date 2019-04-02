@@ -83,7 +83,6 @@ export class MyApp {
         { title: 'Utama', component: DisplayPage },
         { title: 'Profil', component: ProfilePage },
         { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
         { title: 'Log Keluar', component: ListPage }
       ];
     });
@@ -94,8 +93,6 @@ export class MyApp {
         { title: 'Utama', component: DisplayPage },
         { title: 'Profil', component: ProfilePage },
         { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page },
         { title: 'Log Keluar', component: ListPage }
       ];
     });
@@ -106,8 +103,6 @@ export class MyApp {
         { title: 'Utama', component: DisplayPage },
         { title: 'Profil', component: ProfilePage },
         { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
         { title: 'Log Keluar', component: ListPage }
       ];
     });
