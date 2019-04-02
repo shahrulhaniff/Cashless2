@@ -2,6 +2,9 @@ page-senarai {
     .has-refresher>.scroll-content {
         border-top: 0;
     }  
+    .ion-col.ran.co{
+        color: white
+    }
 
 }
 .card4{
@@ -19,3 +22,13 @@ page-senarai {
 .ita{
     font-style: italic;
 }
+
+.ran{
+    vertical-align: middle;
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
+    padding-left: 20px
+  }
+
+  

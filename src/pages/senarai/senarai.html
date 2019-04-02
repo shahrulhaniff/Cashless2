@@ -12,11 +12,11 @@
     </ion-navbar>
       <!-- Search Event -->
       <div *ngIf="buttonClicked">
-        <ion-row text-center center>
-          <ion-col col-1 class="ran" center >
-              <ion-icon style="zoom:1.6" color="theme"  name="arrow-round-back" (click)="onButtonClick()" text-center></ion-icon>
+        <ion-row text-center >
+          <ion-col col-2 class="ran" style="background:white"  >
+              <ion-icon style="zoom:1.4" color="theme"  name="arrow-back" (click)="onButtonClick()" text-center ></ion-icon>
           </ion-col>
-          <ion-col col-10><ion-input [(ngModel)]="terms" placeholder="Carian..."></ion-input></ion-col>
+          <ion-col style="background:white" col-10><ion-input [(ngModel)]="terms" placeholder="Carian..."></ion-input></ion-col>
         </ion-row>
     </div>
     <!-- Done Search Event -->
@@ -63,13 +63,13 @@
             </ion-row>
             <ion-row>
               <ion-col >
-                <div *ngIf="item.harga !== '0.00'">
+                <div *ngIf="!(item.harga == '0.00'||item.harga =='0')">
                 <button ion-button outline>
                     RM {{(item.harga)}} <!--{{(item.harga)?.toFixed(2)}}-->
                 </button>
               </div>
             </ion-col >
-              <ion-col col-3 text-wrap> <button ion-button  (click)="pay(item.id_kodtransaksi)">
+              <ion-col text-right end text-wrap> <button ion-button  (click)="pay(item.id_kodtransaksi)">
                    Bayar
                 </button>
               </ion-col>

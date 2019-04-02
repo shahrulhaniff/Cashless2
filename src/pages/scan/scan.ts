@@ -36,7 +36,7 @@ export class ScanPage {
         //this.navCtrl.push(SenaraiPage, this.list[0]);
 
         this.navCtrl.push(SenaraiPage, {
-          record: this.scannedCode
+          data: this.scannedCode
         });
         
         this.list=[];

@@ -156,6 +156,8 @@ export class PayPage {
         console.log('vvv: ', this.list.map(go => go.harga));
         console.log('www: ', this.harga);
         this.showharga = this.harga[0];
+        
+        if (this.showharga == '0'){ this.showharga = '0.00';}
      },
      (error : any) =>
      {

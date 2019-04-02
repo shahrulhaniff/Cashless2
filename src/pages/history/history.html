@@ -41,9 +41,17 @@
         <ion-col col-9>
       <ion-row>
         <ion-col col-4 text-left>
-          <ion-chip>
+          <ion-chip *ngIf="item.status_dokumen == 'YES'">
             <ion-avatar item-start>
               <ion-icon name="arrow-round-down" color="secondary"></ion-icon>
+            </ion-avatar>
+            <ion-label style="font-weight: bold">
+              Status :{{item.status_dokumen}}
+            </ion-label>
+          </ion-chip>
+          <ion-chip *ngIf="item.status_dokumen == 'NO'">
+            <ion-avatar item-start>
+              <ion-icon name="arrow-round-down" color="danger"></ion-icon>
             </ion-avatar>
             <ion-label style="font-weight: bold">
               Status :{{item.status_dokumen}}

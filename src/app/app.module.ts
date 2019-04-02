@@ -33,6 +33,7 @@ import { EditprofilePage } from '../pages/editprofile/editprofile';
 import { ChangepassPage } from '../pages/changepass/changepass';
 import { HistorydetailPage } from '../pages/historydetail/historydetail';
 import { IonTextAvatar } from 'ionic-text-avatar';
+import { SlidePage } from '../pages/slide/slide';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { IonTextAvatar } from 'ionic-text-avatar';
     EditprofilePage,
     ChangepassPage,
     HistorydetailPage,
-    IonTextAvatar
+    IonTextAvatar,
+    SlidePage
     
     
   ],
@@ -89,6 +91,7 @@ import { IonTextAvatar } from 'ionic-text-avatar';
     EditprofilePage,
     ChangepassPage,
     HistorydetailPage,
+    SlidePage
     
   ],
   providers: [

@@ -62,9 +62,9 @@ export class SenaraiPage {
 
   ionViewWillEnter() {
     this.load_table(this.navParams.get("data"));
-    if (this.navParams.get("record")) {
+    /*if (this.navParams.get("record")) {
       this.load_table(this.navParams.get("record"));
-    }
+    } */
   }
 
   sort() {

@@ -16,6 +16,8 @@ contoh full :
 (4) ( C:/Users/shahrul/AppData/Local/Android/sdk/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk cashless.apk )
 
 
+C:/Users/Amir Fitri/AppData/Local/Android/Sdk/build-tools/28.0.3/zipalign -v 4 app-release-unsigned.apk cashless.apk
+
 __________________________________________________________________________________________________________________________________________
 full guide how to publish:
 https://ionicframework.com/docs/v1/guide/publishing.html

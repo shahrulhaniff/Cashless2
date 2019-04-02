@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
 import 'rxjs/add/operator/map';
 import { SenaraiPage } from '../senarai/senarai';
+import { SlidePage } from '../slide/slide';
 
 @IonicPage()
 @Component({
@@ -111,6 +112,10 @@ export class DisplayPage {
       });
 
       console.log("param ID " + param);
+   }
+
+   slide(){
+      this.navCtrl.push(SlidePage)
    }
 
 }
