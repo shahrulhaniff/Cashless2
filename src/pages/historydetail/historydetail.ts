@@ -31,6 +31,7 @@ export class HistorydetailPage {
   private sttsdoc : any;
   private docaccept : any;
   private docgive : any;
+  private descdoc : any;
   
 
   constructor(public global: GlobalProvider,
@@ -82,13 +83,20 @@ export class HistorydetailPage {
     this.sttsdoc = item.status_dokumen;
     this.docaccept = item.doc_acceptby;
     this.docgive = item.doc_giveby;
+    this.descdoc = item.description;
 
-    console.log("huhuhu", this.sttstrs);
+    if (this.sttsdoc=="YES"){ this.sttsdoc="Dokumen Telah Diterima"; } 
+    else if(this.sttsdoc=="NO") { this.sttsdoc="Dokumen Belum Diterima"; } 
+    else { this.sttsdoc="HistoryDetail.ts"; }
 
-
-
-
-
+    console.log("idtr", this.idtr);
+    console.log("jmlh", this.jmlh);
+    console.log("trkh", this.trkh);
+    console.log("idjnstrnsks", this.idjnstrnsks);
+    console.log("sttstrs", this.sttstrs);
+    console.log("sttsdoc", this.sttsdoc);
+    console.log("docaccept", this.docaccept);
+    console.log("docgive", this.docgive);
   }
 
 
@@ -138,10 +146,7 @@ export class HistorydetailPage {
 
     this.downloadPdf();
   }
-
-
     downloadPdf(){
-     
         if (this.plt.is('cordova')) {
           this.pdfObj.getBuffer((buffer) => {
             var blob = new Blob([buffer], { type: 'application/pdf' });

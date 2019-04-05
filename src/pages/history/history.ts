@@ -86,6 +86,5 @@ export class HistoryPage {
      console.log("idt"+this.idt);
     // this.navCtrl.push('HistorydetailPage', {dataidt: idt});
 
-
   }
 }
