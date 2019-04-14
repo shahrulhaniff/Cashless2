@@ -6,6 +6,12 @@ page-display {
   }
   .has-refresher>.scroll-content {
     border-top: 0;
+
+    .inlist{
+      font-weight: bold;
+      
+    }
+      
 }  
 }
 .bg{
@@ -64,10 +70,6 @@ page-display {
   height: 150px;
 }
 
-.inlist{
-font-weight: bold;
-color:#ffff;
-}
 
 .myCard{
 position:relative;

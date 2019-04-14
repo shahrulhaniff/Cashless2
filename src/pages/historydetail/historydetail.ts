@@ -122,12 +122,36 @@ export class HistorydetailPage {
     var docDefinition = {
       content: [
         { text: 'Resit Pembayaran Cashless UniSZA', style: 'header' },
+        { text: 'Status :  ' + this.sttsdoc, style: 'subheader' },
+        { text: 'No. Rujukan :' , style: 'subheader' },
+        { text: 'Tarikh Transaksi :' + this.trkh , style: 'subheader' },
+
+        { text: 'Ketrangan Transaksi :' , style: 'subheader' },
+        this.descdoc,
+
+        { text: 'Dibayar Oleh :' + this.docgive , style: 'subheader' },
+        { text: 'ID Merchant :'  , style: 'subheader' },
+        { text: 'Jenis Kad :' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: '' , style: 'subheader' },
+        { text: 'Catatan :'  , style: 'subheader' },
+        'Resit ini dijana oleh komputer, tiada tandatangan diperlukan.'
+
+
+
       ],
       styles: {
         header: {
           fontSize: 18,
           bold: true,
-          lignment: 'center'
+          alignment: 'center'
         },
         subheader: {
           fontSize: 14,

@@ -3,8 +3,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="bg">
-    <div padding >
+<ion-content class="bg" padding>
+    <div padding ion-fixed style="height: 100%; width: 100%">
       <ion-chip color="theme">
         <ion-avatar item-start>
           <ion-text-avatar>></ion-text-avatar>
@@ -13,7 +13,7 @@
           Tukar Kata Laluan
         </ion-label>
       </ion-chip>
-      </div>
+      
       <ion-card class="card3">
       <div>
         <ion-item color="primary">
@@ -41,9 +41,13 @@
       
       </div>
     </ion-card>
-    <ion-footer>
+
+    <button ion-button block (click)="submit()">Tukar</button>
+    <!--<ion-footer>
         <ion-toolbar >
-            <button ion-button block (click)="submit()">Tukar</button>
+            
         </ion-toolbar>
       </ion-footer>
+      -->
+    </div>
 </ion-content>
