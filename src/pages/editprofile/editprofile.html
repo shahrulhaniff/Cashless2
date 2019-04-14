@@ -3,8 +3,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="bg">
-    <div padding>
+<ion-content class="bg" padding>
+    <div padding ion-fixed style="height: 100%; width: 100%">
       <ion-chip color="theme">
         <ion-avatar item-start>
           <ion-text-avatar>></ion-text-avatar>
@@ -13,7 +13,7 @@
           Sunting Profil
         </ion-label>
       </ion-chip>
-      </div>
+     
 
       <ion-card class="card3">
           <div>
@@ -39,13 +39,17 @@
               <ion-input required type="text" [(ngModel)]="telnum" name="telnum" value={{telnum}} clearInput></ion-input>
             </ion-item>
             
-          
+           
           </div>
+          
         </ion-card>
-        <ion-footer>
+        <br>
+        <button ion-button block (click)="submit()">Sunting</button>
+       <!-- <ion-footer>
             <ion-toolbar >
                 <button ion-button block (click)="submit()">Sunting</button>
             </ion-toolbar>
           </ion-footer>
-
+-->
+</div>
 </ion-content>
