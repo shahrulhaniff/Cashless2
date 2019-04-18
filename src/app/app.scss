@@ -14,15 +14,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.bg{
+.bg4{
  
-    background: url("../assets/imgs/Bg.png") no-repeat center center fixed;
+    background: url("../assets/imgs/Bg4.png") no-repeat center center fixed;
     background-repeat: no-repeat;
      background-size: cover;
   }
   
   ion-header ion-icon.back-button-icon.icon {
-    color: map-get($colors, light);
+    color: map-get($colors, dark);}
+
+  ion-header ion-navbar ion-icon.menuToggle-icon.icon {
+    color: map-get($colors, dark);
 }
+
+$bar-stable-text: #222;
 
 //@import '../theme/fonts';

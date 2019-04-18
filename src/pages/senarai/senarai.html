@@ -1,12 +1,12 @@
 <ion-header no-border>
     <ion-navbar  [hidden]="!buttonClicked2" no-border transparent>
       <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon name="menu" color="dark"></ion-icon>
       </button>
       
       <ion-buttons end class="pad">
-        <button ion-button icon-only color="light" (click)="onButtonClick()">
-          <ion-icon name="search" color="light"></ion-icon>
+        <button ion-button icon-only color="dark" (click)="onButtonClick()">
+          <ion-icon name="search" color="dark"></ion-icon>
         </button>
       </ion-buttons>
     </ion-navbar>
@@ -14,7 +14,7 @@
       <div *ngIf="buttonClicked">
         <ion-row text-center >
           <ion-col col-2 class="ran" style="background:white"  >
-              <ion-icon style="zoom:1.4" color="theme"  name="arrow-back" (click)="onButtonClick()" text-center ></ion-icon>
+              <ion-icon style="zoom:1.4" color="dark"  name="arrow-back" (click)="onButtonClick()" text-center ></ion-icon>
           </ion-col>
           <ion-col style="background:white" col-10><ion-input [(ngModel)]="terms" placeholder="Carian..."></ion-input></ion-col>
         </ion-row>
@@ -40,7 +40,7 @@
           <ion-avatar item-start>
             <ion-text-avatar>></ion-text-avatar>
           </ion-avatar>
-          <ion-label style="font-weight: bold" class="color">
+          <ion-label style="font-weight: bold">
             Senarai Bayaran
           </ion-label>
         </ion-chip>

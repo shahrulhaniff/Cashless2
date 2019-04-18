@@ -17,21 +17,22 @@
       <ion-avatar item-start>
         <ion-text-avatar>></ion-text-avatar>
       </ion-avatar>
-      <ion-label style="font-weight: bold" class="color">
+      <ion-label style="font-weight: bold" >
         Keterangan Transaksi
       </ion-label>
     </ion-chip>
   </div>
-  <div text-center>
-
-    <h1> RM {{(jmlh)}}</h1>
+  <div text-center >
+<ion-card padding class="fixcard" >
+    <h1 style="font-weight: bold"> RM {{(jmlh)}}</h1>
     <p>{{(trkh)?.substring(8,10)}}/{{(trkh)?.substring(5,7)}}/{{(trkh)?.substring(0,4)}}</p>
-
+ 
     <ion-chip>
-      <ion-label style="font-weight: bold" color="primary">
+      <ion-label style="font-weight: bold" color="dark">
         Jenis Transaksi : {{idjnstrnsks}}
       </ion-label>
     </ion-chip>
+  </ion-card>
   </div>
   <ion-card padding class="card4">
     <ion-label>

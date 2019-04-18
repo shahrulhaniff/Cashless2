@@ -17,6 +17,7 @@ import {Md5} from 'ts-md5/dist/md5';
 export class LoginPage {
 
   public usrid    : any;
+  public nama : any;
   public items    : Array<any> = [];
   public fetch    : any; // fetch one data value only from php server unlike items
   public form     : FormGroup;

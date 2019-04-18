@@ -176,9 +176,10 @@ export class HistorydetailPage {
             var blob = new Blob([buffer], { type: 'application/pdf' });
     
             // Save the PDF to the data Directory of our App
-            this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
+            this.file.writeFile(this.file.documentsDirectory , 'Resit.pdf', blob, { replace: true }).then(fileEntry => {
               // Open the PDf with the correct OS tools
-              this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+              //this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+              this.fileOpener.open(this.file.documentsDirectory + 'Resit.pdf', 'application/pdf');
             })
           });
         } else {

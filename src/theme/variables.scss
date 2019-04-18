@@ -4,7 +4,8 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
+$menu-ios-background: #222;
+$menu-md-background: #222;
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
@@ -34,8 +35,8 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  theme:    #1b1c57,
-  primary:    #2e3192,
+  theme:    #ffd000,
+  primary:    #ffc400,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,

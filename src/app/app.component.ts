@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events } from 'ionic-angular';
+import { Nav, Platform, Events, Icon } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListPage } from '../pages/list/list';
@@ -18,9 +18,10 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any ;
+  
   private user: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,Icon:any}>;
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar, 
@@ -31,9 +32,11 @@ export class MyApp {
 
     //One time Login Purposes
     this.storage.get('user').then((user) => {
-      this.user = user; console.log("data kat dalam app.co-->"+this.user); 
+      this.user = user; console.log("data kat dalam app.co-->"+this.user);
+      
       if(this.user==null) { this.rootPage =LoginPage;}
-      else {this.rootPage=DisplayPage; };
+      else {this.rootPage=DisplayPage;
+      };
 
      /*
       // TUKAR DARI IC GUNA SET ROLE kod_pengguna ++++++++++++++++++++++++++++++++ MUHAIMIN 1 +++++++++++++++++++++++++++++
@@ -80,30 +83,30 @@ export class MyApp {
     //Call side menu for USER
     events.subscribe('user:1',()=>{
       this.pages = [
-        { title: 'Utama', component: DisplayPage },
-        { title: 'Profil', component: ProfilePage },
-        { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Log Keluar', component: ListPage }
+        { title: 'Utama', component: DisplayPage, Icon :'home'  },
+        { title: 'Profil', component: ProfilePage, Icon :'ios-home-outline' },
+        { title: 'Aktiviti Transaksi', component: HistoryPage, Icon :'ios-home-outline' },
+        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     });
 
     //Call side menu for ADMIN
     events.subscribe('user:2',()=>{
       this.pages = [
-        { title: 'Utama', component: DisplayPage },
-        { title: 'Profil', component: ProfilePage },
-        { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Log Keluar', component: ListPage }
+        { title: 'Utama', component: DisplayPage, Icon :'ios-home-outline' },
+        { title: 'Profil', component: ProfilePage , Icon :'ios-home-outline'},
+        { title: 'Aktiviti Transaksi', component: HistoryPage, Icon :'ios-home-outline' },
+        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     });
 
     //Call side menu for SUB-ADMIN
     events.subscribe('user:3',()=>{
       this.pages = [
-        { title: 'Utama', component: DisplayPage },
-        { title: 'Profil', component: ProfilePage },
-        { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Log Keluar', component: ListPage }
+        { title: 'Utama', component: DisplayPage, Icon :'ios-home-outline' },
+        { title: 'Profil', component: ProfilePage , Icon :'ios-home-outline'},
+        { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'ios-home-outline'},
+        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     });
 
@@ -114,33 +117,32 @@ export class MyApp {
      // Side menu for User
     if(kod_pengguna =='1') {
       this.pages = [
-        { title: 'Utama', component: DisplayPage },
-        { title: 'Profil', component: ProfilePage },
-        { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-        { title: 'Log Keluar', component: ListPage }
+        { title: 'Utama', component: DisplayPage , Icon :'home'},
+        { title: 'Profil', component: ProfilePage , Icon :'person'},
+        { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'repeat'},
+        { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
     }
     // Side menu for Admin
     else if(kod_pengguna =='2') {
       this.pages = [
-        { title: 'Utama', component: DisplayPage },
-        { title: 'Profil', component: ProfilePage },
-        { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
-        { title: 'Log Keluar', component: ListPage }
+        { title: 'Utama', component: DisplayPage, Icon :'ios-home-outline' },
+        { title: 'Profil', component: ProfilePage, Icon :'ios-home-outline' },
+        { title: 'Aktiviti Transaksi', component: HistoryPage, Icon :'ios-home-outline' },
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage, Icon :'ios-home-outline' },
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
+        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     }
     // Side menu for Subadmin
     else if(kod_pengguna =='3') {
       this.pages = [
-        { title: 'Utama', component: DisplayPage },
-        { title: 'Profil', component: ProfilePage },
-        { title: 'Aktiviti Transaksi', component: HistoryPage },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page }, 
-        { title: 'Log Keluar', component: ListPage }
+        { title: 'Utama', component: DisplayPage, Icon :'ios-home-outline' },
+        { title: 'Profil', component: ProfilePage , Icon :'ios-home-outline'},
+        { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'ios-home-outline'},
+        { title: 'Senarai Sebut Harga', component: KodtransaksiPage, Icon :'ios-home-outline' },
+        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
+        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     }
   });

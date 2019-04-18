@@ -16,6 +16,7 @@ export class ProfilePage {
 
   public profiles : Array<any> = [];
   private baseURI : string  = this.global.mysite; 
+ 
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -24,7 +25,7 @@ export class ProfilePage {
               public storage  : Storage) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.load(); 
     console.log('ionViewDidLoad ProfilePage');
   }
@@ -45,6 +46,8 @@ export class ProfilePage {
      {
         console.dir(data);
         this.profiles = data;
+        
+        
      },
      (error : any) =>
      {

@@ -1,7 +1,7 @@
 <ion-header no-border>
   <ion-navbar transparent >
     <button ion-button menuToggle>
-      <ion-icon name="menu" color="light"></ion-icon>
+      <ion-icon name="menu" color="dark"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
@@ -47,7 +47,7 @@
   <ion-card class="card3" *ngFor="let type of types">
       <ion-item color="white" (click)="gotoSenarai2(type.id_jenistransaksi)">
         <ion-row>
-          <ion-col text-wrap col-3 class="inlist">{{type.jenistransaksi}}
+          <ion-col text-wrap col-3 class="inlist" >{{type.jenistransaksi}}
           </ion-col>
           <ion-col col-5>
             <p class="ita">ID Transaksi : {{type.id_jenistransaksi}}</p>

@@ -37,6 +37,7 @@ import { SlidePage } from '../pages/slide/slide';
 
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
 
 
 
@@ -65,7 +66,9 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
     ChangepassPage,
     HistorydetailPage,
     IonTextAvatar,
-    SlidePage
+    SlidePage,
+
+    ParallaxHeader
     
     
   ],

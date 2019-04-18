@@ -9,17 +9,37 @@ page-display {
 
     .inlist{
       font-weight: bold;
+      color:#000000;
       
     }
-      
-}  
-}
+    .header-image {
+      background-image: url("../assets/imgs/Bg.png");
+      height: 40vh;
+  }
+  
+  .main-content {
+      padding: 20px;
+      background-color: white;
+  }
+
+
 .bg{
  
   background: url("../assets/imgs/Bg.png") no-repeat center center fixed;
   background-repeat: no-repeat;
    background-size: cover;
+   display: block;
+   margin-left: auto;
+   margin-right: auto
 }
+
+
+.bold{
+  font-weight: bold;
+  color:#000000;
+  }
+}
+
 
 .card2 {
   border-radius: 7px;
@@ -88,8 +108,4 @@ border-radius: 7px;
   color: #000000;
 
 }
-
-.bold{
-  font-weight: bold;
-  color:#ffff;
-  }
+}

@@ -1,4 +1,4 @@
-<ion-header no-border>
+<ion-header no-border transparent>
   <ion-navbar transparent no-border>
   </ion-navbar>
 </ion-header>
@@ -11,7 +11,7 @@
         <ion-avatar item-start>
           <ion-text-avatar>></ion-text-avatar>
         </ion-avatar>
-        <ion-label style="font-weight: bold" class="color">
+        <ion-label style="font-weight: bold" >
           Pembayaran ID : {{id_kodtransaksi}}
         </ion-label>
       </ion-chip>
@@ -27,30 +27,31 @@
             <ion-label floating>
               <h4 color="primary">Nama:</h4>
             </ion-label>
-            <ion-input type="text" value="{{shownama}}" formControlName="cn" required clearInput></ion-input>
+            <ion-input type="text" value="{{shownama}}" formControlName="cn" required clearInput disabled="true"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>
               <h4 color="primary">ID:</h4>
             </ion-label>
-            <ion-input type="text" value="{{id_kodtransaksi}}" formControlName="ced" required clearInput></ion-input>
+            <ion-input type="text" value="{{id_kodtransaksi}}" formControlName="ced" required clearInput disabled="true"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>
               <h4 color="primary">Email:</h4>
             </ion-label>
-            <ion-input type="text" value="{{showemail}}" formControlName="csc" required></ion-input>
+            <ion-input type="text" value="{{showemail}}" formControlName="csc" required disabled="true"></ion-input>
           </ion-item>
         </div>
        
       </ion-card>
       <div *ngIf="showharga == '0.00'">
         <ion-card class="card3">
+            <ion-item floating>
+                <h4 color="primary">Nilai Bayaran (RM):</h4>
+            </ion-item>
           <ion-item>
-            <ion-label floating>
-              <h4 color="primary">Nilai Bayaran:</h4>
-            </ion-label>
-            <ion-input type="text" value="{{(showharga)}}" formControlName="pa" required clearInput >
+       
+            <ion-input type="text" value="{{(showharga)}}" formControlName="pa" required clearInput>
             </ion-input>
 
           </ion-item>
@@ -58,11 +59,12 @@
       </div>
       <div *ngIf="showharga !== '0.00'">
         <ion-card class="card3">
+            <ion-item floating>
+                <h4 color="primary">Nilai Bayaran (RM):</h4>
+            </ion-item> 
           <ion-item>
-            <ion-label floating>
-              <h4 color="primary">Nilai Bayaran:</h4>
-            </ion-label>
-            <ion-input type="text" value="{{(showharga)}}" formControlName="pa" required clearInput disabled="true" >
+          
+            <ion-input type="text" value="{{(showharga)}}.00" formControlName="pa" required clearInput disabled="true" >
             </ion-input>
 
           </ion-item>
@@ -74,7 +76,7 @@
         <ion-avatar item-start>
           <ion-text-avatar>i</ion-text-avatar>
         </ion-avatar>
-        <ion-label style="font-weight: bold" class="color">
+        <ion-label style="font-weight: bold" >
           Nota
         </ion-label>
       </ion-chip>

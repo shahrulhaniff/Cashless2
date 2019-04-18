@@ -1,7 +1,7 @@
 page-login {
  
     .bg {
-      background: url("../assets/imgs/Bg.png") no-repeat center center fixed;
+      background: url("../assets/imgs/Bg3.png") no-repeat center center fixed;
       background-size: cover;
    
       .logo-row {
@@ -14,6 +14,10 @@ page-login {
         padding: 20px 20px 0px 20px;
         margin-top: 10%;
         border-radius : 15px;
+      }
+
+      .color{
+        color: black;
       }
    
       ion-row {
@@ -42,7 +46,7 @@ page-login {
        }
    
        .submit-btn {
-         background: rgb(94, 81, 207);
+         background:#ffc400;
          border-radius: 30px !important;
          border: 1px solid #ffffff;
        }
