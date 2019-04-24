@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { DisplayPage } from '../display/display';
 
 /**
@@ -15,6 +15,9 @@ import { DisplayPage } from '../display/display';
   templateUrl: 'slide.html',
 })
 export class SlidePage {
+  @ViewChild('slider') slider: Slides;
+
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -22,7 +25,9 @@ export class SlidePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SlidePage');
   }
-
+  skip(){
+    this.slider.slideTo(5, 1000);
+  }
   home(){
     this.navCtrl.setRoot(DisplayPage)
   }

@@ -3,7 +3,8 @@ page-slide {
         z-index: 2;
         position: absolute;
         bottom: 5%;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         color: white
         
     }
@@ -11,4 +12,29 @@ page-slide {
     .light{
         color: white;
     }
-}
+    ion-slide {
+        background-color: #f2f2f2;
+      }
+  
+      ion-slide img {
+        //width: 80%;
+        //margin: 10% auto 0;
+        width: 110%;
+        height: 110%;
+        //padding-top: 0 !important;
+      }
+
+      .absolute {
+        
+        position: absolute;
+        z-index: 2;
+       // display: block;
+        bottom: 5%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+       
+        
+    }
+     
+    }
+

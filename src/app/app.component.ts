@@ -81,7 +81,7 @@ export class MyApp {
 
 
     //Call side menu for USER
-    events.subscribe('user:1',()=>{
+    /*events.subscribe('user:1',()=>{
       this.pages = [
         { title: 'Utama', component: DisplayPage, Icon :'home'  },
         { title: 'Profil', component: ProfilePage, Icon :'ios-home-outline' },
@@ -110,7 +110,7 @@ export class MyApp {
       ];
     });
 
-
+*/
     this.storage.get('kod_pengguna').then((kod_pengguna) => { 
       
 
@@ -126,23 +126,23 @@ export class MyApp {
     // Side menu for Admin
     else if(kod_pengguna =='2') {
       this.pages = [
-        { title: 'Utama', component: DisplayPage, Icon :'ios-home-outline' },
-        { title: 'Profil', component: ProfilePage, Icon :'ios-home-outline' },
-        { title: 'Aktiviti Transaksi', component: HistoryPage, Icon :'ios-home-outline' },
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage, Icon :'ios-home-outline' },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
-        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
+        { title: 'Utama', component: DisplayPage, Icon :'home' },
+        { title: 'Profil', component: ProfilePage, Icon :'person' },
+        { title: 'Aktiviti Transaksi', component: HistoryPage, Icon :'repeat' },
+        //{ title: 'Senarai Sebut Harga', component: KodtransaksiPage, Icon :'ios-home-outline' },
+        //{ title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
+        { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
     }
     // Side menu for Subadmin
     else if(kod_pengguna =='3') {
       this.pages = [
-        { title: 'Utama', component: DisplayPage, Icon :'ios-home-outline' },
-        { title: 'Profil', component: ProfilePage , Icon :'ios-home-outline'},
-        { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'ios-home-outline'},
-        { title: 'Senarai Sebut Harga', component: KodtransaksiPage, Icon :'ios-home-outline' },
-        { title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
-        { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
+        { title: 'Utama', component: DisplayPage, Icon :'home' },
+        { title: 'Profil', component: ProfilePage , Icon :'person'},
+        { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'repeat'},
+        //{ title: 'Senarai Sebut Harga', component: KodtransaksiPage, Icon :'ios-home-outline' },
+        //{ title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
+        { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
     }
   });

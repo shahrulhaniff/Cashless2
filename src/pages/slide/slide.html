@@ -7,10 +7,15 @@
 
 
 <ion-content fullscreen>
-    <ion-slides pager="true">
+    
+        
+  
+    <ion-slides pager="true" #slider pager>
+     
 
         <ion-slide>
           <img src="assets/imgs/s1.png" />
+          <!--<button ion-button color="primary" (click)="skip()" class="absolute">Langkau</button>  -->
         </ion-slide>
       
         <ion-slide>
@@ -22,12 +27,14 @@
         </ion-slide>
 
         <ion-slide>
-            <button ion-button class="light" full (click)="home()" class="abs" >Kembali</button>
+            
             <img src="assets/imgs/s4.png" />
+            <button ion-button class="light" full (click)="home()" class="abs" >Kembali</button>
           </ion-slide>
       
        
       
       </ion-slides>
+      
 
 </ion-content>
