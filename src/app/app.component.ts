@@ -122,7 +122,7 @@ export class MyApp {
         { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'repeat'},
         { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
-    }
+    }/*
     // Side menu for Admin
     else if(kod_pengguna =='2') {
       this.pages = [
@@ -144,7 +144,7 @@ export class MyApp {
         //{ title: 'Senarai Sebut Harga', component: Kodtransaksi2Page, Icon :'ios-home-outline' }, 
         { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
-    }
+    }*/
   });
 }
 
