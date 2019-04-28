@@ -35,10 +35,16 @@ export class ScanPage {
         //this.list.push({record: {id: 'SB'}});
         //this.navCtrl.push(SenaraiPage, this.list[0]);
 
+        if(this.scannedCode.substring(0,2) =="JT") {
         this.navCtrl.push(SenaraiPage, {
           data: this.scannedCode
         });
-        
+      }
+      else {
+        this.navCtrl.push(SenaraiPage, {
+          data2: this.scannedCode
+        });
+      }
         this.list=[];
       }else{
       

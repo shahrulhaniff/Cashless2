@@ -81,7 +81,7 @@ export class MyApp {
 
 
     //Call side menu for USER
-    /*events.subscribe('user:1',()=>{
+    events.subscribe('user:1',()=>{
       this.pages = [
         { title: 'Utama', component: DisplayPage, Icon :'home'  },
         { title: 'Profil', component: ProfilePage, Icon :'ios-home-outline' },
@@ -89,6 +89,7 @@ export class MyApp {
         { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     });
+    /*
 
     //Call side menu for ADMIN
     events.subscribe('user:2',()=>{

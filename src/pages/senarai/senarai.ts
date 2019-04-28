@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
 import { PayPage } from '../pay/pay';
+import { Md5 } from 'ts-md5';
 
 /**
  * Generated class for the SenaraiPage page.
@@ -61,7 +62,13 @@ export class SenaraiPage {
 
 
   ionViewWillEnter() {
-    this.load_table(this.navParams.get("data"));
+
+    if (this.navParams.get("data")) {
+      this.load_table(this.navParams.get("data"));
+      }
+    else if (this.navParams.get("data2")) {
+      this.load_table2(this.navParams.get("data2"));
+      }
     /*if (this.navParams.get("record")) {
       this.load_table(this.navParams.get("record"));
     } */
@@ -98,10 +105,21 @@ export class SenaraiPage {
       (error: any) => {
         console.dir(error);
       });
-    //--------------------------------------------------
+
+  }
+  load_table2(idk2: any): void {
 
 
+    let url: any = this.baseURI + 'retrieve_kodtransaksi3.php?id=' + Md5.hashStr(idk2);
+
+    this.http.get(url).subscribe((data2: any) => {
+      console.dir(data2);
+      this.items = data2;
+    },
+      (error: any) => {
+        console.dir(error);
+      });
 
   }
 
-} 
+}
