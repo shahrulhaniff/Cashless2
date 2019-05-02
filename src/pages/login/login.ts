@@ -25,13 +25,7 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = { username: '', password: '' };
   createSuccess = false;
-  public profiles : Array<any> = [];
-  icdata ="";
-  public icdataarray : Array<any> = [];
-  namadata ="";
-  public namadataarray : Array<any> = [];
   kodpengguna = "";
-  go = "false";
   
 
   constructor(public global: GlobalProvider,
@@ -106,7 +100,6 @@ export class LoginPage {
           this.kodpengguna = "1";
           this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
-          this.getNama();
           this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
 
         }
@@ -204,41 +197,6 @@ export class LoginPage {
     });
     console.log('ionViewDidLoad LoginPage-->'+this.showuser);
     //this.load(); kita takyah load data dulu nati berat
-  }
-
-
-
-
-
-
-
-
-
-  getNama () {
-      let    url : any = this.baseURI+'retrieve_profile.php?id='+this.usrid+'&kodpengguna='+this.kodpengguna;
-      this.http.get(url).subscribe((data2 : any) =>
-      {
-         console.dir(data2);
-         this.profiles = data2;
-         console.log("profile.length->",this.profiles.length);
-         this.icdataarray = this.profiles.map(profiles => profiles.ic_pengguna);
-         this.namadataarray = this.profiles.map(profiles => profiles.nama);
-         console.log("this.nama-data-array->", this.namadataarray);
-        for(let i = 0; i < this.profiles.length; i++){
-          if(this.usrid == this.icdataarray[i]){
-            this.icdata = this.icdataarray[i];
-            this.namadata = this.namadataarray[i];
-            this.storage.set('nama', this.namadata);
-            console.log("namadata masuk dalam storage1",this.namadata);
-            break;
-          }
-        }
-      },
-      (error : any) =>
-      {
-         console.dir(error);
-      });
-      console.log("namadata masuk dalam storage2",this.namadata);
   }
 
 

@@ -51,6 +51,7 @@ export class DisplayPage {
    kodpengguna = "";
 
    ionViewWillEnter(): void {
+      this.getNama();
       this.loadjenisbayar();
       console.log('------DISPLAYPAGE------');
       this.storage.get('nama').then((nama) => {this.shownama = nama; });
@@ -117,5 +118,48 @@ export class DisplayPage {
    slide(){
       this.navCtrl.push(SlidePage)
    }
+
+
+
+
+
+
+
+
+  usrid= "";
+  public profiles : Array<any> = [];
+  icdata ="";
+  public icdataarray : Array<any> = [];
+  namadata ="";
+  public namadataarray : Array<any> = [];
+
+  getNama () {
+   this.storage.get('user').then((user) => {this.usrid = user;
+      let    url : any = this.baseURI+'retrieve_profile.php?id='+this.usrid+'&kodpengguna='+this.kodpengguna;
+      this.http.get(url).subscribe((data2 : any) =>
+      {
+         console.dir(data2);
+         this.profiles = data2;
+         console.log("profile.length->",this.profiles.length);
+         this.icdataarray = this.profiles.map(profiles => profiles.ic_pengguna);
+         this.namadataarray = this.profiles.map(profiles => profiles.nama);
+         console.log("this.nama-data-array->", this.namadataarray);
+        for(let i = 0; i < this.profiles.length; i++){
+          if(this.usrid == this.icdataarray[i]){
+            this.icdata = this.icdataarray[i];
+            this.namadata = this.namadataarray[i];
+            this.storage.set('nama', this.namadata);
+            console.log("namadata masuk dalam storage1",this.namadata);
+            break;
+          }
+        }
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+      console.log("namadata masuk dalam storage2",this.namadata);
+  });
+  }
 
 }

@@ -24,13 +24,14 @@ export class MyApp {
 
   pages: Array<{title: string, component: any,Icon:any}>;
 
+
   constructor(public platform: Platform, 
               public statusBar: StatusBar, 
               public splashScreen: SplashScreen,
               private storage: Storage,
               public events: Events) {
     //this.initializeApp();
-
+    this.getNama();
     //One time Login Purposes
     this.storage.get('user').then((user) => {
       this.user = user; console.log("data kat dalam app.co-->"+this.user);
@@ -112,7 +113,7 @@ export class MyApp {
     });
 
 */
-    this.storage.get('kod_pengguna').then((kod_pengguna) => { 
+    this.storage.get('kod_pengguna').then((kod_pengguna) => {
       console.log("KALAU HILANG MENU, NOTE VALUE INI ->",kod_pengguna);
 
      // Side menu for User
@@ -163,6 +164,17 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+
+  
+  namadata ="";
+  public namadataarray : Array<any> = [];
+
+  getNama () {
+   this.storage.get('nama').then((nama) => {this.namadata = nama;
+      console.log("____namadata dekat app component ts_____",this.namadata);
+  });
   }
 
 }

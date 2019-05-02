@@ -77,14 +77,8 @@ export class EditprofilePage {
 
   load() : void
   {
-    this.storage.get('kod_pengguna').then((kod_pengguna) => { 
-      this.kodpengguna = kod_pengguna;
-    }); //close storage
-
-     this.storage.get('user').then((user) => {
-      this.user = user;
-     //--------------------------------------------------
-   }); //close storage
+    this.storage.get('kod_pengguna').then((kod_pengguna) => { this.kodpengguna = kod_pengguna;});
+    this.storage.get('user').then((user) => {this.user = user;});
   }
 
 
