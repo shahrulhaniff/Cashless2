@@ -114,7 +114,7 @@ export class LoginPage {
           /*this.openModal();*/
           this.storage.set('test', this.usrid); 
           console.log("nak masuk dekat test "+this.usrid);
-          this.navCtrl.setRoot(ModalPage); 
+          this.navCtrl.setRoot(ModalPage);
         }
         
         else if (record=='Denied'){
@@ -238,7 +238,7 @@ export class LoginPage {
       {
          console.dir(error);
       });
-    console.log("namadata masuk dalam storage2",this.namadata);
+      console.log("namadata masuk dalam storage2",this.namadata);
   }
 
 

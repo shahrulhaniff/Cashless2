@@ -47,20 +47,16 @@ export class DisplayPage {
    }
 
    shownama = "";
+   showuser = "";
+   kodpengguna = "";
 
    ionViewWillEnter(): void {
-      /*if(window.localStorage.getItem('load') == '0'){
-      this.appCtrl.getRootNav().setRoot(DisplayPage);
-      window.location.reload();
-      window.localStorage.setItem('load', '1');
-      } */
-      //this.load();
       this.loadjenisbayar();
-      console.log('ionViewWillEnter DisplayPage');
-      this.storage.get('nama').then((nama) => {
-         this.shownama = nama; 
-         console.log("storage nama user skrg:",this.shownama);
-         });
+      console.log('------DISPLAYPAGE------');
+      this.storage.get('nama').then((nama) => {this.shownama = nama; });
+      this.storage.get('user').then((user) => {this.showuser = user; });
+      this.storage.get('kod_pengguna').then((kod_pengguna) => {this.kodpengguna = kod_pengguna; });
+      console.log("storage nama user SEKARANG:",this.shownama); //kena pan dalam baru keluar
    }
 
 
