@@ -38,6 +38,7 @@ import { SlidePage } from '../pages/slide/slide';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
+import { HubungiPage } from '../pages/hubungi/hubungi';
 
 
 
@@ -67,7 +68,7 @@ import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
     HistorydetailPage,
     IonTextAvatar,
     SlidePage,
-
+    HubungiPage,
     ParallaxHeader
     
     
@@ -99,7 +100,8 @@ import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
     EditprofilePage,
     ChangepassPage,
     HistorydetailPage,
-    SlidePage
+    SlidePage,
+    HubungiPage
     
   ],
   providers: [

@@ -10,6 +10,7 @@ import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage } from '../pages/history/history';
 import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
+import { HubungiPage } from '../pages/hubungi/hubungi';
 
 @Component({
   templateUrl: 'app.html'
@@ -120,6 +121,7 @@ export class MyApp {
         { title: 'Utama', component: DisplayPage , Icon :'home'},
         { title: 'Profil', component: ProfilePage , Icon :'person'},
         { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'repeat'},
+        { title: 'Hubungi Kami', component: HubungiPage, Icon :'call' },
         { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
     }/*
