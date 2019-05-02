@@ -25,6 +25,14 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = { username: '', password: '' };
   createSuccess = false;
+  public profiles : Array<any> = [];
+  icdata ="";
+  public icdataarray : Array<any> = [];
+  namadata ="";
+  public namadataarray : Array<any> = [];
+  kodpengguna = "";
+  go = "false";
+  
 
   constructor(public global: GlobalProvider,
               public navCtrl: NavController, 
@@ -57,12 +65,22 @@ export class LoginPage {
     this.navCtrl.push('RegisterPage');
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
    public login() : void {
-
-
       let usr     : string    = this.form.controls["username"].value,
           pwd     : string    = this.form.controls["password"].value;
-          
     console.log('usr-->', usr , 'pwd-->', pwd);
 
     this.showLoading();
@@ -81,14 +99,15 @@ export class LoginPage {
         //this.usrid = this.fetch.map(fetch => fetch.auth); //xjadi dia undefine map. salah ni..
         
         if (record=='Granted') {
-          
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
           this.showPopup("Diterima", record);
           this.storage.set('kod_pengguna', '1');
-          this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
+          this.kodpengguna = "1";
           this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
+          this.getNama();
+          this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
 
         }
         else if (record=='Granted2'){ 
@@ -104,7 +123,7 @@ export class LoginPage {
         }
       },
       error => {
-        this.showPopup("Try Again", "Server Error!");
+        this.showPopup("Tiada sambungan internet/server", "Sila cuba sekali lagi.");
         //this.showError(error);
         console.log("Oooops!");
         console.log(error);
@@ -112,7 +131,15 @@ export class LoginPage {
         //this.navCtrl.push(LoginPage); kene buuat setroot
       });
       
-  } 
+  }
+
+
+
+
+
+
+
+
 
 
   //showloading
@@ -171,12 +198,48 @@ export class LoginPage {
 
   public showuser : any;
   ionViewDidLoad() {
-    this.storage.get('user').then((user) => { 
+    this.storage.get('user').then((user) => {
       console.log("simpan storage "+user);
       this.showuser = user;
     });
     console.log('ionViewDidLoad LoginPage-->'+this.showuser);
     //this.load(); kita takyah load data dulu nati berat
   }
+
+
+
+
+
+
+
+
+
+  getNama () {
+      let    url : any = this.baseURI+'retrieve_profile.php?id='+this.usrid+'&kodpengguna='+this.kodpengguna;
+      this.http.get(url).subscribe((data2 : any) =>
+      {
+         console.dir(data2);
+         this.profiles = data2;
+         console.log("profile.length->",this.profiles.length);
+         this.icdataarray = this.profiles.map(profiles => profiles.ic_pengguna);
+         this.namadataarray = this.profiles.map(profiles => profiles.nama);
+         console.log("this.nama-data-array->", this.namadataarray);
+        for(let i = 0; i < this.profiles.length; i++){
+          if(this.usrid == this.icdataarray[i]){
+            this.icdata = this.icdataarray[i];
+            this.namadata = this.namadataarray[i];
+            this.storage.set('nama', this.namadata);
+            console.log("namadata masuk dalam storage1",this.namadata);
+            break;
+          }
+        }
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+    console.log("namadata masuk dalam storage2",this.namadata);
+  }
+
 
 }

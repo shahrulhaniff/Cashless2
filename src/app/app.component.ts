@@ -113,10 +113,10 @@ export class MyApp {
 
 */
     this.storage.get('kod_pengguna').then((kod_pengguna) => { 
-      
+      console.log("KALAU HILANG MENU, NOTE VALUE INI ->",kod_pengguna);
 
      // Side menu for User
-    if(kod_pengguna =='1') {
+    if(kod_pengguna ='1') {
       this.pages = [
         { title: 'Utama', component: DisplayPage , Icon :'home'},
         { title: 'Profil', component: ProfilePage , Icon :'person'},

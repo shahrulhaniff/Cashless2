@@ -35,10 +35,10 @@ export class ProfilePage {
   load() : void
   {
     this.storage.get('kod_pengguna').then((kod_pengguna) => { 
-      this.kodpengguna = kod_pengguna;
+    this.kodpengguna = kod_pengguna; console.log("session kod pengguna dekat profile",kod_pengguna);
     }); //close storage
 
-     this.storage.get('user').then((user) => { 
+     this.storage.get('user').then((user) => {
 
      let    url : any = this.baseURI+'retrieve_profile.php?id='+user+'&kodpengguna='+this.kodpengguna;
             

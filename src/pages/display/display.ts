@@ -46,7 +46,7 @@ export class DisplayPage {
       console.log('ionStart Event Triggered!');
    }
 
-
+   shownama = "";
 
    ionViewWillEnter(): void {
       /*if(window.localStorage.getItem('load') == '0'){
@@ -57,6 +57,10 @@ export class DisplayPage {
       //this.load();
       this.loadjenisbayar();
       console.log('ionViewWillEnter DisplayPage');
+      this.storage.get('nama').then((nama) => {
+         this.shownama = nama; 
+         console.log("storage nama user skrg:",this.shownama);
+         });
    }
 
 
