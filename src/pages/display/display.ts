@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
@@ -20,12 +20,14 @@ export class DisplayPage {
    public category;
    private baseURI: string = this.global.mysite;
 
+   
    constructor(public global: GlobalProvider,
       public navCtrl: NavController,
       public navParams: NavParams,
       public http: HttpClient,
-      public storage: Storage, public appCtrl: App) {
-
+      public storage: Storage,
+      public events: Events,
+      public appCtrl: App) {
       this.category = "all";
    }
    ionRefresh(event) {
@@ -150,6 +152,7 @@ export class DisplayPage {
             this.namadata = this.namadataarray[i];
             this.storage.set('nama', this.namadata);
             console.log("namadata masuk dalam storage1",this.namadata);
+            this.events.publish('user:created', this.namadata);
             break;
           }
         }

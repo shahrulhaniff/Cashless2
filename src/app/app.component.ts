@@ -6,11 +6,10 @@ import { ListPage } from '../pages/list/list';
 import { DisplayPage } from '../pages/display/display';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../pages/login/login';
-import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage } from '../pages/history/history';
-import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
 import { HubungiPage } from '../pages/hubungi/hubungi';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -30,8 +29,19 @@ export class MyApp {
               public splashScreen: SplashScreen,
               private storage: Storage,
               public events: Events) {
+
+
+                events.subscribe('user:created', (user) => {
+                  this.namadata=user;
+                  console.log("GUNA EVENTS.SUBSCRIBE utk ubah value@app.component.ts:",user);
+                });
+
+
+
+
+
     //this.initializeApp();
-    this.getNama();
+    //this.getNama();
     //One time Login Purposes
     this.storage.get('user').then((user) => {
       this.user = user; console.log("data kat dalam app.co-->"+this.user);
@@ -168,13 +178,14 @@ export class MyApp {
 
 
   
-  namadata ="";
+  namadata =""; /*
   public namadataarray : Array<any> = [];
-
   getNama () {
+    this.platform.ready().then(() => {
    this.storage.get('nama').then((nama) => {this.namadata = nama;
       console.log("____namadata dekat app component ts_____",this.namadata);
-  });
-  }
+    }); 
+  }); 
+  } */
 
 }
