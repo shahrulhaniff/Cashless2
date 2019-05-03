@@ -3,14 +3,18 @@
     
     <ion-title>
         
-        <img height="30vh">
-        <img src="../assets/imgs/unisza.png" height="80vh" style="display: block;margin: 0;"/>
+        <img height="40vh">
+        <img src="../assets/imgs/unisza.png" height="80vh" style="display: block;margin: 10;"/>
        </ion-title>
-       <h5 padding>{{namadata}} <br><br>Menu</h5>
+       <div padding>
+       <p >Selamat Datang ,</p>
+       <h5 >{{namadata}}</h5>
+      </div>
+        <!--<br>Menu</h5>-->
   </ion-header>
 
   <ion-content class="bg4">
-    <ion-list >
+    <ion-list class="trans" color="transparent" no-lines >
       <button menuClose ion-item  *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon name="{{p.Icon}}"></ion-icon>
         &nbsp; &nbsp;{{p.title}}

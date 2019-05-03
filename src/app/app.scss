@@ -18,7 +18,7 @@
  
     background: url("../assets/imgs/Bg4.png") no-repeat center center fixed;
     background-repeat: no-repeat;
-     background-size: cover;
+    background-size: cover;
   }
   
   ion-header ion-icon.back-button-icon.icon {
@@ -28,6 +28,15 @@
     color: map-get($colors, dark);
 }
 
+
+.trans{
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	color: white; 
+}
+
 $bar-stable-text: #222;
 
-//@import '../theme/fonts';
+@import '../theme/fonts';
+

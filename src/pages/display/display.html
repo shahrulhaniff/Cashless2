@@ -18,8 +18,13 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-    <div padding>
-      <div text-center>Selamat Datang {{namadata}}</div>
+    <div padding text-center>
+      <!--<div text-center>Selamat Datang <h5>{{namadata}}</h5> </div>-->
+      <ion-chip no-padding >
+        <ion-label style="font-weight: bold" color="dark">
+         Hai , {{namadata}} !
+        </ion-label>
+      </ion-chip>
         <div>
           <ion-slides>
             <ion-slide>
