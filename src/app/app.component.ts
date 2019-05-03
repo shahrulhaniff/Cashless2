@@ -6,10 +6,10 @@ import { ListPage } from '../pages/list/list';
 import { DisplayPage } from '../pages/display/display';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../pages/login/login';
-import { KodtransaksiPage } from '../pages/kodtransaksi/kodtransaksi';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage } from '../pages/history/history';
-import { Kodtransaksi2Page } from '../pages/kodtransaksi2/kodtransaksi2';
+import { HubungiPage } from '../pages/hubungi/hubungi';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -23,13 +23,25 @@ export class MyApp {
 
   pages: Array<{title: string, component: any,Icon:any}>;
 
+
   constructor(public platform: Platform, 
               public statusBar: StatusBar, 
               public splashScreen: SplashScreen,
               private storage: Storage,
               public events: Events) {
-    //this.initializeApp();
 
+
+                events.subscribe('user:created', (user) => {
+                  this.namadata=user;
+                  console.log("GUNA EVENTS.SUBSCRIBE utk ubah value@app.component.ts:",user);
+                });
+
+
+
+
+
+    //this.initializeApp();
+    //this.getNama();
     //One time Login Purposes
     this.storage.get('user').then((user) => {
       this.user = user; console.log("data kat dalam app.co-->"+this.user);
@@ -112,15 +124,16 @@ export class MyApp {
     });
 
 */
-    this.storage.get('kod_pengguna').then((kod_pengguna) => { 
-      
+    this.storage.get('kod_pengguna').then((kod_pengguna) => {
+      console.log("KALAU HILANG MENU, NOTE VALUE INI ->",kod_pengguna);
 
      // Side menu for User
-    if(kod_pengguna =='1') {
+    if(kod_pengguna ='1') {
       this.pages = [
         { title: 'Utama', component: DisplayPage , Icon :'home'},
         { title: 'Profil', component: ProfilePage , Icon :'person'},
         { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'repeat'},
+        { title: 'Hubungi Kami', component: HubungiPage, Icon :'call' },
         { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
     }/*
@@ -163,5 +176,17 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+
+  
+  namadata =""; /*
+  public namadataarray : Array<any> = [];
+  getNama () {
+    this.platform.ready().then(() => {
+   this.storage.get('nama').then((nama) => {this.namadata = nama;
+      console.log("____namadata dekat app component ts_____",this.namadata);
+    }); 
+  }); 
+  } */
 
 }

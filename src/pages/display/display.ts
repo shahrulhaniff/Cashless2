@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
@@ -20,12 +20,14 @@ export class DisplayPage {
    public category;
    private baseURI: string = this.global.mysite;
 
+   
    constructor(public global: GlobalProvider,
       public navCtrl: NavController,
       public navParams: NavParams,
       public http: HttpClient,
-      public storage: Storage, public appCtrl: App) {
-
+      public storage: Storage,
+      public events: Events,
+      public appCtrl: App) {
       this.category = "all";
    }
    ionRefresh(event) {
@@ -46,17 +48,18 @@ export class DisplayPage {
       console.log('ionStart Event Triggered!');
    }
 
-
+   shownama = "";
+   showuser = "";
+   kodpengguna = "";
 
    ionViewWillEnter(): void {
-      /*if(window.localStorage.getItem('load') == '0'){
-      this.appCtrl.getRootNav().setRoot(DisplayPage);
-      window.location.reload();
-      window.localStorage.setItem('load', '1');
-      } */
-      //this.load();
+      this.getNama();
       this.loadjenisbayar();
-      console.log('ionViewWillEnter DisplayPage');
+      console.log('------DISPLAYPAGE------');
+      this.storage.get('nama').then((nama) => {this.shownama = nama; });
+      this.storage.get('user').then((user) => {this.showuser = user; });
+      this.storage.get('kod_pengguna').then((kod_pengguna) => {this.kodpengguna = kod_pengguna; });
+      console.log("storage nama user SEKARANG:",this.shownama); //kena pan dalam baru keluar
    }
 
 
@@ -117,5 +120,49 @@ export class DisplayPage {
    slide(){
       this.navCtrl.push(SlidePage)
    }
+
+
+
+
+
+
+
+
+  usrid= "";
+  public profiles : Array<any> = [];
+  icdata ="";
+  public icdataarray : Array<any> = [];
+  namadata ="";
+  public namadataarray : Array<any> = [];
+
+  getNama () {
+   this.storage.get('user').then((user) => {this.usrid = user;
+      let    url : any = this.baseURI+'retrieve_profile.php?id='+this.usrid+'&kodpengguna='+this.kodpengguna;
+      this.http.get(url).subscribe((data2 : any) =>
+      {
+         console.dir(data2);
+         this.profiles = data2;
+         console.log("profile.length->",this.profiles.length);
+         this.icdataarray = this.profiles.map(profiles => profiles.ic_pengguna);
+         this.namadataarray = this.profiles.map(profiles => profiles.nama);
+         console.log("this.nama-data-array->", this.namadataarray);
+        for(let i = 0; i < this.profiles.length; i++){
+          if(this.usrid == this.icdataarray[i]){
+            this.icdata = this.icdataarray[i];
+            this.namadata = this.namadataarray[i];
+            this.storage.set('nama', this.namadata);
+            console.log("namadata masuk dalam storage1",this.namadata);
+            this.events.publish('user:created', this.namadata);
+            break;
+          }
+        }
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+      console.log("namadata masuk dalam storage2",this.namadata);
+  });
+  }
 
 }

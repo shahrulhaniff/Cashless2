@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { GlobalProvider } from "../../providers/global/global";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { ProfilePage } from '../profile/profile';
 
 
 @IonicPage()
@@ -57,6 +58,7 @@ export class EditprofilePage {
 
     update(name : string, email : string, telnum : string, user : string) : void
    {
+      this.storage.set('nama', name);
       let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
           options 	: any		= {"name" : name, "email" : email, "telnum" : telnum, "user" : user },
           url       : any   = this.baseURI + "editprofile.php";
@@ -66,7 +68,7 @@ export class EditprofilePage {
       {
          // If the request was successful notify the user
          this.createSuccess = true;
-        this.showPopup("Tahniah", "Profil telah berjaya disunting.");
+         this.showPopup("Profil dikemaskini", "Profil telah berjaya dikemaskini.");
       },
       error => {
         this.showPopup("Gagal", "Sila cuba lagi sekali.");
@@ -75,14 +77,8 @@ export class EditprofilePage {
 
   load() : void
   {
-    this.storage.get('kod_pengguna').then((kod_pengguna) => { 
-      this.kodpengguna = kod_pengguna;
-    }); //close storage
-
-     this.storage.get('user').then((user) => {
-      this.user = user;
-     //--------------------------------------------------
-   }); //close storage
+    this.storage.get('kod_pengguna').then((kod_pengguna) => { this.kodpengguna = kod_pengguna;});
+    this.storage.get('user').then((user) => {this.user = user;});
   }
 
 
@@ -96,6 +92,7 @@ export class EditprofilePage {
           handler: data => {
             if (this.createSuccess) {
               //this.navCtrl.popToRoot();
+              this.navCtrl.setRoot(ProfilePage);
             }
           }
         }

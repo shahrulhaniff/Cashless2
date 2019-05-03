@@ -25,6 +25,8 @@ export class LoginPage {
   loading: Loading;
   registerCredentials = { username: '', password: '' };
   createSuccess = false;
+  kodpengguna = "";
+  
 
   constructor(public global: GlobalProvider,
               public navCtrl: NavController, 
@@ -57,12 +59,23 @@ export class LoginPage {
     this.navCtrl.push('RegisterPage');
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
    public login() : void {
-
-
-      let usr     : string    = this.form.controls["username"].value,
+    console.log("PROVLEM",this.icdata);
+      let usr     : string    = this.icdata,
           pwd     : string    = this.form.controls["password"].value;
-          
     console.log('usr-->', usr , 'pwd-->', pwd);
 
     this.showLoading();
@@ -81,21 +94,21 @@ export class LoginPage {
         //this.usrid = this.fetch.map(fetch => fetch.auth); //xjadi dia undefine map. salah ni..
         
         if (record=='Granted') {
-          
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
           this.showPopup("Diterima", record);
           this.storage.set('kod_pengguna', '1');
-          this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
+          this.kodpengguna = "1";
           this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
           this.storage.get('user').then((user) => { console.log("simpan storage "+user); });
+          this.navCtrl.setRoot(DisplayPage, { data: this.usrid });
 
         }
         else if (record=='Granted2'){ 
           /*this.openModal();*/
           this.storage.set('test', this.usrid); 
           console.log("nak masuk dekat test "+this.usrid);
-          this.navCtrl.setRoot(ModalPage); 
+          this.navCtrl.setRoot(ModalPage);
         }
         
         else if (record=='Denied'){
@@ -104,7 +117,7 @@ export class LoginPage {
         }
       },
       error => {
-        this.showPopup("Try Again", "Server Error!");
+        this.showPopup("Tiada sambungan internet/server", "Sila cuba sekali lagi.");
         //this.showError(error);
         console.log("Oooops!");
         console.log(error);
@@ -112,7 +125,15 @@ export class LoginPage {
         //this.navCtrl.push(LoginPage); kene buuat setroot
       });
       
-  } 
+  }
+
+
+
+
+
+
+
+
 
 
   //showloading
@@ -171,12 +192,64 @@ export class LoginPage {
 
   public showuser : any;
   ionViewDidLoad() {
-    this.storage.get('user').then((user) => { 
+    this.storage.get('user').then((user) => {
       console.log("simpan storage "+user);
       this.showuser = user;
     });
     console.log('ionViewDidLoad LoginPage-->'+this.showuser);
     //this.load(); kita takyah load data dulu nati berat
   }
+
+
+
+
+
+
+
+// #############################################################################
+// #############################################################################
+// #############################################################################
+  public profiles : Array<any> = [];
+  icdata ="";
+  public icdataarray : Array<any> = [];
+  public nmdataarray : Array<any> = [];
+  public emdataarray : Array<any> = [];
+  public ntdataarray : Array<any> = [];
+  getSessionUser() {
+      let usrform: any = this.form.controls["username"].value;
+      let    url : any = this.baseURI+'getNoKp.php?id='+usrform;
+      this.http.get(url).subscribe((data2 : any) =>
+      {
+         console.dir(data2);
+         this.profiles = data2;
+         this.icdataarray = this.profiles.map(profiles => profiles.ic_pengguna);
+         this.nmdataarray = this.profiles.map(profiles => profiles.nama);
+         this.emdataarray = this.profiles.map(profiles => profiles.email);
+         this.ntdataarray = this.profiles.map(profiles => profiles.no_telefon);
+        for(let i = 0; i < this.profiles.length; i++){
+          if(
+            (usrform == this.icdataarray[i])||
+            (usrform == this.nmdataarray[i])||
+            (usrform == this.emdataarray[i])||
+            (usrform == this.ntdataarray[i])
+            ){
+            this.icdata = this.icdataarray[i];
+            console.log("__________MISSION________________");
+            console.log("MISSION ACCOMPALISHED",this.icdata);
+            this.login();
+            break;
+          }
+        }
+      },
+      (error : any) =>
+      {
+         console.dir(error);
+      });
+  }
+  // #############################################################################
+  // #############################################################################
+  // #############################################################################
+
+
 
 }
