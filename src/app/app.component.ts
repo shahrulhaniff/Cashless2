@@ -92,16 +92,17 @@ export class MyApp {
     ];*/
 
 
+    /*
     //Call side menu for USER
     events.subscribe('user:1',()=>{
       this.pages = [
         { title: 'Utama', component: DisplayPage, Icon :'home'  },
         { title: 'Profil', component: ProfilePage, Icon :'ios-home-outline' },
-        { title: 'Aktiviti Transaksi', component: HistoryPage, Icon :'ios-home-outline' },
+        { title: 'Transaksi', component: HistoryPage, Icon :'ios-home-outline' },
         { title: 'Log Keluar', component: ListPage, Icon :'ios-home-outline' }
       ];
     });
-    /*
+    
 
     //Call side menu for ADMIN
     events.subscribe('user:2',()=>{
