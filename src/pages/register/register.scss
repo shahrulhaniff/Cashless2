@@ -1,6 +1,6 @@
 page-register {
     .login-content {
-      background: url("../assets/imgs/Bg.png") no-repeat center center fixed;
+      background: url("../assets/imgs/Bg3.png") no-repeat center center fixed;
       background-size: cover;
    
       .login-box {
@@ -40,5 +40,13 @@ page-register {
          border-radius: 30px !important;
          border: 1px solid #ffffff;
        }
+    }
+
+    .mar{
+      margin-top: -10px;
+    }
+
+    .color{
+      color: black;
     }
   }
