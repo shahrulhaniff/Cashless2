@@ -26,6 +26,7 @@ export class LoginPage {
   registerCredentials = { username: '', password: '' };
   createSuccess = false;
   kodpengguna = "";
+  shownama = "";
   
 
   constructor(public global: GlobalProvider,
@@ -96,7 +97,7 @@ export class LoginPage {
         if (record=='Granted') {
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
-          this.showPopup("Diterima", record);
+          this.showPopup("Selamat Datang",this.shownama);
           this.storage.set('kod_pengguna', '1');
           this.kodpengguna = "1";
           this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
@@ -198,6 +199,8 @@ export class LoginPage {
     });
     console.log('ionViewDidLoad LoginPage-->'+this.showuser);
     //this.load(); kita takyah load data dulu nati berat
+
+    this.storage.get('nama').then((nama) => {this.shownama = nama; });
   }
 
 
