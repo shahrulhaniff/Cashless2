@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ToastController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
@@ -37,6 +37,7 @@ export class HistorydetailPage {
   constructor(public global: GlobalProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
+    public toastCtrl : ToastController,
     public http: HttpClient,
     public storage: Storage,
     private plt: Platform,
@@ -119,6 +120,8 @@ export class HistorydetailPage {
   }
 
   generate(){
+
+    let self = this;
     var docDefinition = {
       content: [
         { text: 'Resit Pembayaran Cashless UniSZA', style: 'header' },
@@ -167,19 +170,38 @@ export class HistorydetailPage {
     }
 
     this.pdfObj = pdfMake.createPdf(docDefinition);
+    pdfMake.createPdf(docDefinition).getBuffer(function (buffer) {
+      let utf8 = new Uint8Array(buffer);
+      let binaryArray = utf8.buffer;
+      self.saveToDevice(binaryArray,"Resit.pdf")
+      });
 
-    this.downloadPdf();
+    //this.downloadPdf();
   }
+
+
+  saveToDevice(data:any,savefile:any){
+    let self = this;
+    self.file.writeFile(self.file.externalDataDirectory , savefile, data, {replace:false});
+    const toast = self.toastCtrl.create({
+    message: 'File saved to your device',
+    duration: 3000,
+    position: 'top'
+    });
+    toast.present();
+    }
+
+
     downloadPdf(){
         if (this.plt.is('cordova')) {
           this.pdfObj.getBuffer((buffer) => {
             var blob = new Blob([buffer], { type: 'application/pdf' });
     
             // Save the PDF to the data Directory of our App
-            this.file.writeFile(this.file.documentsDirectory , 'Resit.pdf', blob, { replace: true }).then(fileEntry => {
+            this.file.writeFile(this.file.dataDirectory , 'Resit.pdf', blob, { replace: false }).then(fileEntry => {
               // Open the PDf with the correct OS tools
               //this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
-              this.fileOpener.open(this.file.documentsDirectory + 'Resit.pdf', 'application/pdf');
+              this.fileOpener.open(this.file.dataDirectory + 'Resit.pdf', 'application/pdf');
             })
           });
         } else {
