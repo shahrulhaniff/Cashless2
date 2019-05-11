@@ -133,7 +133,7 @@ export class MyApp {
       this.pages = [
         { title: 'Utama', component: DisplayPage , Icon :'home'},
         { title: 'Profil', component: ProfilePage , Icon :'person'},
-        { title: 'Aktiviti Transaksi', component: HistoryPage , Icon :'repeat'},
+        { title: 'Transaksi', component: HistoryPage , Icon :'repeat'},
         { title: 'Hubungi Kami', component: HubungiPage, Icon :'call' },
         { title: 'Log Keluar', component: ListPage, Icon :'log-out' }
       ];
