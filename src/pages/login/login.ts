@@ -97,7 +97,7 @@ export class LoginPage {
         if (record=='Granted') {
           //simpan login user dalam storage
           this.storage.set('user', this.usrid);
-          this.showPopup("Selamat Datang",this.shownama);
+          this.showPopup("Selamat Datang","Akses diterima");
           this.storage.set('kod_pengguna', '1');
           this.kodpengguna = "1";
           this.events.publish('user:2'); // user:1 = User, user:2 = admin, user:3 = subadmin
@@ -113,7 +113,11 @@ export class LoginPage {
         }
         
         else if (record=='Denied'){
-          this.showError("Access Denied");
+          this.showError("Kata Laluan Salah");
+          this.navCtrl.setRoot(LoginPage);
+        }
+        else {
+          this.showError("Akaun tidak wujud");
           this.navCtrl.setRoot(LoginPage);
         }
       },
@@ -169,7 +173,7 @@ export class LoginPage {
     this.loading.dismiss();
  
     let alert = this.alertCtrl.create({
-      title: 'Nope',
+      title: 'Akses tidak diterima',
       subTitle: text,
       buttons: ['OK']
     });
@@ -229,6 +233,8 @@ export class LoginPage {
          this.nmdataarray = this.profiles.map(profiles => profiles.nama);
          this.emdataarray = this.profiles.map(profiles => profiles.email);
          this.ntdataarray = this.profiles.map(profiles => profiles.no_telefon);
+
+        if(this.profiles.length!=0){
         for(let i = 0; i < this.profiles.length; i++){
           if(
             (usrform == this.icdataarray[i])||
@@ -243,6 +249,15 @@ export class LoginPage {
             break;
           }
         }
+
+      }
+        else {
+          this.showLoading();
+          this.showError("Akaun tidak wujud");
+          this.navCtrl.setRoot(LoginPage);
+        }
+
+
       },
       (error : any) =>
       {

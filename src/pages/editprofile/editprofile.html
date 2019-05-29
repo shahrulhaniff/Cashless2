@@ -38,6 +38,22 @@
               </ion-label>
               <ion-input required type="text" [(ngModel)]="telnum" name="telnum" value={{telnum}} clearInput></ion-input>
             </ion-item>
+
+            <ion-item>
+              <ion-label floating>
+                <h4 *ngIf="akap == 'P'" color="primary">Nombor Pelajar:</h4>
+                <h4 *ngIf="akap == 'X'" color="primary">Nama Syarikat/Nombor Staf Syarikat:</h4>
+              </ion-label>
+              <ion-input required type="text" [(ngModel)]="matr" name="telnum" value={{matr}} clearInput></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Akaun</ion-label>
+                          <ion-select [(ngModel)]="akap">
+                            <ion-option value="P">Pelajar</ion-option>
+                            <ion-option value="X">Staf</ion-option>
+                          </ion-select>
+            </ion-item>
             
            
           </div>

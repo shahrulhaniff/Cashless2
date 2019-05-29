@@ -42,6 +42,8 @@ export class EditprofilePage {
   email = "";
   telnum = "";
   ic ="";
+  akap ="";
+  matr ="";
   createSuccess = false;
 
 
@@ -50,18 +52,20 @@ export class EditprofilePage {
       this.name = profile.nama;
       this.email = profile.email;
       this.telnum=profile.no_telefon;
+      this.akap=profile.jenis_akaun;
+      this.matr=profile.matr;
     }
 
     submit(){
-      this.update(this.name, this.email, this.telnum, this.user);
+      this.update(this.name, this.email, this.telnum,this.matr, this.akap, this.user, this.kodpengguna);
     }
 
-    update(name : string, email : string, telnum : string, user : string) : void
+    update(name : string, email : string, telnum : string, matr : string, akap : string, user : string, kodpengguna : string) : void
    {
       this.storage.set('nama', name);
       let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any		= {"name" : name, "email" : email, "telnum" : telnum, "user" : user },
-          url       : any   = this.baseURI + "editprofile.php";
+          options 	: any		= {"name" : name, "email" : email, "telnum" : telnum, "matr" : matr, "akap" : akap, "user" : user, "kodpengguna" : kodpengguna },
+          url       : any   = this.baseURI + "editprofile.php"; 
 
       this.http.post(url, JSON.stringify(options), headers)
       .subscribe((record : any) =>

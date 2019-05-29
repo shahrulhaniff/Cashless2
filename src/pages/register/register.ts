@@ -26,10 +26,12 @@ export class RegisterPage {
                   this.form = fb.group({
                     "username"    : ["", Validators.required],
                     "nama"        : ["", Validators.required],
+                    "matr"        : ["", Validators.required],
                     "email"       : ["", Validators.required],
                     "phone"       : ["", Validators.required],
                     "password"    : ["", Validators.required],
-                    "password2"   : ["", Validators.required]
+                    "password2"   : ["", Validators.required],
+                    "akap"        : ["", Validators.required]
                  });
   }
 
@@ -47,20 +49,22 @@ export class RegisterPage {
       console.log('Masuk fungsi register'); 
       let usr     : string    = this.form.controls["username"].value,
           nama    : string    = this.form.controls["nama"].value,
+          matr    : string    = this.form.controls["matr"].value,
           email   : string    = this.form.controls["email"].value,
           phone   : string    = this.form.controls["phone"].value,
           pwd     : string    = this.form.controls["password"].value,
-          pwd2    : string    = this.form.controls["password2"].value;
+          pwd2    : string    = this.form.controls["password2"].value,
+          akap    : string    = this.form.controls["akap"].value;
       if (pwd!=pwd2) { this.showPopup("Perhatian", "Sila sahkan kata laluan anda."); }
-      else { this.createUser(usr,nama,email,phone, pwd);  } 
+      else { this.createUser(usr,nama,matr,email,phone, pwd, akap);  } 
       
     console.log('usr-->', usr , 'pwd-->', pwd); //undefine bosku
    }
 
-   createUser(usr : string, nama : string, email : string, phone : string, pwd : string) : void
+   createUser(usr : string, nama : string, matr : string, email : string, phone : string, pwd : string, akap : string) : void
    {
       let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any		= {"usr" : usr, "nama" : nama, "email" : email, "phone" : phone, "pwd" : Md5.hashStr(pwd) },
+          options 	: any		= {"usr" : usr, "nama" : nama, "matr" : matr, "email" : email, "phone" : phone, "pwd" : Md5.hashStr(pwd), "akap" : akap },
           url       : any   = this.baseURI + "createUser.php";
 
       this.http.post(url, JSON.stringify(options), headers)
