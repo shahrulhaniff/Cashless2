@@ -171,7 +171,7 @@ export class PayPage {
      
     this.storage.get('user').then((user) => { 
 
-      let    url : any = this.baseURI+'retrieve_profile.php?id='+user;
+      let    url : any = this.baseURI+'retrieve_profile.php?id='+user;//+'&kodpengguna=1';
              
       this.http.get(url).subscribe((data : any) =>
       {

@@ -79,7 +79,11 @@ export class DisplayPage {
       }); //close storage
    }
 
-
+   ptj ="";
+   //idj ="JT20190427043445";
+   public idj_da : Array<any> = [];
+   public ptj_da : Array<any> = [];
+   public jns_da : Array<any> = [];
    loadjenisbayar(): void {
 
       let url: any = this.baseURI + 'retrieve_idjenistransaksi.php';
@@ -87,6 +91,19 @@ export class DisplayPage {
       this.http.get(url).subscribe((data: any) => {
          console.dir(data);
          this.types = data;
+      /*endgame* /
+        this.idj_da = this.types.map(types => types.id_jenistransaksi);
+        this.ptj_da = this.types.map(types => types.jabatan);
+        this.jns_da = this.types.map(types => types.jenistransaksi);
+        for(let i = 0; i < this.types.length; i++){
+         //if(this.idj == this.idj_da[i]){
+          if(this.ptj_da[i]=="JPP"){ this.ptj="Jabatan Pembangunan"; }
+          else { this.ptj="Bukan JPP"; }
+          console.log("TEST",this.ptj,"----",this.ptj_da[i]);
+          //break;
+          //}
+      }
+      /*</endgame>*/
       },
          (error: any) => {
             console.dir(error);
