@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { GlobalProvider } from "../../providers/global/global";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
-import { Md5 } from 'ts-md5';
+//import { Md5 } from 'ts-md5';
+import  jsSHA  from 'jssha';
 
 
 @IonicPage()
@@ -22,6 +23,7 @@ export class ChangepassPage {
               public http     : HttpClient,
               public global: GlobalProvider,
               public storage  : Storage) {
+                
   }
 
 
@@ -59,14 +61,20 @@ export class ChangepassPage {
       this.telnum=profile.no_telefon;
     }
     
+    
 
     submit(){
+      let shaObj = new jsSHA("SHA-256", "TEXT");
+      shaObj.update(this.currentpass);
+      let hash = shaObj.getHash("HEX");
+
       if(this.newpass=="" || this.currentpass=="" || this.ppass==""){
         this.showPopup("Gagal", "Sila isi semua maklumat.");
       } else {
       if(this.newpass == this.ppass){
-        if(Md5.hashStr(this.currentpass) == this.cpass){
-          this.changepass(Md5.hashStr(this.newpass), this.user, this.kodpengguna);
+        
+        if(hash == this.cpass){
+          this.changepass(this.newpass, this.user, this.kodpengguna);
         } else {
           this.showPopup("Gagal", "Kata laluan terkini salah.");
         }

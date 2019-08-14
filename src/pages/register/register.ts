@@ -62,9 +62,9 @@ export class RegisterPage {
    }
 
    createUser(usr : string, nama : string, matr : string, email : string, phone : string, pwd : string, akap : string) : void
-   {
+   { /* Md5.hashStr(pwd) */
       let headers 	: any		= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any		= {"usr" : usr, "nama" : nama, "matr" : matr, "email" : email, "phone" : phone, "pwd" : Md5.hashStr(pwd), "akap" : akap },
+          options 	: any		= {"usr" : usr, "nama" : nama, "matr" : matr, "email" : email, "phone" : phone, "pwd" : pwd, "akap" : akap },
           url       : any   = this.baseURI + "createUser.php";
 
       this.http.post(url, JSON.stringify(options), headers)

@@ -81,7 +81,7 @@ export class LoginPage {
 
     this.showLoading();
       let headers 	: any	= new HttpHeaders({ 'Content-Type': 'application/json' }),
-          options 	: any	= { "usr" : usr, "pwd" : Md5.hashStr(pwd) },
+          options 	: any	= { "usr" : usr, "pwd" : pwd },
           url       : any = this.baseURI + "login.php";
 
       this.http.post(url, JSON.stringify(options), headers)
