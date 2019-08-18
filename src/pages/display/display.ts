@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, Events } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, NavParams, App, Events } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
@@ -27,7 +27,9 @@ export class DisplayPage {
       public http: HttpClient,
       public storage: Storage,
       public events: Events,
+      public menuCtrl: MenuController,
       public appCtrl: App) {
+         this.menuCtrl.enable(true, 'myMenu');
       this.category = "all";
    }
    ionRefresh(event) {

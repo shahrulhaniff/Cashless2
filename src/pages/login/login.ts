@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController,Loading, AlertController, Events } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, NavParams, LoadingController,Loading, AlertController, Events } from 'ionic-angular';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Storage } from '@ionic/storage';
@@ -37,9 +37,11 @@ export class LoginPage {
               public fb         : FormBuilder,
               private loadingCtrl: LoadingController,
               public storage : Storage,
-              public events: Events
+              public events: Events,
+              public menuCtrl: MenuController
               /*private modal: ModalController */
               ) {
+                 this.menuCtrl.enable(false, 'myMenu');
     /* Buat validation */
     this.form = fb.group({
       "username"    : ["", Validators.required],
