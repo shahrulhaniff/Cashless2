@@ -52,15 +52,15 @@
 
   <ion-card class="card3" *ngFor="let type of types">
       <ion-item color="white" (click)="gotoSenarai2(type.id_jenistransaksi)">
-        <ion-row>
-            <!--<ion-col text-wrap col-3 class="inlist" >{{type.jenistransaksi}}</ion-col>-->
+        <!--<ion-row>
+            <!--<ion-col text-wrap col-3 class="inlist" >{{type.jenistransaksi}}</ion-col>-- >
             <ion-col text-wrap class="inlist" *ngIf="type.jenistransaksi == 'D'">Derma</ion-col>
             <ion-col text-wrap class="inlist" *ngIf="type.jenistransaksi == 'SYD'">Seminar / Yuran / Denda</ion-col>
             <ion-col text-wrap class="inlist" *ngIf="type.jenistransaksi == 'SBT'">Sebut Harga / Tender</ion-col>  
-        </ion-row>
+        </ion-row> -->
         <ion-row>
           <ion-col>
-              <!--<p class="ita">ID Transaksi : {{type.id_jenistransaksi}}</p>-->
+              <!--<p>ID Transaksi : {{type.id_jenistransaksi}}</p> -->
               <p class="ita" text-wrap>{{type.jabatan}}</p>
               <!--<p *ngIf="type.jabatan == 'JPP'" class="ita">Jabatan Pengurusan Pembangunan</p>-->
           </ion-col>

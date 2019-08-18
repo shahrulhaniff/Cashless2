@@ -88,7 +88,7 @@ export class DisplayPage {
    public jns_da : Array<any> = [];
    loadjenisbayar(): void {
 
-      let url: any = this.baseURI + 'retrieve_idjenistransaksi.php';
+      let url: any = this.baseURI + 'retrieve_idjenistransaksi_semak.php';
 
       this.http.get(url).subscribe((data: any) => {
          console.dir(data);
@@ -128,7 +128,6 @@ export class DisplayPage {
    }
    gotoSenarai2(param: any): void {
       //this.navCtrl.push(SenaraiPage, param);
-
       this.navCtrl.push(SenaraiPage, {
          data: param
       });
