@@ -48,6 +48,7 @@ export class PayPage {
       "cn"   : ["", Validators.required],
       "ced"  : ["", Validators.required],
       "csc"  : ["", Validators.required],
+      "rf"   : ["", Validators.required],
       "pa"   : ["", Validators.required]
    });
 
@@ -80,8 +81,9 @@ export class PayPage {
       let cn : string    = this.form.controls["cn"].value,
           ced: string    = this.form.controls["ced"].value,
           csc: string    = this.form.controls["csc"].value,
+          rf: string    = this.form.controls["rf"].value,
           pa : string    = this.form.controls["pa"].value;
-      this.pay_process(cn,ced,csc,pa, this.id_kodtransaksi);
+      this.pay_process(cn,ced,csc,rf,pa, this.id_kodtransaksi);
    }
    /*pay_process(cn : string,ced : string,csc : string,pa : string) : void
    {
@@ -103,12 +105,12 @@ export class PayPage {
         this.showPopup("Error happen", error);
       });
    } */
-   pay_process(cn : string,ced : string,csc : string,pa : string,idk : string) : void
+   pay_process(cn : string,ced : string,csc : string,rf : string,pa : string,idk : string) : void
    {
     this.storage.get('user').then((user) => {//
      //let fcn  = cn,fced = ced,fcsc = csc,fpa  = pa;
      //let uri = this.baseURI+'go_url_migs.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa+'&idk='+idk+'&user='+user;
-     let uri = this.baseURI+'sample/sample.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&pa='+pa+'&idk='+idk+'&user='+user;
+     let uri = this.baseURI+'sample/sample.php?cn='+cn+'&ced='+ced+'&csc='+csc+'&rf='+rf+'&pa='+pa+'&idk='+idk+'&user='+user;
      this.openWebpage(uri);
     }); //close storage
    }
