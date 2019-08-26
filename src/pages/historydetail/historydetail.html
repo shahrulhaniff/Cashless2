@@ -36,32 +36,32 @@
   </div>
   <ion-card padding class="card4">
     <ion-label *ngIf="JABATAN == 'JPP'">
-      <p class="col">Status Dokumen</p>
-      <h2 style="font-weight: bold">&nbsp;{{sttsdoc}}</h2>
+      <p class="col" style="font-weight: bold">Status Dokumen</p>
+      <h2>&nbsp;{{sttsdoc}}</h2>
     </ion-label>
     <ion-label text-wrap>
-      <p class="col">Nombor transaksi/Transaction Number</p>
-      <h2 style="font-weight: bold" text-wrap>&nbsp;{{norujukan}}</h2>
+      <p class="col" style="font-weight: bold">Nombor transaksi/Transaction Number</p>
+      <h2 text-wrap>&nbsp;{{norujukan}}</h2>
     </ion-label>
     <ion-label text-wrap>
-      <p class="col">Keterangan Dokumen</p>
-      <h2 style="font-weight: bold" text-wrap>&nbsp;{{descdoc}}</h2>
+      <p class="col" style="font-weight: bold">Keterangan Dokumen</p>
+      <h2 text-wrap>&nbsp;{{descdoc}}</h2>
     </ion-label>
     <ion-label>
-      <p class="col">Status Transaksi</p>
-      <h2 style="font-weight: bold">&nbsp;{{sttstrs}}</h2>
+      <p class="col" style="font-weight: bold">Status Transaksi</p>
+      <h2>&nbsp;{{sttstrs}}</h2>
     </ion-label>
     <ion-label>
-      <p class="col">ID Transaksi</p>
-      <h2 style="font-weight: bold">&nbsp;{{idtr}}</h2>
+      <p class="col" style="font-weight: bold">ID Transaksi</p>
+      <h2>&nbsp;{{idtr}}</h2>
     </ion-label>
     <ion-label *ngIf="(JABATAN == 'JPP')&&(docaccept!=NULL)">
-      <p class="col">Penerima Dokumen</p>
-      <h2 style="font-weight: bold">&nbsp;{{docaccept}}</h2>
+      <p class="col" style="font-weight: bold">Penerima Dokumen</p>
+      <h2>&nbsp;{{docaccept}}</h2>
     </ion-label>
     <ion-label *ngIf="(JABATAN == 'JPP')&&(docaccept!=NULL)">
-      <p class="col">Pegawai Yang Memberi Dokumen</p>
-      <h2 style="font-weight: bold">&nbsp;{{docgive}}</h2>
+      <p class="col" style="font-weight: bold">Pegawai Yang Memberi Dokumen</p>
+      <h2>&nbsp;{{docgive}}</h2>
     </ion-label>
   </ion-card>
   <div text-center padding>
@@ -69,6 +69,4 @@
       <ion-icon name="print"></ion-icon>
     </button>-->
   </div>
-
-
 </ion-content>
