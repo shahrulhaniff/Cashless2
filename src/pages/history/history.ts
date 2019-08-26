@@ -5,13 +5,6 @@ import { Storage } from '@ionic/storage';
 import { GlobalProvider } from "../../providers/global/global";
 import { HistorydetailPage } from '../historydetail/historydetail';
 
-/**
- * Generated class for the HistoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-history',
@@ -55,21 +48,13 @@ export class HistoryPage {
   } 
   load() : void
   {
-     this.storage.get('user').then((user) => { 
+     this.storage.get('user').then((user) => {
 
      let    url : any = this.baseURI+'r_history.php?id='+user;
-            
      this.http.get(url).subscribe((data : any) =>
      {
         console.dir(data);
         this.items = data;
-
-        //ggwp
-       // this.idt = this.items.map(go => go.id_transaksi);
-        //this.showidt = this.idt[0];
-
-
-
      },
      (error : any) =>
      {

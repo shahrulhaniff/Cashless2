@@ -39,7 +39,7 @@
     <ion-card class="card4" *ngFor="let item of items">
       <ion-row>
         <ion-col col-9>
-      <ion-row>
+      <ion-row *ngIf="item.jabatan == 'JPP'">
         <ion-col col-4 text-left>
           <ion-chip *ngIf="item.status_dokumen == 'YES'">
             <ion-avatar item-start>
@@ -66,7 +66,9 @@
       </ion-row>
       <ion-row padding>
         <p>Tarikh Transaksi :</p>
-	<p>{{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}</p>
+  <p>{{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}</p>
+  <p>Rujukan/Reference: {{item.rf}}</p>
+  <!-- <p>JABATAN: {{item.jabatan}}</p> -->
       </ion-row>
     </ion-col>
     <ion-col col-3 text-right center class="mar">

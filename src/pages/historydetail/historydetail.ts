@@ -32,6 +32,8 @@ export class HistorydetailPage {
   private docaccept : any;
   private docgive : any;
   private descdoc : any;
+  private JABATAN : any;
+  private norujukan : any;
   
 
   constructor(public global: GlobalProvider,
@@ -85,6 +87,8 @@ export class HistorydetailPage {
     this.docaccept = item.doc_acceptby;
     this.docgive = item.doc_giveby;
     this.descdoc = item.description;
+    this.JABATAN = item.jabatan;
+    this.norujukan = item.norujukan;
 
     if (this.sttsdoc=="YES"){ this.sttsdoc="Dokumen Telah Diterima"; } 
     else if(this.sttsdoc=="NO") { this.sttsdoc="Dokumen Belum Diterima"; } 
@@ -105,8 +109,6 @@ export class HistorydetailPage {
     this.storage.get('user').then((user) => {
       //this.idtr = this.navParams.get("param");
       console.log("hahaha", this.idtr);
-      
-      console.log("hahaha" + this.idtr);
       let url: any = this.baseURI + 'r_dhistory.php?id=' + user +"&idtr=" + this.idtr;
       this.http.get(url).subscribe((data: any) => {
         //console.dir(data);

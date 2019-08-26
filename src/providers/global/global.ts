@@ -8,7 +8,6 @@ export class GlobalProvider {
   //public mysite : string  = "http://192.168.43.194/cashweb/app/"; 
   //public mysite : string  = "http://localhost/epay/app/";
   public mysite : string  = "https://epay.unisza.edu.my/epay/app/";
-  
   //public mysite : string  = "https://cashless1234.000webhostapp.com/app/";
 
   constructor(public http: HttpClient) {

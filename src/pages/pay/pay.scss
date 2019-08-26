@@ -4,7 +4,7 @@ page-pay {
         
     }
     
-}
+
 .bg{
  
     background: url("../assets/imgs/Bg.png") no-repeat center center fixed;
@@ -26,4 +26,32 @@ page-pay {
 
 .ita{
     font-style: italic;
+}
+
+.bulat {
+    padding-left: 30px !important;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+}
+
+
+#rounded {
+    width: 100%;
+    height: 20px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px; 
+    border: 2px solid #ff0000;
+}
+
+#container {
+    width: 300px; 
+    margin-left:auto; 
+    margin-right: auto; 
+}
+
 }

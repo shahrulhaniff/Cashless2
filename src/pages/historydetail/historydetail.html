@@ -29,15 +29,19 @@
 
       <ion-chip>
         <ion-label style="font-weight: bold" color="dark">
-          Jenis Transaksi : {{idjnstrnsks}}
+          {{norujukan}}
         </ion-label>
       </ion-chip>
     </ion-card>
   </div>
   <ion-card padding class="card4">
-    <ion-label>
+    <ion-label *ngIf="JABATAN == 'JPP'">
       <p class="col">Status Dokumen</p>
       <h2 style="font-weight: bold">&nbsp;{{sttsdoc}}</h2>
+    </ion-label>
+    <ion-label text-wrap>
+      <p class="col">Nombor transaksi/Transaction Number</p>
+      <h2 style="font-weight: bold" text-wrap>&nbsp;{{norujukan}}</h2>
     </ion-label>
     <ion-label text-wrap>
       <p class="col">Keterangan Dokumen</p>
@@ -51,11 +55,11 @@
       <p class="col">ID Transaksi</p>
       <h2 style="font-weight: bold">&nbsp;{{idtr}}</h2>
     </ion-label>
-    <ion-label>
+    <ion-label *ngIf="(JABATAN == 'JPP')&&(docaccept!=NULL)">
       <p class="col">Penerima Dokumen</p>
       <h2 style="font-weight: bold">&nbsp;{{docaccept}}</h2>
     </ion-label>
-    <ion-label>
+    <ion-label *ngIf="(JABATAN == 'JPP')&&(docaccept!=NULL)">
       <p class="col">Pegawai Yang Memberi Dokumen</p>
       <h2 style="font-weight: bold">&nbsp;{{docgive}}</h2>
     </ion-label>
