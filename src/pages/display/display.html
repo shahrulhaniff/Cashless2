@@ -51,7 +51,7 @@
 
 
   <ion-card class="card3" *ngFor="let type of types">
-      <ion-item color="white" (click)="gotoSenarai2(type.id_jenistransaksi)">
+      <ion-item color="white" (click)="gotoSenarai2(type.id_jenistransaksi)" *ngIf="type.displayx!='0'">
           <ion-row>
             <ion-col>
                 <!--<p>ID Transaksi : {{type.id_jenistransaksi}}</p> -->

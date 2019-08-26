@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController,Loading } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { GlobalProvider } from "../../providers/global/global";
@@ -32,6 +32,7 @@ export class PayPage {
   public idk : Array<any> = [];
   //dan guna utk show
   public showharga:string;
+  loading: Loading;
 
   constructor(public navCtrl  : NavController, 
               public navParams: NavParams,
@@ -40,6 +41,7 @@ export class PayPage {
               public http       : HttpClient,
               private alertCtrl : AlertController,
               private inAppBrowser : InAppBrowser,
+              private loadingCtrl: LoadingController,
               public storage  : Storage ) {
 
     this.id_kodtransaksi = navParams.get('data');
@@ -55,10 +57,9 @@ export class PayPage {
   }
 
   ionViewDidLoad() {
-  this.loadAmount(); this.loadMaklumatUser();
-  console.log('Data: ', this.navParams.get("data"));
-  //this.selectEntry(this.navParams.get("data"));
-  console.log('Harga showharga: ', this.showharga);
+  // this.loadAmount(); 
+  // this.loadMaklumatUser();
+  this.showLoading();
   }
 
   /*selectEntry(mylist: any): void {
@@ -170,7 +171,6 @@ export class PayPage {
   
   loadMaklumatUser() : void
   {
-     
     this.storage.get('user').then((user) => { 
 
       let    url : any = this.baseURI+'retrieve_profile.php?id='+user;//+'&kodpengguna=1';
@@ -183,12 +183,27 @@ export class PayPage {
          this.showemail = this.email[0];
          this.nama = this.profiles.map(go => go.nama);
          this.shownama = this.nama[0];
+         this.loading.dismiss();
       },
       (error : any) =>
       {
          console.dir(error);
-      });
+      }); 
       //--------------------------------------------------
     }); //close storage
+  }
+
+
+  //showloading
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Sila tunggu...',
+      dismissOnPageChange: false
+    });
+    
+    this.loading.present();
+    this.loadAmount(); 
+    this.loadMaklumatUser();
+    //this.loading.dismiss();
   }
 }

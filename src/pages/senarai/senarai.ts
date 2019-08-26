@@ -65,9 +65,11 @@ export class SenaraiPage {
 
     if (this.navParams.get("data")) {
       this.load_table(this.navParams.get("data"));
+      console.log("A");
       }
     else if (this.navParams.get("data2")) {
       this.load_table2(this.navParams.get("data2"));
+      console.log("B");
       }
     /*if (this.navParams.get("record")) {
       this.load_table(this.navParams.get("record"));
