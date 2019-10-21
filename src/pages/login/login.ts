@@ -119,7 +119,7 @@ export class LoginPage {
           this.navCtrl.setRoot(LoginPage);
         }
         else {
-          this.showError("Akaun tidak wujud");
+          this.showError("Sila daftar dahulu");
           this.navCtrl.setRoot(LoginPage);
         }
       },
@@ -175,7 +175,7 @@ export class LoginPage {
     this.loading.dismiss();
  
     let alert = this.alertCtrl.create({
-      title: 'Akses tidak diterima',
+      title: 'Perhatian',
       subTitle: text,
       buttons: ['OK']
     });

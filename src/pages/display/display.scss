@@ -72,6 +72,7 @@ page-display {
   border-radius: 7px;
   background-color: transparent;
   font-family: 'Open Sans' , sans-serif;
+  margin-bottom: 1px;
 }
 
 .ita{
@@ -112,4 +113,10 @@ border-radius: 7px;
   color: #000000;
 
 }
+
+.top_line {
+  color: rgba(255, 208, 0, 0.904);
+  border-top: 1px solid rgb(0, 10, 26);
+  font-weight: bold;
+ }
 }

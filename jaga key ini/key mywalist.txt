@@ -1,10 +1,10 @@
 ionic cordova plugin rm cordova-plugin-console
-
+npm rebuild node-sass --force
 
 UPDATE VERSION DAH????
 (1) ionic cordova build --release android
 
-keytool -genkey -v -keystore cashless-release-key.keystore -alias releaseNewKey -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore epay-unisza-release-key.keystore -alias releaseNewKey -keyalg RSA -keysize 2048 -validity 10000
 pass : cashless123
 
 //dia tukar android-release-unsigned.apkke app-release-unsigned.apk ... update kot
