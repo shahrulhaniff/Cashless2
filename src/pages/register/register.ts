@@ -97,4 +97,33 @@ export class RegisterPage {
     });
     alert.present();
   }
+//form password----------------------------
+  passwordType: string   = 'password';
+  passwordShown: boolean = false;
+  togglePassword(){
+    if(this.passwordShown){
+      this.passwordShown = false;
+      this.passwordType = 'password';
+    }
+    else {
+      this.passwordShown = true;
+      this.passwordType = 'text';
+    }
+    
+  }
+//form confirm password----------------------
+  passwordType1: string   = 'password';
+  passwordShown1: boolean = false;
+  togglePassword1(){
+    if(this.passwordShown1){
+      this.passwordShown1 = false;
+      this.passwordType1 = 'password';
+    }
+    else {
+      this.passwordShown1 = true;
+      this.passwordType1 = 'text';
+    }
+    
+  }
+
 }

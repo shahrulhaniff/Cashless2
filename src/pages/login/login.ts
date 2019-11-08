@@ -270,6 +270,19 @@ export class LoginPage {
   // #############################################################################
   // #############################################################################
 
+  passwordType: string   = 'password';
+  passwordShown: boolean = false;
+  togglePassword(){
+    if(this.passwordShown){
+      this.passwordShown = false;
+      this.passwordType = 'password';
+    }
+    else {
+      this.passwordShown = true;
+      this.passwordType = 'text';
+    }
+    
+  }
 
 
 }

@@ -23,19 +23,22 @@
           <ion-label floating>
             <h4 color="primary">Kata Laluan Terkini:</h4>
           </ion-label>
-          <ion-input required type="password" [(ngModel)]="currentpass" name="currentpass" clearInput></ion-input>
+          <ion-input required [type]="passwordType" [(ngModel)]="currentpass" name="currentpass" clearInput></ion-input>
+          <ion-icon name="eye"  [color]="passwordShown === true ? 'dark' : 'gray'" item-end (click)="togglePassword()"></ion-icon>
         </ion-item>
         <ion-item>
           <ion-label floating>
             <h4 color="primary">Kata Laluan Baru:</h4>
           </ion-label>
-          <ion-input required type="password" [(ngModel)]="newpass" name="newpass" clearInput></ion-input>
+          <ion-input required [type]="passwordType1" [(ngModel)]="newpass" name="newpass" clearInput></ion-input>
+          <ion-icon name="eye"  [color]="passwordShown1 === true ? 'dark' : 'gray'" item-end (click)="togglePassword1()"></ion-icon>
         </ion-item>
         <ion-item>
           <ion-label floating>
             <h4 color="primary">Pengesahan Kata Laluan:</h4>
           </ion-label>
-          <ion-input required type="password" [(ngModel)]="ppass" name="ppass" clearInput></ion-input>
+          <ion-input required [type]="passwordType2" [(ngModel)]="ppass" name="ppass" clearInput></ion-input>
+          <ion-icon name="eye"  [color]="passwordShown2 === true ? 'dark' : 'gray'" item-end (click)="togglePassword2()"></ion-icon>
         </ion-item>
         
       

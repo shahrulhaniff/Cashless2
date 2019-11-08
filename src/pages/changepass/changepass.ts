@@ -158,5 +158,47 @@ export class ChangepassPage {
     alert.present();
   }
 
+  passwordType: string   = 'password';
+  passwordShown: boolean = false;
+  togglePassword(){
+    if(this.passwordShown){
+      this.passwordShown = false;
+      this.passwordType = 'password';
+    }
+    else {
+      this.passwordShown = true;
+      this.passwordType = 'text';
+    }
+    
+  }
+
+  passwordType1: string   = 'password';
+  passwordShown1: boolean = false;
+  togglePassword1(){
+    if(this.passwordShown1){
+      this.passwordShown1 = false;
+      this.passwordType1 = 'password';
+    }
+    else {
+      this.passwordShown1 = true;
+      this.passwordType1 = 'text';
+    }
+    
+  }
+
+  passwordType2: string   = 'password';
+  passwordShown2: boolean = false;
+  togglePassword2(){
+    if(this.passwordShown2){
+      this.passwordShown2 = false;
+      this.passwordType2 = 'password';
+    }
+    else {
+      this.passwordShown2 = true;
+      this.passwordType2 = 'text';
+    }
+    
+  }
+
 
 }

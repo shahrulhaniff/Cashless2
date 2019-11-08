@@ -46,11 +46,13 @@
             </ion-item>
               
             <ion-item>
-              <ion-input type="password" placeholder="Kata Laluan" formControlName="password" required></ion-input>
+              <ion-input [type]="passwordType" placeholder="Kata Laluan" formControlName="password" required></ion-input>
+              <ion-icon name="eye"  [color]="passwordShown === true ? 'dark' : 'gray'" item-end (click)="togglePassword()"></ion-icon>
             </ion-item>
             
             <ion-item>
-              <ion-input type="password" placeholder="Pengesahan Kata Laluan" formControlName="password2" required></ion-input>
+              <ion-input [type]="passwordType1" placeholder="Pengesahan Kata Laluan" formControlName="password2" required></ion-input>
+              <ion-icon name="eye"  [color]="passwordShown1 === true ? 'dark' : 'gray'" item-end (click)="togglePassword1()"></ion-icon>
             </ion-item>
 
 

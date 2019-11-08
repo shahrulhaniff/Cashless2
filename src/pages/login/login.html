@@ -30,7 +30,8 @@
             </ion-item>
             
             <ion-item>
-              <ion-input type="password" placeholder="Kata Laluan" formControlName="password" required></ion-input>
+              <ion-input  [type]="passwordType" placeholder="Kata Laluan" formControlName="password" required></ion-input>
+              <ion-icon name="eye"  [color]="passwordShown === true ? 'dark' : 'gray'" item-end (click)="togglePassword()"></ion-icon>
             </ion-item>
             
           </ion-list>
