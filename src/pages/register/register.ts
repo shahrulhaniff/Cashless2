@@ -76,6 +76,7 @@ export class RegisterPage {
       },
       error => {
         this.showPopup("Pendaftaran Gagal", "Akaun telah wujud, sila hubungi admin");
+        console.log(error);
       });
    }
 
